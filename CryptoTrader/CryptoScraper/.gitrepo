@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:warproxxx/CryptoScraper.git
+	branch = master
+	commit = 9eba9e171f34c0958a97865635082908e2ed4dfb
+	parent = 46b97724d2263312846d1cb2caae61fe63f1d909
+	cmdver = 0.3.1

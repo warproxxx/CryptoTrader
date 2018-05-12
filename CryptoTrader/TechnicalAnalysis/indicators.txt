@@ -1,0 +1,16 @@
+Source: https://www.visualcapitalist.com/12-types-technical-indicators-stocks/
+
+MACD: Lagging Trend
+Parabolic Sar: Leading Trend
+
+RSI: Leading Momentum
+
+Bollinger Bands: Lagging Volatility
+
+OBV: Leading Volume Indicator
+Volume Rate of Change: Lagging Volume Indicator
+
+3,6 and 24
+Period? 14
+
+Perform operation on Close Price

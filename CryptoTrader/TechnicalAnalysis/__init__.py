@@ -1,0 +1,1 @@
+from TechnicalAnalysis.technicalanalysis import TechnicalAnalysis
