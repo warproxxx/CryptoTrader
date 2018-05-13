@@ -6,7 +6,7 @@ import datetime
 
 import os
 
-from TechnicalAnalysis import TechnicalAnalysis 
+from ta import *
 
 class addData():
     def __init__(self, dfs):
@@ -39,7 +39,7 @@ class addData():
                 self.dfs[key] = self.add_wikipedia(df, self.coinfull[key])
             elif (type == 'ta'):
                 print('\nAdding {} data for {}'.format(type, key))
-                self.dfs[key] = self.add_technicalanalysis(df, key)
+                self.dfs[key] = self.add_technicalanalysis(df)
             elif (type == 'reddit'):
                 print('\nAdding {} data for {}'.format(type, key))
                 self.dfs[key] = self.add_reddit(df, self.coinfull[key])
@@ -52,19 +52,10 @@ class addData():
             self.dfs[key] = self.dfs[key].fillna(method='ffill')
             self.dfs[key] = self.dfs[key].fillna(method='bfill') 
             
-
         return self.dfs
 
-    def add_technicalanalysis(self, df, name, indicators = ['obv', 'macd', 'bollingerband', 'volumechange', 'rsi']):
-        ta = TechnicalAnalysis(df, coin=name)
-        ta.merge_time(cache=True)
-
-        for indicator in indicators:
-            print("Adding {} indicator".format(indicator))
-            ta.perform(indicator)
-
-        df_withta = ta.get_dic()['24hour'] #replace it 
-
+    def add_technicalanalysis(self, df):
+        df_withta = add_all_ta_features(df, "Open", "High", "Low", "Close", "Volume")
         return df_withta
 
 
