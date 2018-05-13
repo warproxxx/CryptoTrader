@@ -1,0 +1,4 @@
+fake_useragent==0.1.10
+requests==2.18.4
+coala_utils==0.5.1
+beautifulsoup4==4.6.0

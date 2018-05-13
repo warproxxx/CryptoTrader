@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 import math
+import os
 
 class BasicFunctions():
     
@@ -42,6 +43,49 @@ class BasicFunctions():
 
         batches.append((X,y))
         return batches
+
+    def merge_time(self, dic, mergehours, cache=False, save_cache=True):
+        '''
+        Merges the pandas dataframes by given Date. 
+        
+        Returns:
+        newDic (Dictionary): Dataframe merged for a given Date in dictionary
+        '''
+        newDic = {}
+        fromval = 0
+        toval = 0
+        currname = str(mergehours) + "hour"
+
+        for key in dic:
+            df = dic[key]
+            coinname = key
+
+            newDf = pd.DataFrame(columns=df.columns)
+
+            fname = 'cache-{}-{}.csv'.format(coinname, str(mergehours) + "merged")
+            fullname = 'data_utils\cache\{}'.format(fname)
+
+            if (cache == True and os.path.isfile(fullname)):
+                print('Read merged data from cache')
+                newDf = pd.read_csv(fullname,index_col='Date') 
+
+            else:
+                for j in range(0, df.shape[0], mergehours):
+                    tempdf = df.iloc[j:j+mergehours]
+                    newDf = newDf.append({'Date': tempdf.iloc[0]['Date'], 'Open': tempdf.iloc[0]['Open'], 'Close': tempdf.iloc[-1]['Close'], 'High': max(tempdf['High']), 'Low': min(tempdf['Low']), 'Volume': sum(tempdf['Volume']), 'Classification': tempdf.iloc[-1]['Classification'], 'Percentage Change': tempdf.iloc[-1]['Percentage Change']}, ignore_index=True) #append returns a new dataframe
+
+                newDf.reset_index(inplace=True, drop=True)
+                newDf.set_index('Date', inplace=True)  
+                newDf.index = newDf.index.map(int) #convert to int because getting floats in scientific notation
+                newDf['Classification'] = newDf['Classification'].astype(int)
+
+                if (cache == True or save_cache == True):
+                    newDf.to_csv(fullname)
+                    print('Wrote {} to cache'.format(fname))
+            
+            newDic[key] = newDf
+
+        return newDic
 
     def single_plot(self, y, title='', Xtitle='', Ytitle='', log=True):
         fig = plt.figure();
