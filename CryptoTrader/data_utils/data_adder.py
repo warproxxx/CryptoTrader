@@ -12,7 +12,7 @@ class addData():
     def __init__(self, dfs):
         self.dfs = dfs
         self.coinfull = {'BTC': 'bitcoin', 'DASH': 'dashpay', 'DOGE': 'dogecoin', 'ETH': 'ethereum', 'LTC':'litecoin', 'STR': 'stellar', 'XMR': 'monero', 'XRP': 'ripple'}
-
+        self.wikipediacols = {'BTC': 'Bitcoin', 'DASH': 'Dash (cryptocurrency)', 'DOGE': 'Dogecoin', 'ETH': 'Ethereum', 'LTC':'Litecoin', 'STR': 'Stellar (payment network)', 'XMR': 'Monero (cryptocurrency)', 'XRP': 'Ripple (payment protocol)'}
 
     def data_adder(self, type):
         '''
@@ -36,7 +36,7 @@ class addData():
                 self.dfs[key] = self.add_trends(df, self.coinfull[key])
             elif (type == 'wikipedia'):               
                 print('Adding {} data for {}'.format(type, key))
-                self.dfs[key] = self.add_wikipedia(df, self.coinfull[key])
+                self.dfs[key] = self.add_wikipedia(df, self.wikipediacols[key])
             elif (type == 'ta'):
                 print('\nAdding {} data for {}'.format(type, key))
                 self.dfs[key] = self.add_technicalanalysis(df)
@@ -155,13 +155,16 @@ class addData():
         '''  
         
         wikiDf = pd.read_csv('data_utils\\wikipedia_data\\pageviews.csv')[['Date', coinfull]]
+
         wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
-        wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia View'})
+        wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia'})
         
         regFeatures = self.addIrregularFeatures(df, wikiDf)
         
         df = df.join(regFeatures)
         
+        df = self.trends_ta(df, 'Wikipedia')
+
         return df
 
     def add_trends(self, df, coinfull):
