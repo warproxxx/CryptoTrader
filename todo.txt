@@ -1,0 +1,3 @@
+Todo (later):
+Use LSTM for filling data till today for missing insted of filling. Using last 12 months as training.
+Module for google trends. Also has headless firefox that works on ubuntu servver for scraping

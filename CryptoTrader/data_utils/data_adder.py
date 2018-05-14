@@ -6,13 +6,13 @@ import datetime
 
 import os
 
-from TechnicalAnalysis import TechnicalAnalysis 
+from ta import *
 
 class addData():
     def __init__(self, dfs):
         self.dfs = dfs
         self.coinfull = {'BTC': 'bitcoin', 'DASH': 'dashpay', 'DOGE': 'dogecoin', 'ETH': 'ethereum', 'LTC':'litecoin', 'STR': 'stellar', 'XMR': 'monero', 'XRP': 'ripple'}
-
+        self.wikipediacols = {'BTC': 'Bitcoin', 'DASH': 'Dash (cryptocurrency)', 'DOGE': 'Dogecoin', 'ETH': 'Ethereum', 'LTC':'Litecoin', 'STR': 'Stellar (payment network)', 'XMR': 'Monero (cryptocurrency)', 'XRP': 'Ripple (payment protocol)'}
 
     def data_adder(self, type):
         '''
@@ -36,10 +36,10 @@ class addData():
                 self.dfs[key] = self.add_trends(df, self.coinfull[key])
             elif (type == 'wikipedia'):               
                 print('Adding {} data for {}'.format(type, key))
-                self.dfs[key] = self.add_wikipedia(df, self.coinfull[key])
+                self.dfs[key] = self.add_wikipedia(df, self.wikipediacols[key])
             elif (type == 'ta'):
                 print('\nAdding {} data for {}'.format(type, key))
-                self.dfs[key] = self.add_technicalanalysis(df, key)
+                self.dfs[key] = self.add_technicalanalysis(df)
             elif (type == 'reddit'):
                 print('\nAdding {} data for {}'.format(type, key))
                 self.dfs[key] = self.add_reddit(df, self.coinfull[key])
@@ -52,21 +52,44 @@ class addData():
             self.dfs[key] = self.dfs[key].fillna(method='ffill')
             self.dfs[key] = self.dfs[key].fillna(method='bfill') 
             
-
         return self.dfs
 
-    def add_technicalanalysis(self, df, name, indicators = ['obv', 'macd', 'bollingerband', 'volumechange', 'rsi']):
-        ta = TechnicalAnalysis(df, coin=name)
-        ta.merge_time(cache=True)
-
-        for indicator in indicators:
-            print("Adding {} indicator".format(indicator))
-            ta.perform(indicator)
-
-        df_withta = ta.get_dic()['24hour'] #replace it 
-
+    def add_technicalanalysis(self, df):
+        df_withta = add_all_ta_features(df, "Open", "High", "Low", "Close", "Volume")
         return df_withta
 
+    def trends_ta(self, df, column):
+        df['{}_ema_12'.format(column)] = ema_fast(df[column])
+        df['{}_ema_26'.format(column)] = ema_slow(df[column])
+
+        df['{}_macd'.format(column)] = macd(df[column])
+
+        df['{}_rsi'.format(column)] = rsi(df[column])
+        df['{}_rsi_movement'.format(column)] = df['{}_rsi'.format(column)].pct_change().fillna(method='bfill')
+
+        df['{}_ma_12'.format(column)] = df[column].rolling(12).sum().fillna(method='bfill')
+        df['{}_ma_26'.format(column)] = df[column].rolling(26).sum().fillna(method='bfill')
+        df['{}_ma_12_movement'.format(column)] = df['{}_ma_12'.format(column)].pct_change().fillna(method='bfill')
+        df['{}_ma_26_movement'.format(column)] = df['{}_ma_26'.format(column)].pct_change().fillna(method='bfill')
+
+        df['{}_movement'.format(column)] = df[column].pct_change().fillna(method='bfill')
+
+        df['{}_trix'.format(column)] = trix(df[column])
+
+        df['{}_momentum_3'.format(column)]  = df[column]/df.shift(3)[column] #divide by the interest 3 days ago
+        df['{}_momentum_3'.format(column)] = df['{}_momentum_3'.format(column)].fillna(method='bfill')
+        df['{}_momentum_6'.format(column)]  = df[column]/df.shift(6)[column]
+        df['{}_momentum_6'.format(column)] = df['{}_momentum_6'.format(column)].fillna(method='bfill')
+        df['{}_momentum_9'.format(column)]  = df[column]/df.shift(9)[column]
+        df['{}_momentum_9'.format(column)] = df['{}_momentum_9'.format(column)].fillna(method='bfill')
+        
+
+        df['{}_disparity_12'.format(column)] = df[column] / df['{}_ma_12'.format(column)]
+        df['{}_disparity_26'.format(column)] = df[column] / df['{}_ma_26'.format(column)]
+        df['{}_disparity_12_movement'.format(column)] = df['{}_disparity_12'.format(column)].pct_change().fillna(method='bfill')
+        df['{}_disparity_26_movement'.format(column)] = df['{}_disparity_26'.format(column)].pct_change().fillna(method='bfill')
+
+        return df
 
     def add_reddit(self, df, coinfull):
         redditDf = pd.read_csv('data_utils\\reddit_data\\readable\\{}Features.csv'.format(coinfull.capitalize()))
@@ -132,13 +155,16 @@ class addData():
         '''  
         
         wikiDf = pd.read_csv('data_utils\\wikipedia_data\\pageviews.csv')[['Date', coinfull]]
-        wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%M-%d").timetuple())))
-        wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia View'})
+
+        wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
+        wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia'})
         
         regFeatures = self.addIrregularFeatures(df, wikiDf)
         
         df = df.join(regFeatures)
         
+        df = self.trends_ta(df, 'Wikipedia')
+
         return df
 
     def add_trends(self, df, coinfull):
@@ -151,17 +177,15 @@ class addData():
         Full name in small like bitcoin
         '''
         trend = pd.read_csv('data_utils\\trends_data\\{}.csv'.format(coinfull))
-        trend = trend[::-1] #reverse
-        trend = trend.reset_index(drop=True)
-        
-        trend['Date'] = trend['date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%M-%d").timetuple())))
-        trend = trend.drop('date', axis=1)
-        
-        trend = trend.rename(columns={coinfull: 'Google Trend'})
-        
-        regFeatures = self.addIrregularFeatures(df, trend.drop('isPartial', axis=1))
-        
+        trend['Date'] = trend['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
+
+        regFeatures = self.addIrregularFeatures(df, trend)
+
         df = df.join(regFeatures)
+        df['Trend'] = df['Trend'].replace('<', '')
+        df['Trend'] = df['Trend'].astype(int)
+        
+        df = self.trends_ta(df, 'Trend')
         
         return df
 
