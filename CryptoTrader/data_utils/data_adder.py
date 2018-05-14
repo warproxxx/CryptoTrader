@@ -58,6 +58,38 @@ class addData():
         df_withta = add_all_ta_features(df, "Open", "High", "Low", "Close", "Volume")
         return df_withta
 
+    def trends_ta(self, df, column):
+        df['{}_ema_12'.format(column)] = ema_fast(df[column])
+        df['{}_ema_26'.format(column)] = ema_slow(df[column])
+
+        df['{}_macd'.format(column)] = macd(df[column])
+
+        df['{}_rsi'.format(column)] = rsi(df[column])
+        df['{}_rsi_movement'.format(column)] = df['{}_rsi'.format(column)].pct_change().fillna(method='bfill')
+
+        df['{}_ma_12'.format(column)] = df[column].rolling(12).sum().fillna(method='bfill')
+        df['{}_ma_26'.format(column)] = df[column].rolling(26).sum().fillna(method='bfill')
+        df['{}_ma_12_movement'.format(column)] = df['{}_ma_12'.format(column)].pct_change().fillna(method='bfill')
+        df['{}_ma_26_movement'.format(column)] = df['{}_ma_26'.format(column)].pct_change().fillna(method='bfill')
+
+        df['{}_movement'.format(column)] = df[column].pct_change().fillna(method='bfill')
+
+        df['{}_trix'.format(column)] = trix(df[column])
+
+        df['{}_momentum_3'.format(column)]  = df[column]/df.shift(3)[column] #divide by the interest 3 days ago
+        df['{}_momentum_3'.format(column)] = df['{}_momentum_3'.format(column)].fillna(method='bfill')
+        df['{}_momentum_6'.format(column)]  = df[column]/df.shift(6)[column]
+        df['{}_momentum_6'.format(column)] = df['{}_momentum_6'.format(column)].fillna(method='bfill')
+        df['{}_momentum_9'.format(column)]  = df[column]/df.shift(9)[column]
+        df['{}_momentum_9'.format(column)] = df['{}_momentum_9'.format(column)].fillna(method='bfill')
+        
+
+        df['{}_disparity_12'.format(column)] = df[column] / df['{}_ma_12'.format(column)]
+        df['{}_disparity_26'.format(column)] = df[column] / df['{}_ma_26'.format(column)]
+        df['{}_disparity_12_movement'.format(column)] = df['{}_disparity_12'.format(column)].pct_change().fillna(method='bfill')
+        df['{}_disparity_26_movement'.format(column)] = df['{}_disparity_26'.format(column)].pct_change().fillna(method='bfill')
+
+        return df
 
     def add_reddit(self, df, coinfull):
         redditDf = pd.read_csv('data_utils\\reddit_data\\readable\\{}Features.csv'.format(coinfull.capitalize()))
@@ -141,15 +173,16 @@ class addData():
         coinfull (string):
         Full name in small like bitcoin
         '''
-
         trend = pd.read_csv('data_utils\\trends_data\\{}.csv'.format(coinfull))
         trend['Date'] = trend['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
+
         regFeatures = self.addIrregularFeatures(df, trend)
 
-        print(df)
-        print(regFeatures)
-
         df = df.join(regFeatures)
+        df['Trend'] = df['Trend'].replace('<', '')
+        df['Trend'] = df['Trend'].astype(int)
+        
+        df = self.trends_ta(df, 'Trend')
         
         return df
 
