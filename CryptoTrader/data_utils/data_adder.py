@@ -124,25 +124,28 @@ class addData():
         files = os.listdir("data_utils\\blockchain_data\\bitcoin")
 
         dfBlock = pd.read_csv('data_utils\\blockchain_data\\bitcoin\\difficulty.csv', header=None)
+        dfBlock.drop(0, axis=1, inplace=True)
 
         dfBlock.columns = ['Date', 'difficulty']
         
         for file in files:
             if file != 'difficulty.csv':
                 tDf = pd.read_csv('data_utils\\blockchain_data\\bitcoin\\{}'.format(file), header=None)
-
-                dfBlock[file[:-4]] = tDf[1]
+                dfBlock[file[:-4]] = tDf[2]
                 
         dfBlock['Date'] = dfBlock['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S").timetuple())))
         
         
         dfBlock = dfBlock.ffill()
+        print(dfBlock)
         
         regFeatures = self.addIrregularFeatures(df, dfBlock)
+
+        print(regFeatures)
         
-        df = df.join(regFeatures)
+        #df = df.join(regFeatures)
         
-        return df
+        #return df
 
     def add_wikipedia(self, df, coinfull):
         '''
