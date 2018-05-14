@@ -92,7 +92,7 @@ class addData():
         return df
 
     def add_reddit(self, df, coinfull):
-        redditDf = pd.read_csv('data_utils\\reddit_data\\readable\\{}Features.csv'.format(coinfull.capitalize()))
+        redditDf = pd.read_csv('data_utils/reddit_data/readable/{}Features.csv'.format(coinfull.capitalize()))
         redditDf.columns = 'reddit' + redditDf.columns
 
         redditDf['Date'] = redditDf['redditDate']
@@ -103,7 +103,7 @@ class addData():
         return df
     
     def add_twitter(self, df):
-        twitterDf = pd.read_csv('data_utils\\twitter_data\\bitcoin\\twitterFeatures.csv')
+        twitterDf = pd.read_csv('data_utils/twitter_data/bitcoin/twitterFeatures.csv')
         twitterDf.columns = 'twitter' + twitterDf.columns
         
         twitterDf['Date'] = twitterDf['twitterDate']
@@ -121,31 +121,35 @@ class addData():
         Dataframe containing coin price and all
         '''  
         
-        files = os.listdir("data_utils\\blockchain_data\\bitcoin")
+        files = os.listdir("data_utils/blockchain_data/bitcoin")
 
-        dfBlock = pd.read_csv('data_utils\\blockchain_data\\bitcoin\\difficulty.csv', header=None)
+        dfBlock = pd.read_csv('data_utils/blockchain_data/bitcoin/difficulty.csv', header=None)
         dfBlock.drop(0, axis=1, inplace=True)
 
         dfBlock.columns = ['Date', 'difficulty']
         
         for file in files:
             if file != 'difficulty.csv':
-                tDf = pd.read_csv('data_utils\\blockchain_data\\bitcoin\\{}'.format(file), header=None)
+                tDf = pd.read_csv('data_utils/blockchain_data/bitcoin/{}'.format(file), header=None)
                 dfBlock[file[:-4]] = tDf[2]
+                dfBlock['{}_ema_12'.format(file[:-4])] = ema_fast(dfBlock[file[:-4]])
+                dfBlock['{}_ema_26'.format(file[:-4])] = ema_slow(dfBlock[file[:-4]])
+                
+                dfBlock['{}_ma_12'.format(file[:-4])] = dfBlock[file[:-4]].rolling(12).sum().fillna(method='bfill')
+                dfBlock['{}_macd'.format(file[:-4])] = macd(dfBlock[file[:-4]])
+                dfBlock['{}_rsi'.format(file[:-4])] = rsi(dfBlock[file[:-4]])
+                
                 
         dfBlock['Date'] = dfBlock['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S").timetuple())))
         
         
         dfBlock = dfBlock.ffill()
-        print(dfBlock)
         
         regFeatures = self.addIrregularFeatures(df, dfBlock)
 
-        print(regFeatures)
+        df = df.join(regFeatures)
         
-        #df = df.join(regFeatures)
-        
-        #return df
+        return df
 
     def add_wikipedia(self, df, coinfull):
         '''
@@ -157,7 +161,7 @@ class addData():
         Full name in small like bitcoin
         '''  
         
-        wikiDf = pd.read_csv('data_utils\\wikipedia_data\\pageviews.csv')[['Date', coinfull]]
+        wikiDf = pd.read_csv('data_utils/wikipedia_data/pageviews.csv')[['Date', coinfull]]
 
         wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
         wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia'})
@@ -179,7 +183,7 @@ class addData():
         coinfull (string):
         Full name in small like bitcoin
         '''
-        trend = pd.read_csv('data_utils\\trends_data\\{}.csv'.format(coinfull))
+        trend = pd.read_csv('data_utils/trends_data/{}.csv'.format(coinfull))
         trend['Date'] = trend['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
 
         regFeatures = self.addIrregularFeatures(df, trend)
@@ -188,8 +192,7 @@ class addData():
         df['Trend'] = df['Trend'].replace('<', '')
         df['Trend'] = df['Trend'].astype(int)
         
-        df = self.trends_ta(df, 'Trend')
-        
+        df = self.trends_ta(df, 'Trend')        
         return df
 
 
