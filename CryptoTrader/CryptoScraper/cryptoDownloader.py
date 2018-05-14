@@ -41,7 +41,7 @@ class getAllData:
                 crypto = cryptoDownloader(coin)
                 crypto.download()
                 
-            coinDf[coin] = pd.read_csv(os.path.dirname(CryptoScraper.__file__) + '\cache\{}.csv'.format(coin))
+            coinDf[coin] = pd.read_csv(os.path.dirname(CryptoScraper.__file__) + '/cache/{}.csv'.format(coin))
             
         smallestStart = 9999999999
         largestStart = 0
@@ -114,9 +114,9 @@ class cryptoDownloader:
         self.bitfinexURL = 'https://api.bitfinex.com/v2/candles/trade:1h:tBTCUSD/hist?start={}&end={}&limit=1000'
         
         if (symbol == 'BTC'):
-            self.cachefile = os.path.dirname(CryptoScraper.__file__) + '\cache\{}-downloading.csv'.format(symbol)
+            self.cachefile = os.path.dirname(CryptoScraper.__file__) + '/cache/{}-downloading.csv'.format(symbol)
         else:
-            self.cachefile = os.path.dirname(CryptoScraper.__file__) + '\cache\{}.csv'.format(symbol)
+            self.cachefile = os.path.dirname(CryptoScraper.__file__) + '/cache/{}.csv'.format(symbol)
         
         self.symbol = symbol
         
@@ -138,7 +138,7 @@ class cryptoDownloader:
                     firstDf = pd.read_json(firstData, convert_dates=False)
                     self.startdate = firstDf['date'][0]
                     
-                    btc = pd.read_csv(os.path.dirname(CryptoScraper.__file__) + '\cache\BTC.csv')
+                    btc = pd.read_csv(os.path.dirname(CryptoScraper.__file__) + '/cache/BTC.csv')
                     closest = btc.iloc[(btc['Date']-self.startdate).abs().argsort()[0]]['Date']
                     
                     self.startdate = closest
