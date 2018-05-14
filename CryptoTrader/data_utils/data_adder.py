@@ -123,7 +123,7 @@ class addData():
         '''  
         
         wikiDf = pd.read_csv('data_utils\\wikipedia_data\\pageviews.csv')[['Date', coinfull]]
-        wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%M-%d").timetuple())))
+        wikiDf['Date'] = wikiDf['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
         wikiDf = wikiDf.rename(columns={coinfull: 'Wikipedia View'})
         
         regFeatures = self.addIrregularFeatures(df, wikiDf)
@@ -141,17 +141,14 @@ class addData():
         coinfull (string):
         Full name in small like bitcoin
         '''
+
         trend = pd.read_csv('data_utils\\trends_data\\{}.csv'.format(coinfull))
-        trend = trend[::-1] #reverse
-        trend = trend.reset_index(drop=True)
-        
-        trend['Date'] = trend['date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%M-%d").timetuple())))
-        trend = trend.drop('date', axis=1)
-        
-        trend = trend.rename(columns={coinfull: 'Google Trend'})
-        
-        regFeatures = self.addIrregularFeatures(df, trend.drop('isPartial', axis=1))
-        
+        trend['Date'] = trend['Date'].apply(lambda x: int(time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple())))
+        regFeatures = self.addIrregularFeatures(df, trend)
+
+        print(df)
+        print(regFeatures)
+
         df = df.join(regFeatures)
         
         return df
