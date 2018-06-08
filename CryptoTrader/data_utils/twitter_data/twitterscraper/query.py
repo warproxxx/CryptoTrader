@@ -120,9 +120,6 @@ def query_tweets_once(query, limit=None, lang=''):
                 logging.info("Got {} tweets for {}.".format(
                     len(tweets), query))
                 return tweets
-    except KeyboardInterrupt:
-        logging.info("Program interrupted by user. Returning tweets gathered "
-                     "so far...")
     except BaseException:
         logging.exception("An unknown error occurred! Returning tweets "
                           "gathered so far.")
@@ -167,17 +164,14 @@ def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.dat
                for since, until in zip(dateranges[:-1], dateranges[1:])]
 
     all_tweets = []
+
     try:
         pool = Pool(poolsize)
 
-        try:
-            for new_tweets in pool.imap_unordered(partial(query_tweets_once, limit=limit_per_pool, lang=lang), queries):
-                all_tweets.extend(new_tweets)
-                logging.info("Got {} tweets ({} new).".format(
-                    len(all_tweets), len(new_tweets)))
-        except KeyboardInterrupt:
-            logging.info("Program interrupted by user. Returning all tweets "
-                         "gathered so far.")
+        for new_tweets in pool.imap_unordered(partial(query_tweets_once, limit=limit_per_pool, lang=lang), queries):
+            all_tweets.extend(new_tweets)
+            logging.info("Got {} tweets ({} new).".format(
+                len(all_tweets), len(new_tweets)))
     finally:
         pool.close()
         pool.join()
