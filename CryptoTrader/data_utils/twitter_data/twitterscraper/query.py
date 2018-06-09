@@ -34,7 +34,7 @@ def linspace(start, stop, n):
         yield start + h * i
 
 
-def query_single_page(url, html_response=True, retry=10):
+def query_single_page(url, html_response=True, retry=10, proxies=None):
     """
     Returns tweets from the given URL.
 
@@ -46,7 +46,12 @@ def query_single_page(url, html_response=True, retry=10):
     headers = {'User-Agent': random.choice(HEADERS_LIST)}
 
     try:
-        response = requests.get(url, headers=headers)
+        if (proxies == None):
+            response = requests.get(url, headers=headers)
+        else:
+            print("Using a proxy")
+            response = requests.get(url, proxies=proxies, headers=headers)
+
         if html_response:
             html = response.text or ''
         else:
@@ -79,13 +84,13 @@ def query_single_page(url, html_response=True, retry=10):
         
     if retry > 0:
         logging.info("Retrying... (Attempts left: {})".format(retry))
-        return query_single_page(url, html_response, retry-1)
+        return query_single_page(url, html_response, retry-1, proxies=proxies)
 
     logging.error("Giving up.")
     return [], None
 
 
-def query_tweets_once(query, limit=None, lang=''):
+def query_tweets_once(query, proxies, limit=None, lang=''):
     """
     Queries twitter for all the tweets you want! It will load all pages it gets
     from twitter. However, twitter might out of a sudden stop serving new pages,
@@ -106,13 +111,15 @@ def query_tweets_once(query, limit=None, lang=''):
     query = query.replace(' ', '%20').replace("#", "%23").replace(":", "%3A")
     pos = None
     tweets = []
+    
     try:
         while True:
             new_tweets, pos = query_single_page(
                 INIT_URL.format(q=query, lang=lang) if pos is None
                 else RELOAD_URL.format(q=query, pos=pos, lang=lang),
-                pos is None
+                pos is None, proxies=proxies
             )
+
             if len(new_tweets) == 0:
                 logging.info("Got {} tweets for {}.".format(
                     len(tweets), query))
@@ -151,7 +158,7 @@ def eliminate_duplicates(iterable):
             prev_elem = elem
             yield elem
 
-def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang=''):
+def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None):
     no_days = (enddate - begindate).days
     if poolsize > no_days:
         # Since we are assigning each pool a range of dates to query, 
@@ -168,10 +175,11 @@ def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.dat
                for since, until in zip(dateranges[:-1], dateranges[1:])]
 
     all_tweets = []
+
     try:
         pool = Pool(poolsize)
 
-        for new_tweets in pool.imap_unordered(partial(query_tweets_once, limit=limit_per_pool, lang=lang), queries):
+        for new_tweets in pool.imap_unordered(partial(query_tweets_once, proxies=proxies, limit=limit_per_pool, lang=lang), queries):
             all_tweets.extend(new_tweets)
             logging.info("Got {} tweets ({} new).".format(
                 len(all_tweets), len(new_tweets)))
