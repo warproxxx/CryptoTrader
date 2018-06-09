@@ -10,16 +10,6 @@ from multiprocessing.pool import Pool
 from fake_useragent import UserAgent
 from twitterscraper.tweet import Tweet
 
-
-ua = UserAgent()
-HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
-
-
-# INIT_URL = "https://twitter.com/search?f=tweets&vertical=default&q={q}&l={lang}"
-# RELOAD_URL = "https://twitter.com/i/search/timeline?f=tweets&vertical=" \
-#              "default&include_available_features=1&include_entities=1&" \
-#              "reset_error_state=false&src=typd&max_position={pos}&q={q}&l={lang}"
-
 INIT_URL = "https://twitter.com/search?vertical=tweets&vertical=default&q={q}&l={lang}"
 RELOAD_URL = "https://twitter.com/i/search/timeline?vertical=" \
              "default&include_available_features=1&include_entities=1&" \
@@ -43,16 +33,20 @@ def query_single_page(url, html_response=True, retry=10):
     :param retry: Number of retries if something goes wrong.
     :return: The list of tweets, the pos argument for getting the next page.
     """
-    headers = {'User-Agent': random.choice(HEADERS_LIST)}
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'}
 
     try:
         response = requests.get(url, headers=headers)
         if html_response:
             html = response.text or ''
         else:
-            json_resp = json.loads(response.text)
-            html = json_resp['items_html'] or ''
-            
+            html = ''
+            try:
+                json_resp = json.loads(response.text)
+                html = json_resp['items_html'] or ''
+            except ValueError as e:
+                logging.exception('Failed to parse JSON "{}" while requesting "{}"'.format(e, url))  
+
         tweets = list(Tweet.from_html(html))
 
         if not tweets:
@@ -74,8 +68,6 @@ def query_single_page(url, html_response=True, retry=10):
     except json.decoder.JSONDecodeError as e:
         logging.exception('Failed to parse JSON "{}" while requesting "{}".'.format(
             e, url))
-    except ValueError as e:
-        logging.exception('Failed to parse JSON "{}" while requesting "{}"'.format(e, url))
         
     if retry > 0:
         logging.info("Retrying... (Attempts left: {})".format(retry))
@@ -168,6 +160,7 @@ def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.dat
                for since, until in zip(dateranges[:-1], dateranges[1:])]
 
     all_tweets = []
+
     try:
         pool = Pool(poolsize)
 
