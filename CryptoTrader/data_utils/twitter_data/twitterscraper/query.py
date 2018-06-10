@@ -49,7 +49,6 @@ def query_single_page(url, html_response=True, retry=10, proxies=None):
         if (proxies == None):
             response = requests.get(url, headers=headers)
         else:
-            print("Using a proxy")
             response = requests.get(url, proxies=proxies, headers=headers)
 
         if html_response:
