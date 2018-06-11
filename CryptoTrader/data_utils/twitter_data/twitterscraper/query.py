@@ -7,11 +7,8 @@ import json
 from functools import partial
 from multiprocessing.pool import Pool
 
-from fake_useragent import UserAgent
 from twitterscraper.tweet import Tweet
 
-
-ua = UserAgent()
 HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
 
 
