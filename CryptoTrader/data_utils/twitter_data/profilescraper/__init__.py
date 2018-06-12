@@ -1,0 +1,1 @@
+from profilescraper.query import query_profile

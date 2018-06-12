@@ -21,25 +21,35 @@ class Tweet:
 
     @classmethod
     def from_soup(cls, tweet):
+        try:
+            url = tweet.find('div', 'tweet')['data-permalink-path'] or ""
+        except:
+            url = None
+        
+        try:
+            reply_to_id=tweet.find('div', 'tweet')['data-conversation-id'] or '0'
+        except:
+            reply_to_id = None
+
         return cls(
             user=tweet.find('span', 'username').text or "",
             fullname=tweet.find('strong', 'fullname').text or "", 
             id=tweet['data-item-id'] or "",
-            url = tweet.find('div', 'tweet')['data-permalink-path'] or "",
+            url = url,
             timestamp=datetime.utcfromtimestamp(
                 int(tweet.find('span', '_timestamp')['data-time'])),
             text=tweet.find('p', 'tweet-text').text or "",
-            replies = tweet.find(
+            replies=tweet.find(
                 'span', 'ProfileTweet-action--reply u-hiddenVisually').find(
                     'span', 'ProfileTweet-actionCount')['data-tweet-stat-count'] or '0',
-            retweets = tweet.find(
+            retweets=tweet.find(
                 'span', 'ProfileTweet-action--retweet u-hiddenVisually').find(
                     'span', 'ProfileTweet-actionCount')['data-tweet-stat-count'] or '0',
-            likes = tweet.find(
+            likes=tweet.find(
                 'span', 'ProfileTweet-action--favorite u-hiddenVisually').find(
                     'span', 'ProfileTweet-actionCount')['data-tweet-stat-count'] or '0',
             html=str(tweet.find('p', 'tweet-text')) or "",
-            reply_to_id=tweet.find('div', 'tweet')['data-conversation-id'] or '0'
+            reply_to_id=reply_to_id
         )
 
 
