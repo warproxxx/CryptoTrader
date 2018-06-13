@@ -74,11 +74,6 @@ class getAllData:
 
         else:
 
-            # print(smallestStart)
-            # print(largestStart)
-            # print(smallestEnd)
-            # print(largestEnd)
-
             for key in coinDf:
                 dates = pd.DataFrame([x for x in range(int(smallestStart), int(smallestEnd), 3600)]) #in union smallestEnding is used
                 dates.columns = ['Date']

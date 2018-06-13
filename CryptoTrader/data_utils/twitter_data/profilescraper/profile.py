@@ -50,7 +50,16 @@ class Profile:
             protected = 1
         except:
             protected = 0
+            
+        try:
+            total_moments=topBar.find('li', 'ProfileNav-item--moments').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_moments=0
 
+        try:
+            total_lists=topBar.find('li', 'ProfileNav-item--lists').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_lists=0
 
         tweets = soup.find_all('div', 'tweet')
         all_tweets = []
@@ -68,8 +77,8 @@ class Profile:
             total_following=topBar.find('li', 'ProfileNav-item--following').find('span', 'ProfileNav-value')['data-count'] or 0,
             total_followers=topBar.find('li', 'ProfileNav-item--followers').find('span', 'ProfileNav-value')['data-count'] or 0,
             total_likes=topBar.find('li', 'ProfileNav-item--favorites').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_moments=topBar.find('li', 'ProfileNav-item--moments').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_lists=topBar.find('li', 'ProfileNav-item--lists').find('span', 'ProfileNav-value')['data-count'] or 0,
+            total_moments=total_moments,
+            total_lists=total_lists,
             has_avatar=has_avatar,
             has_background=has_background,
             is_protected=protected,

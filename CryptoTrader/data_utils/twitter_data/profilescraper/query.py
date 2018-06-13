@@ -11,6 +11,7 @@ from profilescraper.profile import Profile
 HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
 
 def query_single_profile(url, retry=10, proxies=None):
+    print(url)
     headers = {'User-Agent': random.choice(HEADERS_LIST)}
 
     try:
@@ -65,7 +66,7 @@ def query_profile(profiles, poolsize=20, proxies=None):
         poolsize = no_profiles
 
     urls = [url.format(x) for x in profiles]
-
+    print(urls)
     all_profile = []
 
     pool = Pool(poolsize)
