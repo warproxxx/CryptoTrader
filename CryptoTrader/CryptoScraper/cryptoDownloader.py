@@ -6,7 +6,9 @@ import json
 import os.path
 import time
 import datetime
+
 import CryptoScraper
+from CryptoScraper.cryptoFunctions import manipulateData
 
 class getAllData:
     
@@ -14,7 +16,7 @@ class getAllData:
     Returns all data in a dictionary
     '''
     
-    def __init__(self, cacheOnly, coins=['BTC', 'DASH', 'DOGE', 'ETH', 'LTC', 'STR', 'XMR', 'XRP'], how='intersect', customTimeframe = {'start': '1990-01-01', 'end': '2050-01-01'}):
+    def __init__(self, cacheOnly, coins=['BTC', 'DASH', 'DOGE', 'ETH', 'LTC', 'STR', 'XMR', 'XRP'], how='intersect', customTimeframe = {'start': '1990-01-01', 'end': '2050-01-01'}, length=1):
         '''
         cacheOnly: true or false.
         Returns data from cache only
@@ -24,11 +26,15 @@ class getAllData:
         timerange: dictionary containing start and end time. 
         Format: %Y-%m-%d
         
+
+        length: (int)
+        Length in hours of each candle stick. 1 returns hourly data and so on
         '''
         self.how = how
         self.cache = cacheOnly
         self.coins = coins
         self.customTimeframe = customTimeframe
+        self.length = length
         
     def data(self):
         coinDf = {}
@@ -40,8 +46,8 @@ class getAllData:
             if (self.cache == False):
                 crypto = cryptoDownloader(coin)
                 crypto.download()
-                
-            coinDf[coin] = pd.read_csv(os.path.dirname(CryptoScraper.__file__) + '/cache/{}.csv'.format(coin))
+            
+            coinDf[coin] = manipulateData(length=self.length, coin=coin).get_custom_timeframe() 
             
         smallestStart = 9999999999
         largestStart = 0
