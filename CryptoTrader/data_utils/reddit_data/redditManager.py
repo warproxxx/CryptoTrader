@@ -15,6 +15,9 @@ import sys
 import numpy as np
 import nltk
 
+from multiprocessing.pool import Pool
+import logging
+
 from timesearch import timesearch
 
 import re
@@ -28,6 +31,19 @@ class redditManager():
         self.directory = os.path.dirname(__file__)
         self.subreddits = os.listdir(self.directory + "/subreddits")
         
+    def perform_download(self, subreddit, retries=10):
+        try:
+            logging.info("\nDownloading submissions from /r/{}".format(subreddit))
+            timesearch.main(["timesearch", "-r", subreddit])
+            logging.info("\nDownloading comments from /r/{}".format(subreddit))
+            timesearch.main(["commentaugment", "-r", subreddit])
+        except Exception as e:
+            logging.info("Error: ".format(e.message))
+            
+        if retries > 0:
+            return self.perform_download(subreddit, retries=retries-1)
+        
+        logging.error("Giving up")
 
     def downloader(self, subreddits="all"):
         '''
@@ -43,15 +59,14 @@ class redditManager():
         
         if type(subreddits) == str:
             subreddits = self.subreddits
-
-        for subreddit in self.subreddits:
-            print("\nDownloading submissions from /r/{}".format(subreddit))
-            timesearch.main(["timesearch", "-r", subreddit])
-            print("\nDownloading comments from /r/{}".format(subreddit))
-            timesearch.main(["commentaugment", "-r", subreddit])
+            
+        pools = Pool(len(subreddits))
+        
+        for _ in pools.imap_unordered(self.perform_download, self.subreddits):
+            pass
 
     def sql_to_pandas(self, coinname):
-        con = sqlite3.connect(self.directory + "/timesearch/subreddits/{}//{}.db".format(coinname, coinname))
+        con = sqlite3.connect(self.directory + "/subreddits/{}//{}.db".format(coinname, coinname))
         df = pd.read_sql_query("SELECT * FROM submissions", con)
         
         df = df[['created', 'author', 'title', 'url', 'score', 'num_comments', 'flair_text', 'selftext']]
