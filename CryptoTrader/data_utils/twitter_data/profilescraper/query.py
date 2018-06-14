@@ -11,16 +11,16 @@ from profilescraper.profile import Profile
 
 HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
 
-def query_single_profile(url, retry=10, proxies=None):
+def query_single_profile(url, retry=10, proxy=None):
     logging.info("Querying {}".format(url))
     
     headers = {'User-Agent': random.choice(HEADERS_LIST)}
 
     try:
-        if (proxies == None):
+        if (proxy == None):
             response = requests.get(url, headers=headers)
         else:
-            response = requests.get(url, headers=headers, proxies=proxies)
+            response = requests.get(url, headers=headers, proxies=proxy)
 
         html = response.text or ''
 
@@ -47,13 +47,13 @@ def query_single_profile(url, retry=10, proxies=None):
 
     if retry > 0:
         logging.info("Retrying... (Attempts left: {})".format(retry))
-        return query_single_profile(url, retry-1, proxies=proxies)
+        return query_single_profile(url, retry-1, proxy=proxy)
     
     logging.error("Giving up.")
     return []
 
 
-def query_profile(profiles, poolsize=20, proxies=None):
+def query_profile(profiles, poolsize=20, proxy=None):
     '''
     profiles: List
     Unique profies to scrape from
@@ -73,7 +73,7 @@ def query_profile(profiles, poolsize=20, proxies=None):
     pool = Pool(poolsize)
 
     try:
-        for profile_data in pool.imap_unordered(partial(query_single_profile, proxies=proxies), urls):
+        for profile_data in pool.imap_unordered(partial(query_single_profile, proxy=proxy), urls):
             all_profile.extend(profile_data)
             logging.info("Got {} profiles ({} new).".format(
                 len(all_profile), len(profile_data)))
