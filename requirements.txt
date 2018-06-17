@@ -19,3 +19,4 @@ tensorflow>=1.8.0
 lxml>=4.2.1
 Cython>=0.28.3
 numba>=0.38.1
+numexpr>=2.6.5
