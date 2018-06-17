@@ -17,3 +17,4 @@ scikit_learn>=0.19.1
 ta>=0.1.5
 tensorflow>=1.8.0
 lxml>=4.2.1
+Cython>=0.28.3
