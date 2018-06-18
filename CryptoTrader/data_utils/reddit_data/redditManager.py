@@ -2,6 +2,7 @@ import pandas as pd
 import sqlite3
 from num2words import num2words
 import os
+import os.path
 
 from datetime import date, timedelta
 import datetime
@@ -29,7 +30,13 @@ class redditManager():
         coins (dictionary): Dictionary containing name of coins
         '''
         self.directory = os.path.dirname(__file__)
-        self.subreddits = os.listdir(self.directory + "/subreddits")
+        self.subreddits = []
+        
+        for file in os.listdir(self.directory + "/subreddits"):
+            fname = os.getcwd() + "/subreddits/" + "{}/{}.db".format(file, file.split('/')[-1])
+            
+            if (os.path.isfile(fname)):
+                self.subreddits.append(file)
         
     def perform_download(self, subreddit, retries=10):
         try:
@@ -37,13 +44,17 @@ class redditManager():
             timesearch.main(["timesearch", "-r", subreddit])
             logging.info("\nDownloading comments from /r/{}".format(subreddit))
             timesearch.main(["commentaugment", "-r", subreddit])
+            logging.info("\nDownloaded from /r/{}".format(subreddit))
+            return 0
         except Exception as e:
             logging.info("Error: ".format(e.message))
-            
+            return 0
+        
         if retries > 0:
             return self.perform_download(subreddit, retries=retries-1)
         
         logging.error("Giving up")
+        return 0
 
     def downloader(self, subreddits="all"):
         '''
@@ -58,15 +69,20 @@ class redditManager():
         '''
         
         if type(subreddits) == str:
-            subreddits = self.subreddits
-            
-        pools = Pool(len(subreddits))
+            if (subreddits == 'all'):
+                subreddits = self.subreddits
+            else:
+                self.perform_download(subreddits)
+                return
         
-        for _ in pools.imap_unordered(self.perform_download, self.subreddits):
+        poolSize = len(subreddits)
+        pools = Pool(poolSize)
+        
+        for _ in pools.imap_unordered(self.perform_download, subreddits):
             pass
 
     def sql_to_pandas(self, coinname):
-        con = sqlite3.connect(self.directory + "/subreddits/{}//{}.db".format(coinname, coinname))
+        con = sqlite3.connect(self.directory + "/subreddits/{}/{}.db".format(coinname, coinname))
         df = pd.read_sql_query("SELECT * FROM submissions", con)
         
         df = df[['created', 'author', 'title', 'url', 'score', 'num_comments', 'flair_text', 'selftext']]

@@ -44,7 +44,7 @@ if not getattr(common.bot, 'CONTACT_INFO', ''):
 
 useragent = USERAGENT.format(version=common.VERSION, contact=common.bot.CONTACT_INFO)
 ratelimit = ratelimiter.Ratelimiter(allowance=60, period=60)
-session = requests.Session()
+session = requests.session()
 session.headers.update({'User-Agent': useragent})
 
 
@@ -134,9 +134,15 @@ def get(url, params=None):
 
     common.log.debug('Requesting %s with %s', url, params)
     response = session.get(url, params=params)
-    response.raise_for_status()
-    response = response.json()
-    data = response['data']
+    
+    try:
+        response.raise_for_status()
+        response = response.json()
+        data = response['data']
+    except:
+        print("An error occured due to empty subreddit")
+        data = ""
+        
     return data
 
 def get_comments_from_submission(submission):
