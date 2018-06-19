@@ -4,13 +4,13 @@ from bs4 import BeautifulSoup
 from coala_utils.decorators import generate_ordering
 from twitterscraper.tweet import Tweet
 
-@generate_ordering('username', 'location', 'has_location', 'age', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'total_moments', 'total_lists', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
+@generate_ordering('username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'total_moments', 'total_lists', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
 class Profile:
-    def __init__(self, username, location, has_location, age, is_verified, total_tweets, total_following, total_followers, total_likes, total_moments, total_lists, has_avatar, has_background, is_protected, profile_modified, tweets):
+    def __init__(self, username, location, has_location, created, is_verified, total_tweets, total_following, total_followers, total_likes, total_moments, total_lists, has_avatar, has_background, is_protected, profile_modified, tweets):
         self.username = username.replace("@", "")
         self.location = location
         self.has_location = has_location
-        self.age = age
+        self.created = created
         self.is_verified = is_verified
         self.total_tweets = total_tweets
         self.total_following = total_following
@@ -35,9 +35,11 @@ class Profile:
 
         try:
             joined = sideBar.find('span', 'ProfileHeaderCard-joinDateText')['title']
-            age = (datetime.now() - datetime.strptime(joined, "%I:%M %p - %d %b %Y")).days
+            created = joined.strptime(joined, "%I:%M %p - %d %b %Y").strftime("%Y-%m-%d")
+            
+            #age = (datetime.now() - datetime.strptime(joined, "%I:%M %p - %d %b %Y")).days
         except:
-            age = 0
+            created = 0
 
         try:
             soup.find('div', 'ProfileCanopy-headerBg').find('img')['src']
@@ -73,7 +75,7 @@ class Profile:
             username=sideBar.find('span', 'username').text or "",
             location=location,
             has_location=0 if location == 0 else 1,
-            age=age,
+            created=created,
             is_verified=0 if sideBar.find('span', 'Icon--verified') == None else 1,
             total_tweets=topBar.find('li', 'ProfileNav-item--tweets').find('span', 'ProfileNav-value')['data-count'] or 0,
             total_following=topBar.find('li', 'ProfileNav-item--following').find('span', 'ProfileNav-value')['data-count'] or 0,
