@@ -7,3 +7,4 @@ CryptoTrader/data_utils/twitter_data/**/extracted/*
 geckodriver.log
 ghostdriver.log
 CryptoTrader/data_utils/twitter_data/profiledata/*
+CryptoTrader/data_utils/tradingview_data/data/*
