@@ -21,3 +21,4 @@ Cython>=0.28.3
 numba>=0.38.1
 numexpr>=2.6.5
 tweepy>=3.6.0
+nltk>=3.3
