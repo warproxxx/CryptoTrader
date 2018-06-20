@@ -1,4 +1,4 @@
-from TradinViewManager import tradinviewmanager
+from tradingviewManger import manage
 
-tm = tradinviewmanager()
+tm = manage()
 tm.download()

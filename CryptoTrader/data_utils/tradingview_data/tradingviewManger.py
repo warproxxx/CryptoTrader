@@ -12,9 +12,6 @@ from IPython.core.display import HTML
 
 import getpass
 
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-
 from bs4 import BeautifulSoup, Comment
 import re
 import pandas as pd
@@ -22,12 +19,16 @@ import os
 import numpy as np
 
 import time
+from datetime import datetime
 
 import uuid
+import logging
 
 class manage():
 
     def __init__(self):
+        logging.basicConfig(filename=__file__.replace('tradingviewManger.py', 'logs.txt'),level=logging.INFO)
+        self.currentDir = __file__.replace('tradingviewManger.py', '')
         
         url ="https://www.tradingview.com/"
         
@@ -35,24 +36,36 @@ class manage():
         
         self.driver.set_window_size(1366, 768)
         self.driver.get(url)
-        self.driver.find_elements_by_xpath("//a[contains(text(),'Sign In')]")[1].click() #can directly goto signin URL     
         
-        self.save_screenshot()
+        attempts = 0
+        
+        while attempts < 3:
+            try:
+                self.driver.find_elements_by_xpath("//a[contains(text(),'Sign In')]")[1].click() #can directly goto signin URL  
+                self.save_screenshot()
+                break
+            except:
+                logging.warning("Error clicking sign in. Trying again")
+                attempts = attempts + 1
+                
+                if (attempts > 2):
+                    logging.error("Failed to login even after 3 attempts")
+                    self.driver.close()
+                    sys.exit()
         
         self.driver.find_element_by_name('username').send_keys('bame4')
-        self.save_screenshot()
         self.driver.find_element_by_name('password').send_keys('quantorithm123')
-        self.driver.find_element_by_tag_name('body').send_keys(Keys.ENTER)
         self.save_screenshot()
         
-    
-    def save_screenshot(self):
-        fName = str(uuid.uuid4().hex.upper()[:6])
+        self.driver.find_element_by_tag_name('body').send_keys(Keys.ENTER)
         
-        fullDir = 'data/image/{}.png'.format(fName)
+        logging.info("Login Completed at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+        self.save_screenshot()
+    
+    def save_screenshot(self, fName=datetime.now().strftime('%Y-%m-%d %H:%M:%S')):
+        fullDir = self.currentDir+'data/image/{}.png'.format(fName)
         self.driver.save_screenshot(fullDir)
-        img=mpimg.imread(fullDir)
-        plt.imshow(img)
+
         
         
     def scrape(self, cname, stop_point):
@@ -63,6 +76,7 @@ class manage():
 
         for i in range(1, self.pagenum+1):
             url1 = "https://www.tradingview.com/symbols/{}/page-{}/?sort=recent".format(cname, i)
+            self.save_screenshot()
             
             if i != 1:
                 self.driver.get(url1)
@@ -78,8 +92,6 @@ class manage():
                 lik =like[2].get_text()
                 direction = data.find(class_="tv-idea-label tv-idea-label--long i-except-phones-only")
                 
-                self.save_screenshot()
-                
                 try:
                     direction = direction.get_text()
                 except:
@@ -90,31 +102,33 @@ class manage():
                         pass
 
                 dec = 'https://tradingview.com' + data.find(class_='js-widget-idea__popup')['data-href-idea-custom-link']
+                logging.info("Opening this link {}".format(dec))
+                
                 self.driver.get(dec)
+                
                 soup1=BeautifulSoup(self.driver.page_source, 'lxml')
                 text = soup1.find(class_="tv-chart-view__description-wrap js-chart-view__description").get_text()
-                self.save_screenshot()
 
                 df = df.append({'Time Stamp':time, 'Username':user, 'Topic':topic, 'Text':text, 'Views':views, 'Direction':direction, 'Cmt.Num':com, 'Like':lik}, ignore_index=True)      
                 time=float(time)
                 stop_point=float(stop_point)
-
-                print(time)
-                print(stop_point)
-
+                
+                logging.info("The Starting Time is : {}".format(time))
+               
                 if (time <= stop_point):
                     loopout = 1
                     break
 
-                df.to_csv('data/live/temp.csv')
+                df.to_csv(self.currentDir + 'data/live/temp.csv')
                 self.save_screenshot()
+                
                 self.driver.back()
+                logging.info("Back clicked. The URL is now: {}. URL1 is: {}".format(self.driver.current_url, url1))
 
             if (loopout == 1):
                 break
         
-        return df       
-        self.save_screenshot()
+        return df
     
     def download(self):
       
@@ -122,13 +136,14 @@ class manage():
         
         for key in coinname:
 
-            live = pd.read_csv('data/fulldata/{}.csv'.format(key), engine="python")
+            live = pd.read_csv(self.currentDir + 'data/fulldata/{}.csv'.format(key), engine="python")
             live = live.sort_values('Time Stamp').reset_index(drop=True)
             live['Time Stamp'] = live['Time Stamp'].astype(int)
             largest = live.iloc[-1]['Time Stamp']
 
             stop_point = largest
 
+           
             
             self.driver.get("https://www.tradingview.com/symbols/{}/?sort=recent".format(key))
             #Selenium hands the page source to Beautiful Soup
@@ -146,8 +161,10 @@ class manage():
 
             df = self.scrape(key, stop_point,)
             
-            df.to_csv("data/fulldata/{}.csv".format(key), mode='a', header=False)
-
+            df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False)
+            logging.info("Written to {}.csv".format(key))
+            
+            
 
         
         

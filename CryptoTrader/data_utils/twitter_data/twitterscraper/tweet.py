@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from coala_utils.decorators import generate_ordering
 
 
-@generate_ordering('timestamp', 'id', 'text', 'user', 'replies', 'retweets', 'likes', 'reply_to_id')
+@generate_ordering('timestamp', 'id', 'text', 'user', 'replies', 'retweets', 'likes', 'reply_to_id', 'response_type', 'response_type')
 class Tweet:
     def __init__(self, user, fullname, id, url, timestamp, text, replies, retweets, likes, html, reply_to_id):
         self.user = user.strip('\@')
@@ -18,7 +18,8 @@ class Tweet:
         self.likes = likes
         self.html = html
         self.reply_to_id = reply_to_id if reply_to_id != id else '0'
-
+        self.response_type = response_type
+        
     @classmethod
     def from_soup(cls, tweet):
         try:
@@ -26,11 +27,20 @@ class Tweet:
         except:
             url = None
         
+        response_type = None
+        
         try:
             reply_to_id=tweet.find('div', 'tweet')['data-conversation-id'] or '0'
+            response_type='reply'
         except:
             reply_to_id = None
 
+        try:
+            reply_to_id=tweet.find('a', 'QuoteTweet-link')['data-conversation-id'] or '0'
+            response_type='quoted_retweet'
+        except:
+            pass
+            
         return cls(
             user=tweet.find('span', 'username').text or "",
             fullname=tweet.find('strong', 'fullname').text or "", 
@@ -49,7 +59,8 @@ class Tweet:
                 'span', 'ProfileTweet-action--favorite u-hiddenVisually').find(
                     'span', 'ProfileTweet-actionCount')['data-tweet-stat-count'] or '0',
             html=str(tweet.find('p', 'tweet-text')) or "",
-            reply_to_id=reply_to_id
+            reply_to_id=reply_to_id,
+            response_type=response_type
         )
 
 
