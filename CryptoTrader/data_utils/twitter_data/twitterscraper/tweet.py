@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 from coala_utils.decorators import generate_ordering
 
 
-@generate_ordering('timestamp', 'id', 'text', 'user', 'replies', 'retweets', 'likes', 'reply_to_id', 'response_type', 'response_type')
+@generate_ordering('timestamp', 'id', 'text', 'user', 'replies', 'retweets', 'likes', 'reply_to_id', 'response_type')
 class Tweet:
-    def __init__(self, user, fullname, id, url, timestamp, text, replies, retweets, likes, html, reply_to_id):
+    def __init__(self, user, fullname, id, url, timestamp, text, replies, retweets, likes, html, reply_to_id, response_type):
         self.user = user.strip('\@')
         self.fullname = fullname
         self.id = id
@@ -27,11 +27,11 @@ class Tweet:
         except:
             url = None
         
-        response_type = None
+        response_type = 'tweet'
         
         try:
             reply_to_id=tweet.find('div', 'tweet')['data-conversation-id'] or '0'
-            response_type='reply'
+            response_type = 'reply'
         except:
             reply_to_id = None
 
@@ -40,7 +40,7 @@ class Tweet:
             response_type='quoted_retweet'
         except:
             pass
-            
+
         return cls(
             user=tweet.find('span', 'username').text or "",
             fullname=tweet.find('strong', 'fullname').text or "", 

@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup, Comment
 import re
 import pandas as pd
 import os
+import os.path
 import numpy as np
 
 import time
@@ -119,7 +120,7 @@ class manage():
                     loopout = 1
                     break
 
-                df.to_csv(self.currentDir + 'data/live/temp.csv')
+                df.to_csv(self.currentDir + 'data/live/temp.csv', index=None)
                 self.save_screenshot()
                 
                 self.driver.back()
@@ -135,11 +136,14 @@ class manage():
         coinname = {'BTCUSD', 'LTCUSD', 'ETHUSD', 'DASHUSD', 'STRUSD', 'DOGEUSD', 'XRPUSD', 'XMRUSD'}
         
         for key in coinname:
-
-            live = pd.read_csv(self.currentDir + 'data/fulldata/{}.csv'.format(key), engine="python")
-            live = live.sort_values('Time Stamp').reset_index(drop=True)
-            live['Time Stamp'] = live['Time Stamp'].astype(int)
-            largest = live.iloc[-1]['Time Stamp']
+            
+            if (os.path.isfile(self.currentDir + 'data/fulldata/{}.csv'.format(key))):
+                live = pd.read_csv(self.currentDir + 'data/fulldata/{}.csv'.format(key), engine="python")
+                live = live.sort_values('Time Stamp').reset_index(drop=True)
+                live['Time Stamp'] = live['Time Stamp'].astype(int)
+                largest = live.iloc[-1]['Time Stamp']
+            else:
+                largest = 0
 
             stop_point = largest
 
@@ -159,9 +163,10 @@ class manage():
             self.pagenum = int(lastp[-1].get_text())
 
 
-            df = self.scrape(key, stop_point,)
+            df = self.scrape(key, stop_point)
+            df = df.sort_values('Time Stamp').reset_index(drop=True)
             
-            df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False)
+            df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False, index=None)
             logging.info("Written to {}.csv".format(key))
             
             
