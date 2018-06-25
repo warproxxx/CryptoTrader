@@ -166,7 +166,11 @@ class manage():
             df = self.scrape(key, stop_point)
             df = df.sort_values('Time Stamp').reset_index(drop=True)
             
-            df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False, index=None)
+            if (largest == 0):
+                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False, index=None)
+            else:
+                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', index=None)
+                
             logging.info("Written to {}.csv".format(key))
             
             

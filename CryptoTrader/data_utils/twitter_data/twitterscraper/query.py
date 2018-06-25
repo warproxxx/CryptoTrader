@@ -12,11 +12,6 @@ from twitterscraper.tweet import Tweet
 HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
 
 
-# INIT_URL = "https://twitter.com/search?f=tweets&vertical=default&q={q}&l={lang}"
-# RELOAD_URL = "https://twitter.com/i/search/timeline?f=tweets&vertical=" \
-#              "default&include_available_features=1&include_entities=1&" \
-#              "reset_error_state=false&src=typd&max_position={pos}&q={q}&l={lang}"
-
 INIT_URL = "https://twitter.com/search?vertical=tweets&vertical=default&q={q}&l={lang}"
 RELOAD_URL = "https://twitter.com/i/search/timeline?vertical=" \
              "default&include_available_features=1&include_entities=1&" \
@@ -43,6 +38,7 @@ def query_single_page(url, html_response=True, retry=10, proxies=None):
     headers = {'User-Agent': random.choice(HEADERS_LIST)}
 
     try:
+        
         if (proxies == None):
             response = requests.get(url, headers=headers)
         else:
@@ -53,9 +49,9 @@ def query_single_page(url, html_response=True, retry=10, proxies=None):
         else:
             json_resp = json.loads(response.text)
             html = json_resp['items_html'] or ''
-            
+        
         tweets = list(Tweet.from_html(html))
-
+        
         if not tweets:
             return [], None
 
@@ -150,15 +146,38 @@ def eliminate_duplicates(iterable):
             yield elem
             continue
 
-        if prev_elem != elem:
+        if prev_elem != elem: 
             prev_elem = elem
             yield elem
 
-def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None):
+def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None, tweettype='top'):
+    '''
+    Params:
+    _______
+    
+    query: (string)
+    The query to search
+    
+    limit: (int, optional) 
+    Number of tweets to scrape. Default is null
+    
+    tweettype: (string,optional)
+    Default is top. If set to new, new tweets are scraped
+    '''
+    global INIT_URL, RELOAD_URL
+    
+    if (tweettype == 'new'):
+        INIT_URL = "https://twitter.com/search?f=tweets&vertical=default&q={q}&l={lang}"
+        
+        RELOAD_URL = "https://twitter.com/i/search/timeline?f=tweets&vertical=" \
+                     "default&include_available_features=1&include_entities=1&" \
+                     "reset_error_state=false&src=typd&max_position={pos}&q={q}&l={lang}"
+    
     no_days = (enddate - begindate).days
+    
     if poolsize > no_days:
         # Since we are assigning each pool a range of dates to query, 
-		# the number of pools should not exceed the number of dates.
+        # the number of pools should not exceed the number of dates.
         poolsize = no_days
     dateranges = [begindate + dt.timedelta(days=elem) for elem in linspace(0, no_days, poolsize+1)]
 
