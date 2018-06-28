@@ -125,4 +125,3 @@ class liveDownloader:
                 listener, auth = self.get_listener()
                 listener.set_data(df, userData)
                 myStream = Stream(auth=auth, listener=listener)
-# okay decompiling live_utils.cpython-35.pyc

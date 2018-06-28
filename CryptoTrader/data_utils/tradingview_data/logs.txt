@@ -29492,3 +29492,18 @@ INFO:root:The Starting Time is : 1530111169.0
 INFO:root:Written to XMRUSD.csv
 INFO:root:Opening this link https://tradingview.com/chart/ETHUSD/ec9D5VHE-Index-only-alts/
 INFO:root:The Starting Time is : 1530111169.0
+INFO:root:Login Completed at 2018-06-28 06:00:12
+INFO:root:Opening this link https://tradingview.com/chart/XRPUSD/xDgBRBZQ-XRP-USD-Remains-Neutral/
+INFO:root:The Starting Time is : 1530163071.0
+INFO:root:Back clicked. The URL is now: https://www.tradingview.com/symbols/XRPUSD/?sort=recent. URL1 is: https://www.tradingview.com/symbols/XRPUSD/page-1/?sort=recent
+INFO:root:Opening this link https://tradingview.com/chart/XRPUSD/leMqn5rm-xrp-19-cents-wankers-in-the-house-go-xrp-down/
+INFO:root:The Starting Time is : 1530161966.0
+INFO:root:Back clicked. The URL is now: https://www.tradingview.com/symbols/XRPUSD/?sort=recent. URL1 is: https://www.tradingview.com/symbols/XRPUSD/page-1/?sort=recent
+INFO:root:Opening this link https://tradingview.com/chart/XRPUSD/1hYk7oqm-Ripple-Falling-Wedge/
+INFO:root:The Starting Time is : 1530155483.0
+INFO:root:Back clicked. The URL is now: https://www.tradingview.com/symbols/XRPUSD/?sort=recent. URL1 is: https://www.tradingview.com/symbols/XRPUSD/page-1/?sort=recent
+INFO:root:Opening this link https://tradingview.com/chart/ETHUSD/ec9D5VHE-Index-only-alts/
+INFO:root:The Starting Time is : 1530111169.0
+INFO:root:Written to XRPUSD.csv
+INFO:root:Opening this link https://tradingview.com/chart/LTCUSD/aZbK60JX-LTC-target-100-120/
+INFO:root:The Starting Time is : 1530136808.0
