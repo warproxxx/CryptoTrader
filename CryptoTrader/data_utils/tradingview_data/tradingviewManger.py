@@ -19,6 +19,8 @@ import os
 import os.path
 import numpy as np
 
+import uuid
+
 import time
 from datetime import datetime
 
@@ -74,6 +76,8 @@ class manage():
         df = pd.DataFrame(columns=['Time Stamp', 'Username', 'Topic', 'Text', 'Direction', 'Views', 'Cmt.Num', 'Like'])
         
         loopout = 0
+        
+        savingFile = self.currentDir + 'data/live/temp-{}-{}.csv'.format(cname, uuid.uuid4().hex[:10].upper())
 
         for i in range(1, self.pagenum+1):
             url1 = "https://www.tradingview.com/symbols/{}/page-{}/?sort=recent".format(cname, i)
@@ -85,7 +89,9 @@ class manage():
             for data in info:
                 user = data.find('img')['alt']
                 topic = data.find(class_="tv-widget-idea__title-name apply-overflow-tooltip").get_text()
-                link = 'https://tradingview.com' + data.find(class_='js-widget-idea__popup')['data-href-idea-custom-link']
+                
+                
+                link = 'https://tradingview.com' + data.find(class_='js-widget-idea__popup')['href']
                 views = data.find(class_="tv-social-stats__count").get_text()
                 time = data.find(class_="tv-widget-idea__time")['data-timestamp']
                 like = data.find_all(class_="tv-social-stats__count")
@@ -102,7 +108,7 @@ class manage():
                     except:
                         pass
 
-                dec = 'https://tradingview.com' + data.find(class_='js-widget-idea__popup')['data-href-idea-custom-link']
+                dec = 'https://tradingview.com' + data.find(class_='js-widget-idea__popup')['href']
                 logging.info("Opening this link {}".format(dec))
                 
                 self.driver.get(dec)
@@ -119,8 +125,8 @@ class manage():
                 if (time <= stop_point):
                     loopout = 1
                     break
-
-                df.to_csv(self.currentDir + 'data/live/temp.csv', index=None)
+                
+                df.to_csv(savingFile, index=None)
                 self.save_screenshot()
                 
                 self.driver.back()
@@ -129,7 +135,7 @@ class manage():
             if (loopout == 1):
                 break
         
-        return df
+        return savingFile
     
     def download(self):
       
@@ -146,8 +152,6 @@ class manage():
                 largest = 0
 
             stop_point = largest
-
-           
             
             self.driver.get("https://www.tradingview.com/symbols/{}/?sort=recent".format(key))
             #Selenium hands the page source to Beautiful Soup
@@ -163,37 +167,16 @@ class manage():
             self.pagenum = int(lastp[-1].get_text())
 
 
-            df = self.scrape(key, stop_point)
+            fName = self.scrape(key, stop_point)
+            df = pd.read_csv(fName)
+            
+            df['Time Stamp'] = df['Time Stamp'].astype(np.int64)
+            
             df = df.sort_values('Time Stamp').reset_index(drop=True)
-            
+ 
             if (largest == 0):
-                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', header=False, index=None)
+                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), index=None)
             else:
-                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), mode='a', index=None)
-                
+                df.to_csv(self.currentDir + "data/fulldata/{}.csv".format(key), header=False, mode='a', index=None)
+ 
             logging.info("Written to {}.csv".format(key))
-            
-            
-
-        
-        
-        
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
