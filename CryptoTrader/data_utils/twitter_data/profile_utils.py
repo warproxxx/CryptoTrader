@@ -4,8 +4,6 @@ import itertools
 
 import os
 
-from glob import glob
-
 import numpy as np
 
 from proxy_utils import proxy_dict, get_proxies
@@ -50,11 +48,9 @@ class profileDownloader:
 
         return count
     
-    def extract(self, coinname, poolsize=20):
+    def extract(self, profiles, poolsize=20):
         proxies = get_proxies()
         proxySize = len(proxies)
-
-        users = list(set(pd.read_csv(self.currpath + '/data/{}/extracted/combined.csv'.format(coinname), dtype=str)['User']))
 
         try:
             alreadyRead = pd.read_csv(self.currpath + '/data/profiledata/extractedUsers.csv', header=None)[0]
@@ -64,9 +60,9 @@ class profileDownloader:
             alreadyRead = pd.Series()
 
 
-        uniqueUsers = list(set(users) - set(alreadyRead))
+        uniqueUsers = list(set(profiles) - set(alreadyRead))
 
-        self.logger.info("File contains {} data. Scraping for {} after cache".format(len(users), len(uniqueUsers)))
+        self.logger.info("File contains {} data. Scraping for {} after cache".format(len(profiles), len(uniqueUsers)))
 
         oldi = 0
         count = 0
@@ -79,19 +75,23 @@ class profileDownloader:
 
             self.logger.info("Done {} of {}".format(i, len(uniqueUsers)))
             oldi = i
-
-        scrape_list(uniqueUsers[i:], poolsize=poolsize, proxy=None, count=count)
-    
-    def perform_scraping(self, poolsize=30):
-        for files in glob(self.currpath + "/data/*"):
-            if (os.path.exists(files + "/extracted")):
-                self.logger.info("Extracting for {}".format(files))
-                self.extract(files.split("/")[-1], poolsize=poolsize)
+        
+        if (len(uniqueUsers) == 0):
+            pass
+        else:
+            self.scrape_list(uniqueUsers[i:], poolsize=poolsize, proxy=None, count=count)
+        
                 
 class profileUtils:
-    def __init__(self):
+    def __init__(self, logger=None):
         self.currpath = __file__.replace('/profile_utils.py', '')
-    
+        
+        if logger == None:
+            logger = logging.getLogger()
+            logger.basicConfig = logging.basicConfig(filename=__file__.replace('profile_utils.py', 'logs/profile_logs.txt'),level=logging.INFO)
+        
+        self.logger=logger
+        
     def print_details(self):
         allUsers = pd.DataFrame()
 
@@ -105,11 +105,16 @@ class profileUtils:
     @numba.jit
     def clean_files(self):
         userData = pd.read_csv(self.currpath + "/data/profiledata/userData.csv", low_memory=False)
+        self.logger.info("User Data Read")
+        
         userTweets = pd.read_csv(self.currpath + "/data/profiledata/userTweets.csv", low_memory=False)
-
+        self.logger.info("User Tweets Read")
+        
         userTweets = userTweets.rename(columns={'User': 'username'})
 
-        merged = pd.merge(userData, userTweets, how='inner', on=['username'])    
+        merged = pd.merge(userData, userTweets, how='inner', on=['username'])
+        self.logger.info("Inner Merged Done")
+        
         newuserData = merged[userData.columns]
         newuserData = newuserData.set_index('username').drop_duplicates().reset_index()
 
@@ -117,10 +122,17 @@ class profileUtils:
         newuserTweets = newuserTweets.rename(columns={'username': 'User'})
 
         newuserTweets = newuserTweets.set_index(['User', 'ID']).drop_duplicates().reset_index()
-
+        
+        self.logger.info("All done saving")
+        
         newuserData.to_csv(self.currpath + "/data/profiledata/userData.csv", index=None)
+        self.logger.info("userData.csv has been updated")
+        
         newuserTweets.to_csv(self.currpath + "/data/profiledata/userTweets.csv", index=None)
+        self.logger.info("userTweets.csv has been updated")
+        
         newuserData['username'].to_csv(self.currpath + "/data/profiledata/extractedUsers.csv", index=None)
+        self.logger.info("extractedUsers.csv has been updated")
         
     def age_to_created():
         userData = pd.read_csv(self.currpath  + '/data/profiledata/userData.csv')
