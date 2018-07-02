@@ -100,7 +100,7 @@ class liveDownloader:
             logger.basicConfig = logging.basicConfig(filename=__file__.replace('live_utils.py', 'live_logs.txt'), level=logging.INFO)
         self.logger = logger
         self.keywords = keywords
-        self.keywordsOnly = [value for value in keywords.items()]
+        self.keywordsOnly = [value for key, values in keywords.items() for value in values]
 
     def get_listener(self, access_token='852009551876431872-OfvYX17eqrPz9eERGaRVxKfkBPVALyO', access_token_secret='koQa3hgW22EsgdvseQVsj3KnYbzHc564xEVfr7lYiPGhy', consumer_key='95fyXonGGIHKgfothfbOOAM7p', consumer_secret='6KWDuC87go4CbFE6jLdRnHWGFcj2Fl9hQvdizfaiwCOdZliv49'):
         auth = OAuthHandler(consumer_key, consumer_secret)
