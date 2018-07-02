@@ -1,6 +1,10 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream, API
-import time, json, pandas as pd, logging
+import time
+import json
+import pandas as pd
+import logging
+import time
 
 class MyStreamListener(StreamListener):
 
@@ -10,6 +14,8 @@ class MyStreamListener(StreamListener):
         self.df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweets', 'in_response_to', 'response_type', 'coinname', 'debug'])
         self.userData = pd.DataFrame(columns=['username', 'created', 'location', 'has_location', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified'])
         self.keywords = keywords
+        self.start_time = int(time.time())
+        self.currpath = __file__.replace("live_utils.py", "")
 
     def on_status(self, tweet):
         response_type = 'tweet'
@@ -57,8 +63,16 @@ class MyStreamListener(StreamListener):
             location = tweet.user.location
         else:
             location = 0
+            
         profile_modified = 1 if has_background == 1 or has_avatar == 1 or has_location != 0 else 0
         self.userData = self.userData.append(pd.Series({'username': tweet.user.screen_name, 'location': location, 'has_location': has_location, 'created': tweet.user.created_at.strftime('%Y-%m-%d'), 'is_verified': int(tweet.user.verified), 'total_tweets': tweet.user.statuses_count, 'total_following': tweet.user.friends_count, 'total_followers': tweet.user.followers_count, 'total_likes': tweet.user.favourites_count, 'has_avatar': has_avatar, 'has_background': has_background, 'is_protected': int(tweet.user.protected), 'profile_modified': profile_modified}), ignore_index=True)
+        
+        if self.df.shape[0] > 1000:
+            self.end_time = int(time.time())  
+            liveDownloader.save_data(self.logger, self.df, self.userData, self.start_time, self.end_time) #possibly on new thread
+            self.df, self.userData = self.df[:0], self.userData[:0]
+            self.start_time = self.end_time
+            
         return True
 
     def find_key(self, sentence, keywords):
@@ -75,8 +89,7 @@ class MyStreamListener(StreamListener):
         self.userData = userData
 
     def get_data(self):
-        return (
-         self.df, self.userData)
+        return self.df, self.userData, self.start_time
 
     def on_error(self, status_code):
         if status_code == 420:
@@ -97,31 +110,56 @@ class liveDownloader:
         """
         if logger == None:
             logger = logging.getLogger()
-            logger.basicConfig = logging.basicConfig(filename=__file__.replace('live_utils.py', 'live_logs.txt'), level=logging.INFO)
+            logfile=__file__.replace('live_utils.py', 'logs/live.txt')
+            logger.basicConfig = logging.basicConfig(filename=logfile, level=logging.INFO)
+            
         self.logger = logger
+        
+        
         self.keywords = keywords
         self.keywordsOnly = [value for key, values in keywords.items() for value in values]
+        
+    def save_data(logger, df, userData, start_time, end_time):
+        fname = "{}_{}".format(start_time, end_time)
+        currpath = __file__.replace("live_utils.py", "")
+        
+        df.drop('debug', axis=1).to_csv(currpath + "data/live/{}.csv".format(fname))
+        df['debug'].to_csv(currpath + "data/live/debug/{}.csv".format(fname))
+        logger.info("Saved to live/{}.csv".format(fname))
+                
+        userData.to_csv(currpath + "data/profiledata/{}.csv".format(fname))
+        logger.info("Saved to profiledata/{}.csv".format(fname))
 
     def get_listener(self, access_token='852009551876431872-OfvYX17eqrPz9eERGaRVxKfkBPVALyO', access_token_secret='koQa3hgW22EsgdvseQVsj3KnYbzHc564xEVfr7lYiPGhy', consumer_key='95fyXonGGIHKgfothfbOOAM7p', consumer_secret='6KWDuC87go4CbFE6jLdRnHWGFcj2Fl9hQvdizfaiwCOdZliv49'):
         auth = OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
         listener = MyStreamListener(self.logger, self.keywords)
-        return (
-         listener, auth)
+        return listener, auth
 
     def collect(self):
         listener, auth = self.get_listener()
         myStream = Stream(auth=auth, listener=listener)
+        
+        self.logger.info("Started collecting data for {}".format(self.keywordsOnly))
         while True:
             try:
                 myStream.filter(track=self.keywordsOnly, languages=['en'])
             except KeyboardInterrupt:
-                df, userData = listener.get_data()
-                return (
-                 df, userData)
+                df, userData, start_time = listener.get_data()     
+                self.logger.info("Keyboard interrupted. Saving whatever has been collected")
+                
+                liveDownloader.save_data(self.logger, df, userData, start_time, int(time.time())) #possibly on new thread
+                
+                return df, userData
+
             except Exception as e:
-                self.logger.warning(('Got an exception. Error is: {}').format(str(e)))
-                df, userData = listener.get_data()
+                self.logger.warning(('Got an exception. Error is: {}. Saving whatever exists').format(str(e)))
+                df, userData, start_time = listener.get_data()                                
+                
+                end_time = int(time.time())
+                
+                liveDownloader.save_data(self.logger, df, userData, start_time, end_time) #possibly on new thread
+                
+               
                 listener, auth = self.get_listener()
-                listener.set_data(df, userData)
                 myStream = Stream(auth=auth, listener=listener)
