@@ -33,7 +33,7 @@ class redditManager():
         self.subreddits = []
         
         for file in os.listdir(self.directory + "/subreddits"):
-            fname = os.getcwd() + "/subreddits/" + "{}/{}.db".format(file, file.split('/')[-1])
+            fname = self.directory + "/subreddits/" + "{}/{}.db".format(file, file.split('/')[-1])
             
             if (os.path.isfile(fname)):
                 self.subreddits.append(file)

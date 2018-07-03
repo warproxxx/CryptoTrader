@@ -20,6 +20,7 @@ class MyStreamListener(StreamListener):
     def on_status(self, tweet):
         response_type = 'tweet'
         in_response_to = tweet.in_reply_to_status_id
+        
         if in_response_to == None:
             if hasattr(tweet, 'retweeted_status'):
                 response_type = 'retweet'
@@ -30,6 +31,7 @@ class MyStreamListener(StreamListener):
                     in_response_to = tweet.quoted_status.id
         else:
             response_type = 'reply'
+            
         tweetText = ''
         try:
             tweetText = tweetText + tweet.extended_tweet['full_text']
