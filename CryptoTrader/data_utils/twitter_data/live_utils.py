@@ -1,6 +1,7 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream, API
 import time
+from datetime import datetime
 import json
 import pandas as pd
 import numpy as np
@@ -68,8 +69,18 @@ class MyStreamListener(StreamListener):
                     tweetText = tweetText.replace(url['url'], url['expanded_url'])
                 except:
                     pass
-
-        self.df = self.df.append(pd.Series({'ID': tweet.id, 'Tweet': tweetText, 'Time': tweet.created_at, 'User': tweet.user.screen_name, 'Likes': tweet.favorite_count, 'Replies': 0, 'Retweets': tweet.retweet_count, 'in_response_to': in_response_to, 'response_type': response_type, 'coinname': self.find_key(tweetText, self.keywords)}), ignore_index=True)
+        
+        timeInt = 0
+        
+        
+        try:
+            timeInt = int(time.mktime(tweet.created_at.timetuple()))
+        except:
+            pass
+        
+        print(timeInt)
+        
+        self.df = self.df.append(pd.Series({'ID': tweet.id, 'Tweet': tweetText, 'Time': timeInt, 'User': tweet.user.screen_name, 'Likes': tweet.favorite_count, 'Replies': 0, 'Retweets': tweet.retweet_count, 'in_response_to': in_response_to, 'response_type': response_type, 'coinname': self.find_key(tweetText, self.keywords)}), ignore_index=True)
         has_avatar = 0 if 'default_profile_images' in tweet.user.profile_image_url else 1
         has_background = int(tweet.user.profile_use_background_image)
         has_location = int(tweet.user.geo_enabled)
@@ -157,7 +168,7 @@ class liveDownloader:
         self.logger.info("Started collecting data for {}".format(self.keywordsOnly))
         while True:
             try:
-                myStream.filter(track=self.keywordsOnly, languages=['en'])
+                myStream.filter(track=self.keywordsOnly, languages=['en'], async=True)
             except KeyboardInterrupt:
                 df, userData, start_time = listener.get_data()     
                 self.logger.info("Keyboard interrupted. Saving whatever has been collected")

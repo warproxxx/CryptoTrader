@@ -26,3 +26,1681 @@ INFO:root:Started collecting data for ['ethereum', 'ETH', 'ripple', 'XRP', 'mone
 INFO:root:Keyboard interrupted. Saving whatever has been collected
 INFO:root:Saved to live/1530662790_1530662792.csv in a new thread
 INFO:root:Saved to profiledata/1530662790_1530662792.csv in a new thread
+INFO:root:Started collecting data for ['litecoin', 'LTC', 'ripple', 'XRP', 'dogecoin', 'DOGE', 'dashcoin', 'DASH', 'darkcoin', 'ethereum', 'ETH', 'bitcoin', 'BTC', 'stellar', 'STR', 'monero', 'XMR']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530696962_1530696964.csv in a new thread
+INFO:root:Saved to profiledata/live/1530696962_1530696964.csv in a new thread
+INFO:root:Started collecting data for ['bitcoin', 'BTC', 'ripple', 'XRP', 'ethereum', 'ETH', 'litecoin', 'LTC', 'monero', 'XMR', 'dogecoin', 'DOGE', 'dashcoin', 'DASH', 'darkcoin', 'stellar', 'STR']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530696975_1530696976.csv in a new thread
+INFO:root:Saved to profiledata/live/1530696975_1530696976.csv in a new thread
+INFO:root:Started collecting data for ['ethereum', 'ETH', 'dogecoin', 'DOGE', 'monero', 'XMR', 'bitcoin', 'BTC', 'ripple', 'XRP', 'dashcoin', 'DASH', 'darkcoin', 'stellar', 'STR', 'litecoin', 'LTC']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697068_1530697071.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697068_1530697071.csv in a new thread
+INFO:root:Started collecting data for ['dashcoin', 'DASH', 'darkcoin', 'monero', 'XMR', 'ripple', 'XRP', 'bitcoin', 'BTC', 'ethereum', 'ETH', 'dogecoin', 'DOGE', 'stellar', 'STR', 'litecoin', 'LTC']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697080_1530697083.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697080_1530697083.csv in a new thread
+INFO:root:Started collecting data for ['bitcoin', 'BTC', 'dashcoin', 'DASH', 'darkcoin', 'litecoin', 'LTC', 'stellar', 'STR', 'ripple', 'XRP', 'monero', 'XMR', 'dogecoin', 'DOGE', 'ethereum', 'ETH']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697120_1530697122.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697120_1530697122.csv in a new thread
+INFO:root:Started collecting data for ['bitcoin', 'BTC', 'stellar', 'STR', 'dogecoin', 'DOGE', 'ethereum', 'ETH', 'dashcoin', 'DASH', 'darkcoin', 'monero', 'XMR', 'litecoin', 'LTC', 'ripple', 'XRP']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697148_1530697149.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697148_1530697149.csv in a new thread
+INFO:root:Started collecting data for ['litecoin', 'LTC', 'bitcoin', 'BTC', 'ethereum', 'ETH', 'dashcoin', 'DASH', 'darkcoin', 'ripple', 'XRP', 'monero', 'XMR', 'dogecoin', 'DOGE', 'stellar', 'STR']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697173_1530697175.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697173_1530697175.csv in a new thread
+INFO:root:Started collecting data for ['dogecoin', 'DOGE', 'dashcoin', 'DASH', 'darkcoin', 'bitcoin', 'BTC', 'litecoin', 'LTC', 'stellar', 'STR', 'monero', 'XMR', 'ethereum', 'ETH', 'ripple', 'XRP']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697192_1530697195.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697192_1530697195.csv in a new thread
+INFO:root:Started collecting data for ['dashcoin', 'DASH', 'darkcoin', 'ripple', 'XRP', 'litecoin', 'LTC', 'monero', 'XMR', 'ethereum', 'ETH', 'bitcoin', 'BTC', 'stellar', 'STR', 'dogecoin', 'DOGE']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697197_1530697202.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697197_1530697202.csv in a new thread
+INFO:root:Started collecting data for ['stellar', 'STR', 'ethereum', 'ETH', 'dashcoin', 'DASH', 'darkcoin', 'litecoin', 'LTC', 'bitcoin', 'BTC', 'ripple', 'XRP', 'dogecoin', 'DOGE', 'monero', 'XMR']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697231_1530697235.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697231_1530697235.csv in a new thread
+INFO:root:Started collecting data for ['monero', 'XMR', 'stellar', 'STR', 'dashcoin', 'DASH', 'darkcoin', 'dogecoin', 'DOGE', 'ripple', 'XRP', 'litecoin', 'LTC', 'bitcoin', 'BTC', 'ethereum', 'ETH']
+INFO:root:Keyboard interrupted. Saving whatever has been collected
+INFO:root:Saved to live/1530697244_1530697250.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697244_1530697250.csv in a new thread
+INFO:root:Started collecting data for ['dashcoin', 'DASH', 'darkcoin', 'bitcoin', 'BTC', 'dogecoin', 'DOGE', 'litecoin', 'LTC', 'monero', 'XMR', 'ripple', 'XRP', 'stellar', 'STR', 'ethereum', 'ETH']
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697332.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697332_1530697332.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697332_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697332_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+INFO:root:Saved to live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697333_1530697333.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697334_1530697334.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697334_1530697334.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697335_1530697335.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697336_1530697336.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697336_1530697336.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to live/1530697337_1530697337.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697337_1530697337.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697338_1530697338.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697338_1530697338.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697339_1530697339.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697340_1530697340.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697340_1530697340.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:Got an exception. Error is: Stream object already connected!. Saving whatever exists
+WARNING:root:420 Error
+INFO:root:Saved to live/1530697341_1530697341.csv in a new thread
+INFO:root:Saved to profiledata/live/1530697341_1530697341.csv in a new thread
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
+WARNING:root:420 Error
