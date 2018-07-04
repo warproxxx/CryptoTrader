@@ -44,24 +44,32 @@ class historicDownloader:
         
     def scrape(self, start_date, end_date, proxy, keyword, coinname):
         
-        for dt in rrule(MONTHLY, dtstart=start_date, until=end_date):
-        
-            fname = "data/{}/extracted/{}.csv".format(coinname.lower(), dt.strftime('%Y-%m-%d'))
-            final_directory = os.path.join(self.currpath, fname)                                     
+        delta = relativedelta(months=1)
+
+        while start_date <= end_date:
+            temp_start=start_date
+
+            start_date += delta
+
+            temp_end = start_date
+
+            if start_date > end_date:
+                temp_end = end_date
+            
+            fname = "data/{}/extracted/{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'))
+            final_directory = os.path.join(self.currpath, fname)     
 
             #do if file dosen't exisst
-            if not os.path.exists(final_directory):           
+            if not os.path.exists(final_directory):     
                 df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
-                begin = dt.date() - relativedelta(months=1) - relativedelta(days=1)
-                end = dt.date()
+                self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
+                selectedDays = (temp_end - temp_start).days
 
-                self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(begin, end))
+                list_of_tweets = query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays, proxies=proxy)
 
-                selectedDays = (end - begin).days
-
-                list_of_tweets = query_tweets(keyword, 10000 * selectedDays, begindate=begin, enddate=end, poolsize=selectedDays, proxies=proxy)
-
+                list_of_tweets= []
+                        
                 for tweet in list_of_tweets:
                     res_type = tweet.response_type
 
@@ -71,6 +79,10 @@ class historicDownloader:
                     df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
 
                 df.to_csv(fname, index=False)
+                
+
+        
+   
             
     def perform_scraping(self):
         proxies = get_proxies()
