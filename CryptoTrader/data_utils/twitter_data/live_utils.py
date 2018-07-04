@@ -3,7 +3,9 @@ from tweepy import OAuthHandler, Stream, API
 import time
 import json
 import pandas as pd
+import numpy as np
 import logging
+import threading
 import time
 
 class MyStreamListener(StreamListener):
@@ -11,7 +13,7 @@ class MyStreamListener(StreamListener):
     def __init__(self, logger, keywords):
         self.logger = logger
         self.api = API()
-        self.df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweets', 'in_response_to', 'response_type', 'coinname', 'debug'])
+        self.df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweets', 'in_response_to', 'response_type', 'coinname'])
         self.userData = pd.DataFrame(columns=['username', 'created', 'location', 'has_location', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified'])
         self.keywords = keywords
         self.start_time = int(time.time())
@@ -29,6 +31,8 @@ class MyStreamListener(StreamListener):
                 if hasattr(tweet, 'quoted_status'):
                     response_type = 'quoted_retweet'
                     in_response_to = tweet.quoted_status.id
+                else:
+                    in_response_to = '0'
         else:
             response_type = 'reply'
             
@@ -42,22 +46,30 @@ class MyStreamListener(StreamListener):
                 pass
 
         try:
-            tweetText = tweetText + ' <retweeted_status> ' + tweet.retweeted_status.extended_tweet['full_text'] + '</retweeted_status>'
+            tweetText = tweetText + ' <retweeted_status> ' + tweet.retweeted_status.extended_tweet['full_text'] + ' </retweeted_status>'
         except:
             try:
-                tweetText = tweetText + ' <retweeted_status> ' + tweet.retweeted_status.text + '</retweeted_status>'
+                tweetText = tweetText + ' <retweeted_status> ' + tweet.retweeted_status.text + ' </retweeted_status>'
             except:
                 pass
 
         try:
-            tweetText = tweetText + ' <quoted_status> ' + tweet.quoted_status.extended_tweet['full_text'] + '</quoted_status>'
+            tweetText = tweetText + ' <quoted_status> ' + tweet.quoted_status.extended_tweet['full_text'] + ' </quoted_status>'
         except:
             try:
-                tweetText = tweetText + ' <quoted_status> ' + tweet.quoted_status.text + '</quoted_status>'
+                tweetText = tweetText + ' <quoted_status> ' + tweet.quoted_status.text + ' </quoted_status>'
             except:
                 pass
+            
+            
+        if 'urls' in tweet.entities:
+            for url in tweet.entities['urls']:
+                try:
+                    tweetText = tweetText.replace(url['url'], url['expanded_url'])
+                except:
+                    pass
 
-        self.df = self.df.append(pd.Series({'ID': tweet.id, 'Tweet': tweetText, 'Time': tweet.created_at, 'User': tweet.user.screen_name, 'Likes': tweet.favorite_count, 'Replies': 0, 'Retweets': tweet.retweet_count, 'in_response_to': in_response_to, 'response_type': response_type, 'coinname': self.find_key(tweetText, self.keywords), 'debug': tweet}), ignore_index=True)
+        self.df = self.df.append(pd.Series({'ID': tweet.id, 'Tweet': tweetText, 'Time': tweet.created_at, 'User': tweet.user.screen_name, 'Likes': tweet.favorite_count, 'Replies': 0, 'Retweets': tweet.retweet_count, 'in_response_to': in_response_to, 'response_type': response_type, 'coinname': self.find_key(tweetText, self.keywords)}), ignore_index=True)
         has_avatar = 0 if 'default_profile_images' in tweet.user.profile_image_url else 1
         has_background = int(tweet.user.profile_use_background_image)
         has_location = int(tweet.user.geo_enabled)
@@ -71,7 +83,8 @@ class MyStreamListener(StreamListener):
         
         if self.df.shape[0] > 1000:
             self.end_time = int(time.time())  
-            liveDownloader.save_data(self.logger, self.df, self.userData, self.start_time, self.end_time) #possibly on new thread
+            t1 = threading.Thread(target=liveDownloader.save_data, args=[self.logger, self.df, self.userData, self.start_time, self.end_time])
+            t1.start()
             self.df, self.userData = self.df[:0], self.userData[:0]
             self.start_time = self.end_time
             
@@ -125,12 +138,11 @@ class liveDownloader:
         fname = "{}_{}".format(start_time, end_time)
         currpath = __file__.replace("live_utils.py", "")
         
-        df.drop('debug', axis=1).to_csv(currpath + "data/live/{}.csv".format(fname))
-        df['debug'].to_csv(currpath + "data/live/debug/{}.csv".format(fname))
-        logger.info("Saved to live/{}.csv".format(fname))
+        df.to_csv(currpath + "data/live/{}.csv".format(fname), index=False)
+        logger.info("Saved to live/{}.csv in a new thread".format(fname))
                 
-        userData.to_csv(currpath + "data/profiledata/{}.csv".format(fname))
-        logger.info("Saved to profiledata/{}.csv".format(fname))
+        userData.to_csv(currpath + "data/profiledata/{}.csv".format(fname), index=False)
+        logger.info("Saved to profiledata/{}.csv in a new thread".format(fname))
 
     def get_listener(self, access_token='852009551876431872-OfvYX17eqrPz9eERGaRVxKfkBPVALyO', access_token_secret='koQa3hgW22EsgdvseQVsj3KnYbzHc564xEVfr7lYiPGhy', consumer_key='95fyXonGGIHKgfothfbOOAM7p', consumer_secret='6KWDuC87go4CbFE6jLdRnHWGFcj2Fl9hQvdizfaiwCOdZliv49'):
         auth = OAuthHandler(consumer_key, consumer_secret)
@@ -150,7 +162,8 @@ class liveDownloader:
                 df, userData, start_time = listener.get_data()     
                 self.logger.info("Keyboard interrupted. Saving whatever has been collected")
                 
-                liveDownloader.save_data(self.logger, df, userData, start_time, int(time.time())) #possibly on new thread
+                t1 = threading.Thread(target=liveDownloader.save_data, args=[self.logger, df, userData, start_time, int(time.time())])
+                t1.start()
                 
                 return df, userData
 
@@ -160,8 +173,8 @@ class liveDownloader:
                 
                 end_time = int(time.time())
                 
-                liveDownloader.save_data(self.logger, df, userData, start_time, end_time) #possibly on new thread
-                
+                t1 = threading.Thread(target=liveDownloader.save_data, args=[self.logger, df, userData, start_time, end_time])
+                t1.start()                
                
                 listener, auth = self.get_listener()
                 myStream = Stream(auth=auth, listener=listener)
