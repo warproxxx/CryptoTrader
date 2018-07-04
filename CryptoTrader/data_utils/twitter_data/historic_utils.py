@@ -82,17 +82,23 @@ class historicDownloader:
             count = 0
 
             proxy = proxies[count]
+            
+            start_date = coinDetail['start']
+            end_date = coinDetail['end']
+            
+            delta = relativedelta(years=1)
+            
+            while start_date <= end_date:
+                temp_start=start_date
 
-            for d in range(coinDetail['start'].year, coinDetail['end'].year + 1):
+                start_date += delta
 
-                if d == 2018:
-                    self.scrape(date(d, 1, 1), coinDetail['end'], proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
-                else:
-                    if count == 0:
-                        self.scrape(coinDetail['start'], date(d, 12, 31), proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
-                    else:
-                        self.scrape(date(d, 1, 1), date(d, 12, 31), proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
+                temp_end = start_date
 
+                if start_date > end_date:
+                    temp_end = end_date
+                
+                self.scrape(temp_start, temp_end, proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
                 count +=1
 
                 if (count >= proxySize):
@@ -139,7 +145,7 @@ class historicDownloader:
                         
                 tweetDf.to_csv("{}/missing.csv".format(fullPath), index=False)
                     
-class otherUtils:
+class historicUtils:
     
     def __init__(self, detailsList):
         self.detailsList = detailsList
