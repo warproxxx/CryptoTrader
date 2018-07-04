@@ -175,7 +175,8 @@ class historicDownloader:
                 
                         if (tweet.reply_to_id == '0'):
                             res_type='tweet'
-                            
+                        
+                        #convert to timestamp
                         tweetDf = tweetDf.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': res_type}, ignore_index=True)
                         
                 tweetDf.to_csv("{}/missing.csv".format(fullPath), index=False)

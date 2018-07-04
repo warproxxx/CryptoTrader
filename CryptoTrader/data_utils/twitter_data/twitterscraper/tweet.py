@@ -74,7 +74,7 @@ class Tweet:
             pass
         
         try:
-            timestamp=datetime.utcfromtimestamp(int(tweet.find('span', '_timestamp')['data-time']))
+            timestamp = int(tweet.find('span', '_timestamp')['data-time'])
         except:
             pass
         
