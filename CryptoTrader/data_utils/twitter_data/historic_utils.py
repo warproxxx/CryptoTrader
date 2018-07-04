@@ -42,9 +42,9 @@ class historicDownloader:
         self.detailsList = detailsList
         self.currpath = __file__.replace('/historic_utils.py', '')
         
-    def scrape(self, start_date, end_date, proxy, keyword, coinname):
-        
+    def scrape(self, start_date, end_date, form, proxy, keyword, coinname):                                         
         delta = relativedelta(months=1)
+        dic = {}
 
         while start_date <= end_date:
             temp_start=start_date
@@ -65,10 +65,9 @@ class historicDownloader:
 
                 self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
                 selectedDays = (temp_end - temp_start).days
-
+                
+                list_of_tweets = []
                 list_of_tweets = query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays, proxies=proxy)
-
-                list_of_tweets= []
                         
                 for tweet in list_of_tweets:
                     res_type = tweet.response_type
@@ -77,16 +76,30 @@ class historicDownloader:
                         res_type='tweet'
 
                     df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
-
-                df.to_csv(fname, index=False)
                 
+                if form == "save":
+                    df.to_csv(fname, index=False)
+                else:
+                    dic[temp_start.strftime("%Y-%m-%d")] = df
 
+        if form == "return":
+            return dic
+                
+                
+    def perform_scraping(self, form = "save"):
+        '''
+        Parameters:
+        ___________
+     
+        form (string):
+        If set to save, the data will be saved to pandas dataframe.
+        If set to return, the data will be returned as dictionary
+        '''
         
-   
-            
-    def perform_scraping(self):
         proxies = get_proxies()
         proxySize = len(proxies)
+        
+        all_data = {}
 
         for coinDetail in self.detailsList:
             self.logger.info("Scraping {} Data".format(coinDetail['coinname']))
@@ -99,6 +112,7 @@ class historicDownloader:
             end_date = coinDetail['end']
             
             delta = relativedelta(years=1)
+            tData = {}
             
             while start_date <= end_date:
                 temp_start=start_date
@@ -110,12 +124,21 @@ class historicDownloader:
                 if start_date > end_date:
                     temp_end = end_date
                 
-                self.scrape(temp_start, temp_end, proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
+                if form == "save":
+                    self.scrape(temp_start, temp_end, form, proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname'])
+                elif form == "return":
+                    tData.update(self.scrape(temp_start, temp_end, form, proxy=proxy, keyword=coinDetail['keyword'], coinname=coinDetail['coinname']))
+                    
                 count +=1
 
                 if (count >= proxySize):
                     count = 0
-                    
+            
+            all_data[coinDetail['coinname']] = tData
+            
+        if form == "return":
+            return all_data
+            
         def get_missing_days(self, df, freq=24):
             df['Time'] = pd.to_datetime(df['Time'])
 
