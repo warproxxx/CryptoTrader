@@ -60,7 +60,7 @@ class historicDownloader:
             final_directory = os.path.join(self.currpath, fname)     
 
             #do if file dosen't exisst
-            if not os.path.exists(final_directory):     
+            if not os.path.exists(final_directory):
                 df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
                 self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
