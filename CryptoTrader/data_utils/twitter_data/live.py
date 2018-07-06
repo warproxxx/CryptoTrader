@@ -19,20 +19,39 @@ import argparse
 import logging
 logging.basicConfig(filename=__file__.replace('live.py', 'logs/live.txt'),level=logging.INFO)
 
-keywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
-
-
-def live_download():
-    global keywords
-    logging.info("Live data collector started on new thread")
+class liveManager():
+    def __init__(self, keywords= {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}):
+        self.keywords = keywords
+        self.coins = [key for key, value in keywords.items()]
+        self.currdir = os.path.realpath(__file__).replace("/live.py", "")    
     
-    ld = liveDownloader(keywords)
-    df, userData = ld.collect()
-    
-    logging.info("Live data collector thread closed")
+    def live_download(self):
+        logging.info("Live data collector started on new thread")
 
-def create_folder_structure():
-    
+        ld = liveDownloader(self.keywords)
+        df, userData = ld.collect()
+
+        logging.info("Live data collector thread closed")
+
+    def create_directory_structure(self):
+
+        for coinname in self.coins:
+            print("{}/data/tweet/{}".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live".format(self.currdir, coinname))
+            
+            print("{}/data/tweet/{}/live_storage".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live_storage/interpreted".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live_storage/interpreted/features".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live_storage/interpreted/network".format(self.currdir, coinname))
+            print("{}/data/tweet/{}/live_storage/archive".format(self.currdir, coinname))
+                        
+            print("{}/data/tweet/{}/historic_scrape".format(self.currdir, coinname))
+            
+
+    def remove_directory_structure(self):
+        for coinname in self.coins:
+            print("{}/data/tweet/{}".format(self.currdir, coinname))
     
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
@@ -40,6 +59,7 @@ if __name__=="__main__":
     parser.print_help()
     
     options = parser.parse_args()
+    lm = liveManager()
     
     if options.clean:
         lu = liveUtils(keywords)
@@ -48,10 +68,11 @@ if __name__=="__main__":
         lu.deleteFiles()
         hu.deleteFiles()
     else:
-        logging.info("Starting a new thread to run the live data collector")
+        lm.create_directory_structure()
+#         logging.info("Starting a new thread to run the live data collector")
 
-        t1 = threading.Thread(target=live_download)
-        t1.start()
+#         t1 = threading.Thread(target=lm.live_download)
+#         t1.start()
 
 #wait for 3 hours
 
