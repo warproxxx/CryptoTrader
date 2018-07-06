@@ -4,4 +4,4 @@
 geckodriver.log
 ghostdriver.log
 CryptoTrader/data_utils/tradingview_data/data/*
-CryptoTrader/data_utils/twitter_data/data/*
+#CryptoTrader/data_utils/twitter_data/data/*

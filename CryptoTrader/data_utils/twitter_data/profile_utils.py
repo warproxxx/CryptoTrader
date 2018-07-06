@@ -20,7 +20,7 @@ class profileDownloader:
             logger.basicConfig = logging.basicConfig(filename=__file__.replace('profile_utils.py', 'logs/profile_logs.txt'),level=logging.INFO)
             
         self.logger=logger
-        self.currpath = __file__.replace('/profile_utils.py', '')
+        self.path = __file__.replace('/profile_utils.py', '/data/profile/live')
         
         
     def profiles_to_pandas(self, profiles):
@@ -33,9 +33,9 @@ class profileDownloader:
 
             userDf = userDf.append({'username':profile.username, 'location':profile.location, 'has_location':profile.has_location, 'created':profile.created, 'is_verified':profile.is_verified, 'total_tweets':profile.total_tweets, 'total_following':profile.total_following, 'total_followers':profile.total_followers, 'total_likes':profile.total_likes, 'total_moments':profile.total_moments, 'total_lists':profile.total_lists, 'has_avatar':profile.has_avatar, 'has_background':profile.has_background, 'is_protected':profile.is_protected, 'profile_modified':profile.profile_modified}, ignore_index=True)
 
-        tweetDf = tweetDf.to_csv(self.currpath + '/data/profiledata/userTweets.csv', index=None, mode='a')
-        userDf['username'].to_csv(self.currpath + '/data/profiledata/extractedUsers.csv', index=None, mode='a')
-        userDf.to_csv(self.currpath + '/data/profiledata/userData.csv', index=None, mode='a')
+        tweetDf = tweetDf.to_csv(self.path + '/userTweets.csv', index=None, mode='a')
+        userDf['username'].to_csv(self.path + '/extractedUsers.csv', index=None, mode='a')
+        userDf.to_csv(self.path + '/userData.csv', index=None, mode='a')
 
         self.logger.info("Saved to userTweets.csv and extractedUsers.csv")
         
@@ -53,10 +53,10 @@ class profileDownloader:
         proxySize = len(proxies)
 
         try:
-            alreadyRead = pd.read_csv(self.currpath + '/data/profiledata/extractedUsers.csv', header=None)[0]
+            alreadyRead = pd.read_csv(self.path + '/extractedUsers.csv', header=None)[0]
         except FileNotFoundError:
             self.logger.info("Already extracted users not found - Starting from a clean slate")
-            os.mknod(self.currpath + "/data/profiledata/extractedUsers.csv")
+            os.mknod(self.path + "/extractedUsers.csv")
             alreadyRead = pd.Series()
 
 
@@ -91,23 +91,20 @@ class profileUtils:
             logger.basicConfig = logging.basicConfig(filename=__file__.replace('profile_utils.py', 'logs/profile_logs.txt'),level=logging.INFO)
         
         self.logger=logger
-        
-    def print_details(self):
-        allUsers = pd.DataFrame()
-
-        for files in glob(self.currpath + "/data/*"):
-            if (os.path.exists(files + "/extracted")):
-                fname = files + "/extracted/combined.csv"
-                tDf = pd.read_csv(fname)
-                print("Reading from {}".format(fname))
-                allUsers = pd.concat([allUsers, tDf['User']]) 
                 
     @numba.jit
     def clean_files(self):
-        userData = pd.read_csv(self.currpath + "/data/profiledata/userData.csv", low_memory=False)
+        userData = pd.read_csv(self.currpath + "/data/profile/live/userData.csv", low_memory=False)
+        
+        try:
+            #concat previous value
+            pass
+        except:
+            pass
+        
         self.logger.info("User Data Read")
         
-        userTweets = pd.read_csv(self.currpath + "/data/profiledata/userTweets.csv", low_memory=False)
+        userTweets = pd.read_csv(self.currpath + "/data/profile/live/userTweets.csv", low_memory=False)
         self.logger.info("User Tweets Read")
         
         userTweets = userTweets.rename(columns={'User': 'username'})
@@ -125,14 +122,21 @@ class profileUtils:
         
         self.logger.info("All done saving")
         
+        
         newuserData.to_csv(self.currpath + "/data/profiledata/userData.csv", index=None)
-        self.logger.info("userData.csv has been updated")
+        self.logger.info("userData.csv has been updated and moved")
+        os.remove(self.currpath + "/data/profile/live/userData.csv")
+        self.logger.info("Deleting userData.csv in the live folder")
         
         newuserTweets.to_csv(self.currpath + "/data/profiledata/userTweets.csv", index=None)
-        self.logger.info("userTweets.csv has been updated")
+        self.logger.info("userTweets.csv has been updated and moved")
+        os.remove(self.currpath + "/data/profile/live/userTweets.csv")
+        self.logger.info("Deleting userTweets.csv in the live folder")
         
         newuserData['username'].to_csv(self.currpath + "/data/profiledata/extractedUsers.csv", index=None)
         self.logger.info("extractedUsers.csv has been updated")
+        os.remove(self.currpath + "/data/profile/live/extractedUsers.csv")
+        self.logger.info("Deleting extractedUsers.csv in the live folder")
         
     def age_to_created():
         userData = pd.read_csv(self.currpath  + '/data/profiledata/userData.csv')

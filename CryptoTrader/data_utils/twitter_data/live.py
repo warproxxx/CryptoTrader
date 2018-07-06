@@ -8,6 +8,7 @@ import time
 
 import os
 from glob import glob
+import shutil
 
 import threading
 
@@ -36,22 +37,27 @@ class liveManager():
     def create_directory_structure(self):
 
         for coinname in self.coins:
-            print("{}/data/tweet/{}".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/live".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/live if it dosen't exist".format(self.currdir, coinname))
             
-            print("{}/data/tweet/{}/live_storage".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live_storage/interpreted".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live_storage/interpreted/features".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live_storage/interpreted/network".format(self.currdir, coinname))
-            print("{}/data/tweet/{}/live_storage/archive".format(self.currdir, coinname))
-                        
-            print("{}/data/tweet/{}/historic_scrape".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/historic_scrape".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/historic_scrape if it dosen't exist".format(self.currdir, coinname))
             
-
+            os.makedirs("{}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/live_storage/interpreted/features".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/live_storage/interpreted/features".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/live_storage/interpreted/network".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/live_storage/interpreted/network".format(self.currdir, coinname))
+            
+            os.makedirs("{}/data/tweet/{}/live_storage/archive".format(self.currdir, coinname), exist_ok=True)       
+            logging.info("Recreating path {}/data/tweet/{}/live_storage/archive".format(self.currdir, coinname))
+            
     def remove_directory_structure(self):
         for coinname in self.coins:
-            print("{}/data/tweet/{}".format(self.currdir, coinname))
+            logging.info("Removing {}/data/tweet/{}".format(self.currdir, coinname))
+            shutil.rmtree("{}/data/tweet/{}".format(self.currdir, coinname))
+            
     
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
@@ -68,7 +74,7 @@ if __name__=="__main__":
         lu.deleteFiles()
         hu.deleteFiles()
     else:
-        lm.create_directory_structure()
+        lm.remove_directory_structure()
 #         logging.info("Starting a new thread to run the live data collector")
 
 #         t1 = threading.Thread(target=lm.live_download)

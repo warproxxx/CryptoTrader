@@ -43,3 +43,11 @@ INFO:root:Started collecting data for ['stellar', 'STR', 'dashcoin', 'DASH', 'da
 INFO:root:Starting a new thread to run the live data collector
 INFO:root:Live data collector started on new thread
 INFO:root:Started collecting data for ['ripple', 'XRP', 'litecoin', 'LTC', 'ethereum', 'ETH', 'monero', 'XMR', 'stellar', 'STR', 'dogecoin', 'DOGE', 'dashcoin', 'DASH', 'darkcoin', 'bitcoin', 'BTC']
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/ethereum
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/bitcoin
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/monero
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/dashcoin
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/ripple
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/stellar
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/dogecoin
+INFO:root:Removing /home/shresthanikesh23/jupyter/CryptoTraderRemote/CryptoTrader/data_utils/twitter_data/data/tweet/litecoin
