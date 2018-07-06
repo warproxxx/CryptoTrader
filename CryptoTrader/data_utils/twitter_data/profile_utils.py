@@ -101,15 +101,15 @@ class profileUtils:
         except:
             pass
         
-        try:
-            #concat previous value
-            pass
-        except:
-            pass
-        
         self.logger.info("User Data Read")
         
         userTweets = pd.read_csv(self.currpath + "/data/profile/live/userTweets.csv", low_memory=False)
+        
+        try:
+            userTweets=pd.concat([userTweets, pd.read_csv(self.currpath + "/data/profile/storage/raw/userTweets.csv", low_memory=False)])
+        except:
+            pass
+        
         self.logger.info("User Tweets Read")
         
         userTweets = userTweets.rename(columns={'User': 'username'})
@@ -142,13 +142,3 @@ class profileUtils:
         self.logger.info("extractedUsers.csv has been updated")
         os.remove(self.currpath + "/data/profile/live/extractedUsers.csv")
         self.logger.info("Deleting extractedUsers.csv in the live folder")
-        
-    def age_to_created():
-        userData = pd.read_csv(self.currpath  + '/data/profiledata/userData.csv')
-        userData['age'] = pd.to_numeric(userData['age'], errors='coerce').fillna(0).astype(int)
-
-        userData.insert(1, 'created', 0)
-        userData['created'] = userData['age'].apply(lambda x: (datetime.now() - timedelta(days=int(x))).strftime("%Y-%m-%d"))
-        userData = userData.drop('age', axis=1)
-        userData = userData.drop('tweets', axis=1)
-        return userData
