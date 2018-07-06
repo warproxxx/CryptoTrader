@@ -56,7 +56,7 @@ class historicDownloader:
             if start_date > end_date:
                 temp_end = end_date
             
-            fname = "data/{}/extracted/{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'))
+            fname = "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d'))
             final_directory = os.path.join(self.currpath, fname)     
 
             #do if file dosen't exisst
@@ -138,94 +138,63 @@ class historicDownloader:
             
         if form == "return":
             return all_data
-            
-        def get_missing_days(self, df, freq=24):
-            df['Time'] = pd.to_datetime(df['Time'])
-
-            new = pd.DataFrame(columns=['Time', 'Frequency'])
-
-            new['Time'] = df['Time']
-            new['Frequency'] = 1
-
-            new.set_index('Time', inplace = True)
-            per_24 = new['Frequency'].resample('{}H'.format(freq)).sum().fillna(0)
-            miss_dates = per_24[per_24 == 0].index
-            return miss_dates
-        
-        def fill_missing_days():
-            for fullPath in otherUtils.get_paths():
-                coinName = fullPath.split("/")[-2]
-                self.logger.info(coinName)
-
-                df = pd.read_csv('{}/combined.csv'.format(fullPath))
-                miss_dates = get_missing_days(miss_dates)
-
-                tweetDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
-
-                for dates in miss_dates:
-                    date_from = dates - pd.DateOffset(days=2) #might wanna make it 2
-                    date_to = dates + pd.DateOffset(days=2)
-
-                    self.logger.info("{} to {}".format(date_from.date(), date_to.date()))
-
-                    list_of_tweets = query_tweets(coinName, 10000, begindate=date_from.date(), enddate=date_to.date(), poolsize=4)
-
-                    for tweet in list_of_tweets:
-                        res_type = tweet.response_type
-                
-                        if (tweet.reply_to_id == '0'):
-                            res_type='tweet'
-                        
-                        #convert to timestamp
-                        tweetDf = tweetDf.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': res_type}, ignore_index=True)
-                        
-                tweetDf.to_csv("{}/missing.csv".format(fullPath), index=False)
                     
 class historicUtils:
-    
-    def __init__(self, detailsList):
+    def __init__(self, detailsList, logger=None):
+        
+        if logger == None:
+            logger = logging.getLogger()
+            logger.basicConfig = logging.basicConfig(filename=__file__.replace('historic_utils.py', 'logs/historic_logs.txt'),level=logging.INFO)
+            
+        self.logger = logger
+        
         self.detailsList = detailsList
         self.currpath = __file__.replace('/historic_utils.py', '')
-    
-    def fix_paths(self):
         
-        '''
-        A particular folder structure is needed to save the data. This methods creates that for given coins        
-        '''
+        self.rawpaths = []
         
-        for coinDetail in self.detailsList:
-            final_directory = os.path.join(self.currpath + "/data", coinDetail['coinname'].lower())
-
-            if not os.path.exists(final_directory):
-                os.makedirs(final_directory)
-
-            if not os.path.exists(final_directory + "/extracted"):
-                os.makedirs(final_directory + "/extracted")
-                  
+        self.coinKeywords = {}
+        
+        for coin in self.detailsList:
+            self.rawpaths.append(self.currpath + "/tweet/{}/historic_scrape/raw".format(coin['coinname']))
+            self.coinKeywords[coin['coinname']] = coin['keyword']
+                 
+                
     def deleteFiles(self):
         '''
         Deletes the extracted data for given coins
         '''
-        for coinDetail in self.detailsList:
- 
-            final_directory = os.path.join(self.currpath + "/data", coinDetail['coinname'].lower()) + "/extracted/*"
-
-            for f in glob(final_directory):
-                print("Deleting {}".format(f))
+        for path in self.rawpaths:
+            
+            for f in glob(path + "/*"):
+                self.logger.info("Deleting {}".format(f))
                 os.remove(f)
-   
-    def get_paths(self):
-        dirs = glob("{}/*/".format(self.currpath + "/data"))
-        validPath = []
+                
+    def merge_data(self):
+        '''
+        Merges the data across different files and converts it into combined.csv
+        '''
 
-        for directory in dirs:
-            fullPath = directory + "extracted"
+        for path in self.rawpaths:
+            fullDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
-            if (os.path.exists(fullPath)):
-                validPath.append(fullPath)
+            writeFile = fullPath + "/" + "combined.csv"
 
-        return validPath
-    
+            if (os.path.isfile(writeFile)):
+                os.remove(writeFile)
+
+            for file in os.listdir(path):
+                csv = fullPath + "/" + file
+
+                if (".csv" in csv):
+                    df = pd.read_csv(csv, engine='python')
+                    fullDf = pd.concat([fullDf, df])
+                    logging.info("Concating {}".format(csv))
+
+            fullDf = self.clean_data(fullDf)
+            fullDf.to_csv(writeFile, index=False)
+            
+            
     def clean_data(self, fullDf):
         fullDf = fullDf.reset_index(drop=True)
         fullDf = fullDf.replace(np.inf, np.nan)
@@ -238,39 +207,42 @@ class historicUtils:
 
         return fullDf
     
-    def merge_data(self):
-        for fullPath in self.get_paths():
-            coinName = fullPath.split("/")[-2]
+    def get_missing_days(self, df, freq=24):
+        df['Time'] = pd.to_datetime(df['Time'])
 
-            fullDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
-            writeFile = fullPath + "/" + "combined.csv"
+        new = pd.DataFrame(columns=['Time', 'Frequency'])
 
-            if (os.path.isfile(writeFile)):
-                os.remove(writeFile)
+        new['Time'] = df['Time']
+        new['Frequency'] = 1
 
-            for file in os.listdir(fullPath):
-                csv = fullPath + "/" + file
-
-                if (".csv" in csv):
-                    df = pd.read_csv(csv, engine='python')
-                    print(file)
-                    fullDf = pd.concat([fullDf, df[['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type']]])
-
-            fullDf = clean_data(fullDf)
-            fullDf.to_csv(writeFile, index=False)
+        new.set_index('Time', inplace = True)
+        per_24 = new['Frequency'].resample('{}H'.format(freq)).sum().fillna(0)
+        miss_dates = per_24[per_24 == 0].index
+        return miss_dates
+    
+    def fill_missing_days(self):
+        newDetail = []
+        
+        for fullPath in self.rawpaths:
+            coinName = fullPath.split("/")[-3]
             
+            df = pd.read_csv('{}/combined.csv'.format(fullPath))
+            miss_dates = self.get_missing_days(df)
+
+            tweetDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
+
+            for dates in miss_dates:
+                date_from = dates - pd.DateOffset(days=2)
+                date_to = dates + pd.DateOffset(days=2)
             
-    def merge_missing(self):
-        for fullPath in self.get_paths():
-            coinName = fullPath.split("/")[-2]
-
-            df = pd.read_csv('{}/combined.csv'.format(fullPath), engine='python')
-            missing = pd.read_csv('{}/missing.csv'.format(fullPath), engine='python')[['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type']]
-
-            combined = pd.concat([df,missing])
-            newDf = clean_data(combined)
-
-            newDf.to_csv('{}/combined.csv'.format(fullPath), index=False)
-            print("New Data Written to combined.csv")
-            os.remove('{}/missing.csv'.format(fullPath))
-            print("missing.csv removed")
+                newDetail.append({'coinname': coinName, 'start': date_from, 'end': date_to})
+        
+        #merging same dates dosen't seem necessary. But this can be optimized that way
+        
+        for i, detail in enumerate(newDetails):
+            tDic = newDetail[i]
+            tDic['keyword'] = self.coinKeywords[detail['coinname']]
+            newDetail[i] = tDic
+        
+        hu = historicDownloader()
+        hu.perform_scraping()

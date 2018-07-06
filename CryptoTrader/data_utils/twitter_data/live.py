@@ -45,8 +45,11 @@ class liveManager():
             os.makedirs("{}/data/tweet/{}/live".format(self.currdir, coinname), exist_ok=True)
             logging.info("Recreating path {}/data/tweet/{}/live if it dosen't exist".format(self.currdir, coinname))
             
-            os.makedirs("{}/data/tweet/{}/historic_scrape".format(self.currdir, coinname), exist_ok=True)
-            logging.info("Recreating path {}/data/tweet/{}/historic_scrape if it dosen't exist".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/historic_scrape/raw".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/historic_scrape/raw if it dosen't exist".format(self.currdir, coinname))
+            os.makedirs("{}/data/tweet/{}/historic_scrape/interpreted".format(self.currdir, coinname), exist_ok=True)
+            logging.info("Recreating path {}/data/tweet/{}/historic_scrape/interpreted if it dosen't exist".format(self.currdir, coinname))
+            
             
             os.makedirs("{}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname), exist_ok=True)
             logging.info("Recreating path {}/data/tweet/{}/live_storage/interpreted/top_raw".format(self.currdir, coinname))

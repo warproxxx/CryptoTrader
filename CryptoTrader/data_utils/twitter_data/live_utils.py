@@ -145,19 +145,21 @@ class liveDownloader:
             
         self.logger = logger
         
-        
         self.keywords = keywords
         self.keywordsOnly = [value for key, values in keywords.items() for value in values]
+        self.coins = [key for key, value in keywords.items()]
         
     def save_data(logger, df, userData, start_time, end_time):
         fname = "{}_{}".format(start_time, end_time)
-        currpath = __file__.replace("live_utils.py", "")
+        currpath = __file__.replace("/live_utils.py", "")
         
-        df.to_csv(currpath + "data/live/{}.csv".format(fname), index=False)
-        logger.info("Saved to live/{}.csv in a new thread".format(fname))
-                
-        userData.to_csv(currpath + "data/profiledata/live/{}.csv".format(fname), index=False)
-        logger.info("Saved to profiledata/live/{}.csv in a new thread".format(fname))
+        for coinname in self.coins:
+            tDf = df[df['coinname'] == coinname].drop('coinname', axis=1)
+            tDf.to_csv(currpath + "/data/tweet/{}/live/{}.csv".format(coinname, fname), index=False)
+            logger.info("Saved to /data/tweet/{}/live/{}.csv in a new thread".format(coinname, fname))
+            
+        userData.to_csv(currpath + "/data/profile/live/{}.csv".format(fname), index=False)
+        logger.info("Saved to data/profile/live/{}.csv in a new thread".format(fname))
 
     def get_listener(self, access_token='852009551876431872-OfvYX17eqrPz9eERGaRVxKfkBPVALyO', access_token_secret='koQa3hgW22EsgdvseQVsj3KnYbzHc564xEVfr7lYiPGhy', consumer_key='95fyXonGGIHKgfothfbOOAM7p', consumer_secret='6KWDuC87go4CbFE6jLdRnHWGFcj2Fl9hQvdizfaiwCOdZliv49'):
         auth = OAuthHandler(consumer_key, consumer_secret)
@@ -199,15 +201,18 @@ class liveUtils:
     def __init__(self, keywords):
         self.keywords = keywords
         self.currpath = __file__.replace('/live_utils.py', '')
+        self.coins = [key for key, value in keywords.items()]
         
     def deleteFiles(self):
-        tweetDir = glob("{}/data/live/*".format(self.currpath))
-        profileDir = glob("{}/data/profiledata/live/*".format(self.currpath))
-        
-        for file in tweetDir:
-            print("Deleting {}".format(file))
-            os.remove(file)
+        profileDir = glob("{}/data/profile/live/*".format(self.currpath))
             
         for file in profileDir:
             print("Deleting {}".format(file))
             os.remove(file)
+        
+        for coin in self.coins:
+            tweetDir = glob("{}/data/tweet/{}/live/*".format(self.currpath, coin))
+
+            for file in tweetDir:
+                print("Deleting {}".format(file))
+                os.remove(file)
