@@ -1,13 +1,20 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream, API
+
 import time
 from datetime import datetime
+
 import json
 import pandas as pd
 import numpy as np
-import logging
+
 import threading
-import time
+
+from glob import glob
+import os
+
+import logging
+
 
 class MyStreamListener(StreamListener):
 
@@ -77,9 +84,7 @@ class MyStreamListener(StreamListener):
             timeInt = int(time.mktime(tweet.created_at.timetuple()))
         except:
             pass
-        
-        print(timeInt)
-        
+                
         self.df = self.df.append(pd.Series({'ID': tweet.id, 'Tweet': tweetText, 'Time': timeInt, 'User': tweet.user.screen_name, 'Likes': tweet.favorite_count, 'Replies': 0, 'Retweets': tweet.retweet_count, 'in_response_to': in_response_to, 'response_type': response_type, 'coinname': self.find_key(tweetText, self.keywords)}), ignore_index=True)
         has_avatar = 0 if 'default_profile_images' in tweet.user.profile_image_url else 1
         has_background = int(tweet.user.profile_use_background_image)
@@ -121,7 +126,6 @@ class MyStreamListener(StreamListener):
         if status_code == 420:
             self.logger.warning('420 Error')
             return False
-
 
 class liveDownloader:
 
@@ -168,7 +172,7 @@ class liveDownloader:
         self.logger.info("Started collecting data for {}".format(self.keywordsOnly))
         while True:
             try:
-                myStream.filter(track=self.keywordsOnly, languages=['en'], async=True)
+                myStream.filter(track=self.keywordsOnly, languages=['en'])
             except KeyboardInterrupt:
                 df, userData, start_time = listener.get_data()     
                 self.logger.info("Keyboard interrupted. Saving whatever has been collected")
@@ -189,3 +193,21 @@ class liveDownloader:
                
                 listener, auth = self.get_listener()
                 myStream = Stream(auth=auth, listener=listener)
+                
+                
+class liveUtils:
+    def __init__(self, keywords):
+        self.keywords = keywords
+        self.currpath = __file__.replace('/live_utils.py', '')
+        
+    def deleteFiles(self):
+        tweetDir = glob("{}/data/live/*".format(self.currpath))
+        profileDir = glob("{}/data/profiledata/live/*".format(self.currpath))
+        
+        for file in tweetDir:
+            print("Deleting {}".format(file))
+            os.remove(file)
+            
+        for file in profileDir:
+            print("Deleting {}".format(file))
+            os.remove(file)

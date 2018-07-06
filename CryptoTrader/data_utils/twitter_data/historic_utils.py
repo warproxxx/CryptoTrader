@@ -99,12 +99,12 @@ class historicDownloader:
         proxies = get_proxies()
         proxySize = len(proxies)
         
-        all_data = {}
+        all_data = {}        
+        count = 0
 
         for coinDetail in self.detailsList:
             self.logger.info("Scraping {} Data".format(coinDetail['coinname']))
             self.logger.info("Starting Year: {} Ending Year: {}".format(coinDetail['start'].year, coinDetail['end'].year))
-            count = 0
 
             proxy = proxies[count]
             
@@ -202,7 +202,7 @@ class historicUtils:
             if not os.path.exists(final_directory + "/extracted"):
                 os.makedirs(final_directory + "/extracted")
                   
-    def delete_files(self):
+    def deleteFiles(self):
         '''
         Deletes the extracted data for given coins
         '''
