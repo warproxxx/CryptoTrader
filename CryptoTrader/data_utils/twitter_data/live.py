@@ -35,7 +35,12 @@ class liveManager():
         logging.info("Live data collector thread closed")
 
     def create_directory_structure(self):
-
+        logging.info("Creating profile directories in case they don't exist".format(self.currdir, coinname))
+        
+        os.makedirs("{}/data/profile/storage/raw".format(self.currdir), exist_ok=True)
+        os.makedirs("{}/data/profile/storage/interpreted".format(self.currdir), exist_ok=True)
+        os.makedirs("{}/data/profile/live".format(self.currdir), exist_ok=True)
+        
         for coinname in self.coins:
             os.makedirs("{}/data/tweet/{}/live".format(self.currdir, coinname), exist_ok=True)
             logging.info("Recreating path {}/data/tweet/{}/live if it dosen't exist".format(self.currdir, coinname))

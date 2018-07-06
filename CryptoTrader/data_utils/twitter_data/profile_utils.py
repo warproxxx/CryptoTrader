@@ -97,6 +97,11 @@ class profileUtils:
         userData = pd.read_csv(self.currpath + "/data/profile/live/userData.csv", low_memory=False)
         
         try:
+            userData=pd.concat([userData, pd.read_csv(self.currpath + "/data/profile/storage/raw/userData.csv", low_memory=False)])
+        except:
+            pass
+        
+        try:
             #concat previous value
             pass
         except:
@@ -123,17 +128,17 @@ class profileUtils:
         self.logger.info("All done saving")
         
         
-        newuserData.to_csv(self.currpath + "/data/profiledata/userData.csv", index=None)
+        newuserData.to_csv(self.currpath + "/data/profile/storage/raw/userData.csv", index=None)
         self.logger.info("userData.csv has been updated and moved")
         os.remove(self.currpath + "/data/profile/live/userData.csv")
         self.logger.info("Deleting userData.csv in the live folder")
         
-        newuserTweets.to_csv(self.currpath + "/data/profiledata/userTweets.csv", index=None)
+        newuserTweets.to_csv(self.currpath + "/data/profile/storage/raw/userTweets.csv", index=None)
         self.logger.info("userTweets.csv has been updated and moved")
         os.remove(self.currpath + "/data/profile/live/userTweets.csv")
         self.logger.info("Deleting userTweets.csv in the live folder")
         
-        newuserData['username'].to_csv(self.currpath + "/data/profiledata/extractedUsers.csv", index=None)
+        newuserData['username'].to_csv(self.currpath + "/data/profile/storage/raw/extractedUsers.csv", index=None)
         self.logger.info("extractedUsers.csv has been updated")
         os.remove(self.currpath + "/data/profile/live/extractedUsers.csv")
         self.logger.info("Deleting extractedUsers.csv in the live folder")
