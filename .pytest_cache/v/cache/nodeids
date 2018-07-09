@@ -1,1 +1,3 @@
-[]
+[
+  "CryptoTrader/CryptoScraper/tests/test_cryptoDownloader.py::TestcryptoDownloader::()::test_download"
+]

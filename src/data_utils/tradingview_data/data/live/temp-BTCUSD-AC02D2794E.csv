@@ -1,0 +1,67 @@
+Time Stamp,Username,Topic,Text,Direction,Views,Cmt.Num,Like
+1530883315.0,Panoukla,Creating of a cross on week chart,"
+It looks like we are watching the creation of a stop cross as it happened before in all major direction shifts. It is visible on the weekly chart.
+",Long,50,0,1
+1530882531.0,Quantamize,Bittrex partnering with Invest.com AI/ML,"
+    US cryptocurrency firm, Bittrex is joining London FinTech firm invest.com to launch a new cryptocurrency trading platform that is focused on the European market. Bittrex tweeted this announcement saying it will “launch a digital platform that will initially focus on EU customers”. Bittrex has consistently been one of the top cryptocurrency exchanges over the past couple of years. While the initial focus will be on EU customers in the beginning, Bittrex will be expanding services to other global markets. 
+
+The AI Machine Learning 3-Day Crypto Signal for  BTC 0.47%  is Buy and was published yesterday morning. Learn how to use ML 3-Day signals when trading cryptos. The average accuracy score for the Machine Learning algorithms for  BTC 0.47%  is 62.28% 
+
+",Long,21,0,0
+1530882169.0,SBInvest,Bitcoin inverted H&S scenario,"
+Inverted  H&S  scenario for  BTC 0.47% . 
+Shorted at 6750, target around 6300. 
+
+I will open a long position in the green buy box. 
+If this scenario plays out the inverted  H&S  should bring us in the 7000's 
+The red box is my maximum target before another correction and another possible inverted  H&S 
+",,31,0,2
+1530881325.0,fvb,"Automatic trading in the markets, is it worth it to waste time?","
+Software-designers and trading robots 
+
+The concept itself allows you to assemble standard bots from available indicators. Similar systems have already been presented in different versions on mql (fx robots). 
+
+You can collect from a set of 3-4x indicators of  technical analysis  ( RSI ,  CMO 0.16% ,  MACD , AO and others). But, as practice says, with the exception of arbitration robots and ""night owls"" (pipsovshchikov), steadily profitable (without constant regular optimization and adjustments for each market), I have not met or heard. 
+
+There are several reasons for this. 
+
+One of the main - in the market there are 3 types of date - time, price,  volume . The bot on the  technical analysis  uses only 1 date (price). Time is almost not used (and this is important!). About the  volume  in general, almost do not talk and do not investigate (often confused with teak with ordinary, look at the  volume  only on one site - the similarity of ECN, does not track the  volume  from the point of view of market makers (namely, they move the market), does not look at the  futures  market sensitive and there sit major players), etc.) 
+
+Abrighting bots require a small ping and processing speed (hence the placement in the data centers closer to the trading floors - significant costs), night pipsovschiki give a small  volume  of transactions - a small liquidity. 
+On the crypto-currency market, only arbitrators normally work. 
+
+In designers, as a rule, there are no options to watch several pairs at the same time, different timeframes, options for management, risk calculations, a system for tracking current positions with a decision block for refilling / averaging / closing part of the pose / hedging / locking. There are no opportunities to create composite indicators, there are no indicators for cluster analysis and market profile. 
+
+It is not necessary to talk about optimization of indicators parameters (you need a genetic algorithm, at least one, by random (Monte-Carlo), simple search). + You also need to know the methods for selecting parameters for optimization and ways to determine the parameter displacements of parameters through pre- and forward-tests. Many trading terminals provide an opportunity to optimize and it helps very much. 
+
+In special programs (such as MATHLAB, NeuroShell), there are such possibilities. Some advantages can be given by the development of neural networks (I did not go further than percetrotons - I do not have enough knowledge + serious matchmaking is needed) 
+
+Therefore, to collect a robot (and the development of the terminal will take some time - to hope that it will be immediately on the move), just lost the meaning. 
+
+So is it worth it to waste time developing a robot? 
+
+If there is a ready-made robot with the ability to optimize / change not only the parameters, but also to look at the basic version of the bot logic with the options for debugging to the operating state - this is an option that requires attention. 
+
+For example - the option of some bot on several indicators such as  RSI , MASD, BB, channels, etc. If it is in the basic state about and ""spinning"" around 0, then, having screwed MM, accompaniment of a pose, topping / averaging it is possible to deduce it in +. True, you need to do this all the time (depending on the heap of factors -TF, the tool). 
+
+In any case, you either need to hire a person to constantly optimize and control the robot 
+
+Another way to put in the service of a computer - to rent a ready bot. But, to get a profit, you need a large enough deposit, and the logic / profitability / error checking is far from superfluous. 
+
+Subscribe to the channel, waiting for your likes and comments 
+
+fvbtrading dot com 
+
+Good luck in trading! 
+
+",,80,1,6
+1530880218.0,arodjr193,Do or Die(big retrace),"
+Hello bringing you guys another chart on $BTC 
+
+Third rejection on small time frame on existing downtrend 
+
+Looking for a close on hourly above 6.6k to make gains into 7k 
+
+If not we might see 6k again on large scale. 
+
+",,121,0,3

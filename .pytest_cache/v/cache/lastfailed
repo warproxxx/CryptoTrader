@@ -1,7 +1,5 @@
 {
-  "CryptoTrader/CryptoScraper/tests/test_cryptoDownloader.py::TestcryptoDownloader": true,
   "CryptoTrader/data_utils/tests/test_functions.py::TestBasicFunctions::()::test_initialize_mini_batch": true,
-  "CryptoTrader/data_utils/tests/test_functions.py::TestPriceFunctions": true,
   "CryptoTrader/data_utils/tests/test_functions.py::TestPriceFunctions::()::test_get_pandas": true,
   "CryptoTrader/data_utils/tests/test_functions.py::TestPriceFunctions::()::test_to_same_starting": true,
   "CryptoTrader/data_utils/twitter_data/historic_test.py": true,
