@@ -179,6 +179,7 @@ def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.dat
         # Since we are assigning each pool a range of dates to query, 
         # the number of pools should not exceed the number of dates.
         poolsize = no_days
+        
     dateranges = [begindate + dt.timedelta(days=elem) for elem in linspace(0, no_days, poolsize+1)]
 
     if limit:
@@ -190,17 +191,18 @@ def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.dat
                for since, until in zip(dateranges[:-1], dateranges[1:])]
 
     all_tweets = []
+    
+    if poolsize >= 1:
+        try:
+            pool = Pool(poolsize)
 
-    try:
-        pool = Pool(poolsize)
-
-        for new_tweets in pool.imap_unordered(partial(query_tweets_once, proxies=proxies, limit=limit_per_pool, lang=lang), queries):
-            all_tweets.extend(new_tweets)
-            logging.info("Got {} tweets ({} new).".format(
-                len(all_tweets), len(new_tweets)))
-    finally:
-        pool.close()
-        pool.join()
+            for new_tweets in pool.imap_unordered(partial(query_tweets_once, proxies=proxies, limit=limit_per_pool, lang=lang), queries):
+                all_tweets.extend(new_tweets)
+                logging.info("Got {} tweets ({} new).".format(
+                    len(all_tweets), len(new_tweets)))
+        finally:
+            pool.close()
+            pool.join()
 
     return all_tweets
 

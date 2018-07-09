@@ -57,28 +57,28 @@ class historicDownloader:
                 temp_end = end_date
             
             fname = "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d'))
-            final_directory = os.path.join(self.currpath, fname)     
+            finalPath = os.path.join(self.currpath, fname)     
 
             #do if file dosen't exisst
-            if not os.path.exists(final_directory):
+            if not os.path.exists(finalPath):
                 df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
                 self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
                 selectedDays = (temp_end - temp_start).days
                 
                 list_of_tweets = []
-                list_of_tweets = query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays, proxies=proxy)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                list_of_tweets = query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays, proxies=proxy)
                         
                 for tweet in list_of_tweets:
                     res_type = tweet.response_type
 
                     if (tweet.reply_to_id == '0'):
                         res_type='tweet'
-
+                    
                     df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
                 
                 if form == "save":
-                    df.to_csv(fname, index=False)
+                    df.to_csv(finalPath, index=False)
                 else:
                     dic[temp_start.strftime("%Y-%m-%d")] = df
 
@@ -156,7 +156,7 @@ class historicUtils:
         self.coinKeywords = {}
         
         for coin in self.detailsList:
-            self.rawpaths.append(self.currpath + "/tweet/{}/historic_scrape/raw".format(coin['coinname']))
+            self.rawpaths.append(self.currpath + "/data/tweet/{}/historic_scrape/raw".format(coin['coinname']))
             self.coinKeywords[coin['coinname']] = coin['keyword']
                  
                 
@@ -178,13 +178,13 @@ class historicUtils:
         for path in self.rawpaths:
             fullDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
-            writeFile = fullPath + "/" + "combined.csv"
+            writeFile = path + "/" + "combined.csv"
 
             if (os.path.isfile(writeFile)):
                 os.remove(writeFile)
 
             for file in os.listdir(path):
-                csv = fullPath + "/" + file
+                csv = path + "/" + file
 
                 if (".csv" in csv):
                     df = pd.read_csv(csv, engine='python')
@@ -208,7 +208,9 @@ class historicUtils:
         return fullDf
     
     def get_missing_days(self, df, freq=24):
+        
         df['Time'] = pd.to_datetime(df['Time'])
+        print(df)
 
         new = pd.DataFrame(columns=['Time', 'Frequency'])
 
@@ -221,13 +223,14 @@ class historicUtils:
         return miss_dates
     
     def fill_missing_days(self):
-        newDetail = []
+        newDetails = []
         
         for fullPath in self.rawpaths:
             coinName = fullPath.split("/")[-3]
             
             df = pd.read_csv('{}/combined.csv'.format(fullPath))
             miss_dates = self.get_missing_days(df)
+            print(miss_dates)
 
             tweetDf = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
 
@@ -235,14 +238,15 @@ class historicUtils:
                 date_from = dates - pd.DateOffset(days=2)
                 date_to = dates + pd.DateOffset(days=2)
             
-                newDetail.append({'coinname': coinName, 'start': date_from, 'end': date_to})
+                newDetails.append({'coinname': coinName, 'start': date_from, 'end': date_to})
         
         #merging same dates dosen't seem necessary. But this can be optimized that way
         
         for i, detail in enumerate(newDetails):
-            tDic = newDetail[i]
+            tDic = newDetails[i]
             tDic['keyword'] = self.coinKeywords[detail['coinname']]
-            newDetail[i] = tDic
+            newDetails[i] = tDic
         
-        hu = historicDownloader()
-        hu.perform_scraping()
+        return newDetails
+#         hu = historicDownloader()
+#         hu.perform_scraping()

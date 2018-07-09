@@ -12,7 +12,7 @@ def proxy_dict(address):
     return proxyDict
 
 def get_proxies():
-    a = open('proxies.txt')
+    a = open(__file__.replace('proxy_utils.py', '') + 'proxies.txt')
 
     proxies = []
 

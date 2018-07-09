@@ -35,7 +35,7 @@ class liveManager():
         logging.info("Live data collector thread closed")
 
     def create_directory_structure(self):
-        logging.info("Creating profile directories in case they don't exist".format(self.currdir, coinname))
+        logging.info("Creating profile directories in case they don't exist")
         
         os.makedirs("{}/data/profile/storage/raw".format(self.currdir), exist_ok=True)
         os.makedirs("{}/data/profile/storage/interpreted".format(self.currdir), exist_ok=True)
@@ -82,7 +82,7 @@ if __name__=="__main__":
         lu.deleteFiles()
         hu.deleteFiles()
     else:
-        lm.remove_directory_structure()
+        lm.create_directory_structure()
 #         logging.info("Starting a new thread to run the live data collector")
 
 #         t1 = threading.Thread(target=lm.live_download)
