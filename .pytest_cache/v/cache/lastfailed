@@ -3,5 +3,7 @@
   "CryptoTrader/data_utils/tests/test_functions.py::TestPriceFunctions::()::test_get_pandas": true,
   "CryptoTrader/data_utils/tests/test_functions.py::TestPriceFunctions::()::test_to_same_starting": true,
   "CryptoTrader/data_utils/twitter_data/historic_test.py": true,
-  "CryptoTrader/data_utils/twitter_data/test_historic.py": true
+  "CryptoTrader/data_utils/twitter_data/test_historic.py": true,
+  "src/data_utils/tests/test_functions.py": true,
+  "tests/CryptoScraper/tests/test_cryptoDownloader.py": true
 }
