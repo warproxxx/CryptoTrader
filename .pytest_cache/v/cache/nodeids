@@ -1,1 +1,5 @@
-[]
+[
+  "src/CryptoScraper/tests/test_cryptoDownloader.py::TestcryptoDownloader::()::test_download",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_soup",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_html"
+]
