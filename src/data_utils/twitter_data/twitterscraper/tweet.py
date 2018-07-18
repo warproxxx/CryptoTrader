@@ -54,10 +54,10 @@ class Tweet:
             pass      
         
         try:
-            tweettext = tweettext + " <quoted_status> " + tweet.find('div', 'QuoteTweet-text').text + "</quoted_status>"                           
+            tweettext = tweettext + " <quoted_status>" + tweet.find('div', 'QuoteTweet-text').text + "</quoted_status>"                           
         except:
             pass
-        
+
         try:
             username=tweet.find('span', 'username').text or ""
         except:
@@ -111,7 +111,15 @@ class Tweet:
         except:
             pass
         
-        
+        tweettext = tweettext.replace("…", "")
+
+        if ("http" in tweettext):
+            tweettext = tweettext.replace("http", " http")
+            tweettext = tweettext.replace("  http", " http")
+
+        if (reply_to_id == "0" or reply_to_id == id):
+            response_type="tweet"
+
         return cls(
             user=username,
             fullname=fullname, 
@@ -126,7 +134,7 @@ class Tweet:
             reply_to_id=reply_to_id,
             response_type=response_type
         )
-
+    
 
     @classmethod
     def from_html(cls, html):
