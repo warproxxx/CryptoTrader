@@ -21,16 +21,13 @@ class TestTweet:
     def test_from_html(self):
         tweets = list(Tweet.from_html(self.html))
         assert(len(tweets) == 32)
-        assert(tweets[0].fullname == "Philippe Herlin")
         
         assert("<quoted_status>" in tweets[1].text)
         quoted_status = self.find_between(tweets[1].text, "<quoted_status>", "</quoted_status>")
         
         assert("New Blogpost:" and "https://medium.com/vanigplatform/the-state-of-cryptocurrency-market-in-2018-7ea693d85794" in quoted_status)
         assert(tweets[1].user == "dulmini_ayesha")
-        assert(tweets[1].fullname == "Ayesha dulmini")
         assert(tweets[1].id == "1019112793205813250")
-        assert(tweets[1].url == "/dulmini_ayesha/status/1019112793205813250")
         assert(tweets[1].timestamp == "1531810398")
         assert("#vanig" in tweets[1].text)
         assert(tweets[1].replies == "0")

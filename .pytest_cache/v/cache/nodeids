@@ -1,5 +1,7 @@
 [
-  "src/CryptoScraper/tests/test_cryptoDownloader.py::TestcryptoDownloader::()::test_download",
-  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_soup",
-  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_html"
+  "src/data_utils/twitter_data/profilescraper/tests/test_profile.py::TestProfile::()::test_from_soup",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::test_query_single_page",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::test_query_tweets",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_html",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_soup"
 ]

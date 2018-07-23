@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 from coala_utils.decorators import generate_ordering
 from twitterscraper.tweet import Tweet
 
-@generate_ordering('username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'total_moments', 'total_lists', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
+@generate_ordering('username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
 class Profile:
-    def __init__(self, username, location, has_location, created, is_verified, total_tweets, total_following, total_followers, total_likes, total_moments, total_lists, has_avatar, has_background, is_protected, profile_modified, tweets):
+    def __init__(self, username, location, has_location, created, is_verified, total_tweets, total_following, total_followers, total_likes, has_avatar, has_background, is_protected, profile_modified, tweets):
         self.username = username.replace("@", "")
         self.location = location
         self.has_location = has_location
@@ -16,8 +16,6 @@ class Profile:
         self.total_following = total_following
         self.total_followers = total_followers
         self.total_likes = total_likes
-        self.total_moments = total_moments
-        self.total_lists = total_lists
         self.has_avatar = has_avatar
         self.has_background = has_background
         self.is_protected = is_protected
@@ -35,10 +33,10 @@ class Profile:
 
         try:
             joined = sideBar.find('span', 'ProfileHeaderCard-joinDateText')['title']
-            created = joined.strptime(joined, "%I:%M %p - %d %b %Y").strftime("%Y-%m-%d")
-            
-            #age = (datetime.now() - datetime.strptime(joined, "%I:%M %p - %d %b %Y")).days
-        except:
+            created = datetime.strptime(joined, "%I:%M %p - %d %b %Y").strftime("%Y-%m-%d")
+           
+        except Exception as e:
+            print(str(e))
             created = 0
 
         try:
@@ -49,20 +47,14 @@ class Profile:
 
         try:
             a = soup.find('h2', 'ProtectedTimeline-heading')
-            protected = 1
+
+            if a == None:
+                protected = 0
+            else:
+                protected = 1
         except:
             protected = 0
             
-        try:
-            total_moments=topBar.find('li', 'ProfileNav-item--moments').find('span', 'ProfileNav-value')['data-count'] or 0
-        except:
-            total_moments=0
-
-        try:
-            total_lists=topBar.find('li', 'ProfileNav-item--lists').find('span', 'ProfileNav-value')['data-count'] or 0
-        except:
-            total_lists=0
-
         tweets = soup.find_all('div', 'tweet')
         all_tweets = []
 
@@ -81,8 +73,6 @@ class Profile:
             total_following=topBar.find('li', 'ProfileNav-item--following').find('span', 'ProfileNav-value')['data-count'] or 0,
             total_followers=topBar.find('li', 'ProfileNav-item--followers').find('span', 'ProfileNav-value')['data-count'] or 0,
             total_likes=topBar.find('li', 'ProfileNav-item--favorites').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_moments=total_moments,
-            total_lists=total_lists,
             has_avatar=has_avatar,
             has_background=has_background,
             is_protected=protected,
