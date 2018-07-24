@@ -1,10 +1,11 @@
 import threading
 import time
 
-from livescraper.query import query_tweets, get_listener, save_data
+from livescraper.query import query_tweets
 
 keywords = {}
-logger, keywordsOnly, listener, myStream = query_tweets(keywords)
+qt = query_tweets(keywords)
+logger, keywordsOnly, listener, myStream = qt.get_stream()
                 
 while True:
     try:
@@ -13,7 +14,7 @@ while True:
         df, userData, start_time = listener.get_data()     
         logger.info("Keyboard interrupted. Saving whatever has been collected")
         
-        t1 = threading.Thread(target=save_data, args=[df, userData, start_time, int(time.time()), coins])
+        t1 = threading.Thread(target=qt.save_data, args=[df, userData, start_time, int(time.time())])
         t1.start()
 
     except Exception as e:
@@ -22,8 +23,7 @@ while True:
         
         end_time = int(time.time())
         
-        t1 = threading.Thread(target=save_data, args=[df, userData, start_time, end_time, coins])
+        t1 = threading.Thread(target=qt.save_data, args=[df, userData, start_time, end_time])
         t1.start()                
-        
-        listener, auth = get_listener(keywords)
-        myStream = Stream(auth=auth, listener=listener)
+
+        logger, _, listener, myStream = qt.get_stream()
