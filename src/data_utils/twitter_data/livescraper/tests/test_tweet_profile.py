@@ -30,7 +30,7 @@ class TestTweet_Profile:
         assert(int(tweet.retweets) >= 0)
         assert(int(tweet.likes) >= 0)
         assert(int(tweet.reply_to_id) >= 0)
-        assert(any(x in tweet.response_type for x in ['tweet', 'retweet', 'quoted_status', 'quoted_retweet']))
+        assert(any(x in tweet.response_type for x in ['tweet', 'retweet', 'quoted_status', 'quoted_retweet', 'reply']))
 
     def test_profile(self):
         profile = Profile.from_profile(self.results[0])

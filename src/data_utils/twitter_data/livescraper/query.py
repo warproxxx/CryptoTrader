@@ -16,7 +16,20 @@ import time
 
 class MyStreamListener(StreamListener):
 
-    def __init__(self, keywords, logger=None):
+    def __init__(self, keywords, logger=None, tweetCount=0):
+        '''
+        Parameters:
+        ___________
+        keywords: (dict)
+        Dictionary containing coinname and its relevant keywords
+        Example:
+        {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin']}
+
+        tweetCount (int) (optional):
+        If not set to 0, the program will terminate after n tweets is found
+        '''
+
+        _, self.currRoot_dir = get_locations()
 
         if (logger == None):
             self.logger = logging.getLogger()
@@ -29,6 +42,8 @@ class MyStreamListener(StreamListener):
         self.userData = pd.DataFrame(columns=['username', 'created', 'location', 'has_location', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified'])
         self.keywords = keywords
         self.start_time = int(time.time())
+        self.tweetCount = tweetCount
+        self.statusCount = 0
 
     def on_status(self, tweet):
         tweetData = Tweet.from_tweepy(tweet)
@@ -36,6 +51,13 @@ class MyStreamListener(StreamListener):
         
         self.df = self.df.append(pd.Series({'ID': tweetData.id, 'Tweet': tweetData.text, 'Time': tweetData.timestamp, 'User': tweetData.user, 'Likes': tweetData.likes, 'Replies': 0, 'Retweets': tweetData.replies, 'in_response_to': tweetData.reply_to_id, 'response_type': tweetData.response_type, 'coinname': self.find_key(tweetData.text, self.keywords)}), ignore_index=True)
         self.userData = self.userData.append(pd.Series({'username': profileData.username, 'location': profileData.location, 'has_location': profileData.has_location, 'created': profileData.created, 'is_verified': profileData.is_verified, 'total_tweets': profileData.total_tweets, 'total_following': profileData.total_following, 'total_followers': profileData.total_followers, 'total_likes': profileData.total_likes, 'has_avatar': profileData.has_avatar, 'has_background': profileData.has_background, 'is_protected': profileData.is_protected, 'profile_modified': profileData.profile_modified}), ignore_index=True)
+
+        self.statusCount = self.statusCount + 1
+
+        if (self.tweetCount != 0):
+            if self.statusCount >= self.tweetCount:
+                return False
+
 
         if (self.df.shape[0] > 1000):
             self.end_time = int(time.time())  
@@ -69,7 +91,7 @@ class MyStreamListener(StreamListener):
 
 
 class query_tweets():
-    def __init__(self, keywords, logger=None):
+    def __init__(self, keywords, logger=None, tweetCount=0):
         """
         Parameters:
         ___________
@@ -77,9 +99,13 @@ class query_tweets():
         Dictionary containing coinname and its relevant keywords
         Example:
         {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin']}
+
+        tweetCount (int) (optional):
+        If not set to 0, the program will terminate after n tweets is found
         """
 
         _, self.currRoot_dir = get_locations()
+        self.tweetCount = tweetCount
 
         self.keywords = keywords
         self.coins = [key for key, value in keywords.items()]
@@ -92,13 +118,18 @@ class query_tweets():
             self.logger = logger
 
     def get_listener(self, apiFile="/data/static/api.json"):
-        with open(self.currRoot_dir + apiFile) as json_file:
-            json_data = json.loads(json_file)  
+        consumer_key, consumer_secret, access_token, access_token_secret = get_twitter(apiFile)
 
-        auth = OAuthHandler(json_data['consumer_key'], json_data['consumer_secret'])
-        auth.set_access_token(json_data['access_token'], json_data['access_token_secret'])
-        listener = MyStreamListener(self.keywords, self.logger)
+        auth = OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        listener = MyStreamListener(self.keywords, self.logger, self.tweetCount)
         return listener, auth
+
+    def perform_search(self):
+        listener,auth = self.get_listener()
+        myStream = Stream(auth=auth, listener=listener)
+        myStream.filter(track=self.keywordsOnly, languages=['en'])
+        return listener
 
     def get_stream(self):
         listener,auth = self.get_listener()
