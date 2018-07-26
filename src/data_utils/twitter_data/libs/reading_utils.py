@@ -1,6 +1,7 @@
 import os
 import json
 from libs.filename_utils import get_locations
+from datetime import date, datetime
 
 def proxy_dict(address):
     '''
@@ -42,7 +43,6 @@ def get_proxies(proxyFile="/data/static/proxies.txt"):
 
     _, rootDir = get_locations()
     toOpen = rootDir + proxyFile
-    
 
     a = open(toOpen)
 
@@ -53,6 +53,38 @@ def get_proxies(proxyFile="/data/static/proxies.txt"):
         proxies.append(proxy)
         
     return proxies
+
+def get_keywords(keywordsFile="/keywords.json", ending=date.today()):
+    '''
+    Parameters:
+    ___________
+    keywordsFile (string):
+    Location of the file containing keywords relative to twitter_data folder
+
+    ending (string):
+    The ending date for historic data. today's date by default
+
+    Returns:
+    ________
+    liveKeywords, historicList: 
+    liveKeywords is keywords for live data. HistoricList is what i have called detailsList. Used for historic data
+    '''
+    
+    _, rootDir = get_locations()
+    toOpen = rootDir + keywordsFile
+
+    with open(toOpen) as json_file:
+        json_data = json.load(json_file)
+
+    liveKeywords = {}
+    historicList = []
+
+    for coinname in json_data:
+        liveKeywords[coinname] = json_data[coinname]["keywords"]
+        historicList.append({'keyword': ' OR '.join(json_data[coinname]["keywords"]), 'coinname': coinname, 'start': datetime.strptime(json_data[coinname]["start_date"], "%Y-%m-%d").date(), 'end': ending})
+    
+    return liveKeywords, historicList
+
 
 def get_twitter(twitterFile="/data/static/api.json"):
     '''
