@@ -5,6 +5,7 @@ from livescraper import Profile, Tweet
 
 from libs.filename_utils import get_locations
 from libs.reading_utils import get_twitter
+from libs.run_utils import runUtils
 
 import threading
 
@@ -117,6 +118,8 @@ class query_tweets():
         else:
             self.logger = logger
 
+        runUtils(self.keywords).create_directory_structure()
+
     def get_listener(self, apiFile="/data/static/api.json"):
         consumer_key, consumer_secret, access_token, access_token_secret = get_twitter(apiFile)
 
@@ -140,6 +143,7 @@ class query_tweets():
         return self.logger, self.keywordsOnly, listener, myStream
 
     def save_data(self, df, userData, start_time, end_time):
+        #run the folder structure creator from run_utils before this
         fname = "{}_{}".format(start_time, end_time)
 
         for coinname in self.coins:
