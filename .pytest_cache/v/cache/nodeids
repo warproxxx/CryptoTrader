@@ -1,5 +1,0 @@
-[
-  "src/data_utils/twitter_data/livescraper/tests/test_query.py::TestMyStreamListener::()::test_on_status",
-  "src/data_utils/twitter_data/livescraper/tests/test_query.py::Testquery_tweets::()::test_perform_search",
-  "src/data_utils/twitter_data/livescraper/tests/test_query.py::Testquery_tweets::()::test_save_data"
-]

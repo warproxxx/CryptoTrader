@@ -1,4 +1,4 @@
-from livescraper.query import MyStreamListener, query_tweets
+from livescraper.query import MyStreamListener, query_live_tweets
 
 from libs.filename_utils import get_locations
 from libs.reading_utils import get_twitter
@@ -50,7 +50,7 @@ class TestMyStreamListener():
         assert(sum(self.df['coinname'].isin(self.keywordsOnly)) == self.df.shape[1])
     
 
-class Testquery_tweets():
+class Testquery_live_tweets():
     def setup_method(self):
         self.keywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
         self.keywordsOnly = [value for key, values in self.keywords.items() for value in values]
@@ -59,7 +59,7 @@ class Testquery_tweets():
 
         _, self.currRoot_dir = get_locations()
         self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/tests/live.txt', level=logging.INFO)
-        self.qt = query_tweets(self.keywords, tweetCount=10)
+        self.qt = query_live_tweets(self.keywords, tweetCount=10)
 
         listener = self.qt.perform_search()
         self.df, self.userData, _ = listener.get_data()

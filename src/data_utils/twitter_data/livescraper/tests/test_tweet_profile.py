@@ -5,7 +5,8 @@ from libs.reading_utils import get_twitter
 from dateutil.parser import parse
 import time
 
-from livescraper import Tweet, Profile
+from livescraper.profile import Profile
+from livescraper.tweet import Tweet
 
 class TestTweet_Profile:
     def setup_method(self):

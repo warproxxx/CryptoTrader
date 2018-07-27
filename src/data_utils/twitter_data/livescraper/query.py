@@ -1,7 +1,8 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler, Stream, API
 
-from livescraper import Profile, Tweet
+from livescraper.profile import Profile
+from livescraper.tweet import Tweet
 
 from libs.filename_utils import get_locations
 from libs.reading_utils import get_twitter
@@ -91,7 +92,7 @@ class MyStreamListener(StreamListener):
             return False
 
 
-class query_tweets():
+class query_live_tweets():
     def __init__(self, keywords, logger=None, tweetCount=0):
         """
         Parameters:

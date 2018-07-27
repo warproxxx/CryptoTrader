@@ -150,7 +150,7 @@ def eliminate_duplicates(iterable):
             prev_elem = elem
             yield elem
 
-def query_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None, tweettype='top'):
+def query_historic_tweets(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None, tweettype='top'):
     '''
     Params:
     _______

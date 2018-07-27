@@ -1,2 +1,1 @@
-from livescraper.profile import Profile
-from livescraper.tweet  import Tweet
+from livescraper.query import query_live_tweets
