@@ -1,5 +1,6 @@
 import os
 import inspect
+import logging
 
 def get_locations(datadir="twitter_data"):
     '''
@@ -28,3 +29,20 @@ def get_name():
     full_path = os.path.realpath(filename)
 
     return full_path
+
+def get_logger(fullLocation):
+    '''
+    fullLocation (string):
+    Name of file along with Full location. Alternatively just file name
+    '''
+    
+    try:
+        loggerName = fullLocation.split("/")[-1]
+    except:
+        loggerName = fullLocation
+
+    logger = logging.getLogger(loggerName)
+    logger.setLevel(logging.DEBUG)
+    handler = logging.FileHandler(fullLocation, 'w')
+    logger.addHandler(handler)
+    return logger

@@ -2,9 +2,7 @@ import os
 from glob import glob
 import shutil
 
-from libs.filename_utils import get_locations
-
-import logging
+from libs.writing_utils import get_locations, get_logger
 
 class runUtils():
     def __init__(self, keywords, logger=None):
@@ -13,8 +11,7 @@ class runUtils():
         _, self.currRoot_dir = get_locations()  
 
         if (logger == None):
-            self.logger = logging.getLogger()
-            self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/run_utils.txt', level=logging.INFO)
+            self.logger = get_logger(self.currRoot_dir + '/logs/run_utils.txt')
         else:
             self.logger = logger
 

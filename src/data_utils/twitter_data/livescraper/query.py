@@ -60,10 +60,12 @@ class MyStreamListener(StreamListener):
             if self.statusCount >= self.tweetCount:
                 return False
 
+        if (self.df.shape[0] % 100 == 0):
+            self.logger.info("Collected 100 data")
 
         if (self.df.shape[0] > 1000):
             self.end_time = int(time.time())  
-            t1 = threading.Thread(target=query_tweets(self.keywords).save_data, args=[self.df, self.userData, self.start_time, self.end_time])
+            t1 = threading.Thread(target=query_live_tweets(self.keywords).save_data, args=[self.df, self.userData, self.start_time, self.end_time])
             t1.start()
             self.df, self.userData = self.df[:0], self.userData[:0]
             self.start_time = self.end_time
@@ -84,6 +86,19 @@ class MyStreamListener(StreamListener):
         self.userData = userData
 
     def get_data(self):
+        '''
+        Returns:
+        ________
+        df (Pandas Dataframe):
+        Dataframe containing Tweet Information
+
+        userData (Pandas Dataframe):
+        Dataframe containing Profile Information
+
+        start_time (int):
+        int timestamp of when the scraping was started for the current batch
+        '''
+        
         return self.df, self.userData, self.start_time
 
     def on_error(self, status_code):
@@ -120,20 +135,26 @@ class query_live_tweets():
             self.logger = logger
 
         runUtils(self.keywords).create_directory_structure()
+        
 
-    def get_listener(self, apiFile="/data/static/api.json"):
-        consumer_key, consumer_secret, access_token, access_token_secret = get_twitter(apiFile)
+    def get_listener(self, create=True, apiFile="/data/static/api.json"):
 
-        auth = OAuthHandler(consumer_key, consumer_secret)
-        auth.set_access_token(access_token, access_token_secret)
-        listener = MyStreamListener(self.keywords, self.logger, self.tweetCount)
-        return listener, auth
+        if create == True:
+            consumer_key, consumer_secret, access_token, access_token_secret = get_twitter(apiFile)
+
+            auth = OAuthHandler(consumer_key, consumer_secret)
+            auth.set_access_token(access_token, access_token_secret)
+            listener = MyStreamListener(self.keywords, self.logger, self.tweetCount)
+            self.listener = listener
+            self.auth = auth
+            return self.listener, self.auth
+        else:
+            return self.listener, self.auth
+
 
     def perform_search(self):
-        listener,auth = self.get_listener()
-        myStream = Stream(auth=auth, listener=listener)
+        myStream = Stream(auth=self.auth, listener=self.listener)
         myStream.filter(track=self.keywordsOnly, languages=['en'])
-        return listener
 
     def get_stream(self):
         listener,auth = self.get_listener()

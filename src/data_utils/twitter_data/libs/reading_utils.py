@@ -1,6 +1,6 @@
 import os
 import json
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_locations
 from datetime import date, datetime
 
 def proxy_dict(address):

@@ -60,8 +60,8 @@ class Testquery_live_tweets():
         _, self.currRoot_dir = get_locations()
         self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/tests/live.txt', level=logging.INFO)
         self.qt = query_live_tweets(self.keywords, tweetCount=10)
-
-        listener = self.qt.perform_search()
+        listener, auth = self.qt.get_listener(create=True)
+        self.qt.perform_search()
         self.df, self.userData, _ = listener.get_data()
         
     def test_perform_search(self):

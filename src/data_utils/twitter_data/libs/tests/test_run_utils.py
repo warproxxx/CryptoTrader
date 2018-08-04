@@ -1,6 +1,6 @@
 from libs.run_utils import runUtils
 import os
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_locations
 
 class TestrunUtils():
 

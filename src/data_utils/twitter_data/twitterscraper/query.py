@@ -206,3 +206,5 @@ def query_historic_tweets(query, limit=None, begindate=dt.date(2006,3,21), endda
 
     return all_tweets
 
+def query_historic_n_hours(query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', proxies=None, tweettype='top'):
+    pass
