@@ -1,1 +1,1 @@
-from profilescraper.query import query_profile
+from profilescraper.query import profileScraper
