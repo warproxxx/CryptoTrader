@@ -28,13 +28,3 @@ class TestProfile:
         assert(int(profile.is_protected) == 0)
         assert(int(profile.profile_modified) == 1)
         assert(len(profile.tweets) >= 2)
-
-        response = requests.get("https://twitter.com/warproxxx", headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36'})
-        html = response.text
-
-        soup = BeautifulSoup(html, "lxml")
-
-        profile = Profile.from_soup(soup)
-        print(profile.is_protected)
-
-        #add more tests variation

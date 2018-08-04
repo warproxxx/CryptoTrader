@@ -4,13 +4,11 @@ from tweepy import OAuthHandler, Stream, API
 from livescraper.profile import Profile
 from livescraper.tweet import Tweet
 
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_locations, get_logger
 from libs.reading_utils import get_twitter
 from libs.run_utils import runUtils
 
 import threading
-
-import logging
 
 import pandas as pd
 import json
@@ -34,8 +32,7 @@ class MyStreamListener(StreamListener):
         _, self.currRoot_dir = get_locations()
 
         if (logger == None):
-            self.logger = logging.getLogger()
-            self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/live.txt', level=logging.INFO)
+            self.logger = get_logger(self.currRoot_dir + '/logs/live.txt')
         else:
             self.logger = logger
 
@@ -129,8 +126,7 @@ class query_live_tweets():
         self.keywordsOnly = [value for key, values in keywords.items() for value in values]
 
         if (logger == None):
-            self.logger = logging.getLogger()
-            self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/live.txt', level=logging.INFO)
+            self.logger = get_logger(self.currRoot_dir + '/logs/live.txt')
         else:
             self.logger = logger
 

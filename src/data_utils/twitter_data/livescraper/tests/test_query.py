@@ -1,6 +1,6 @@
 from livescraper.query import MyStreamListener, query_live_tweets
 
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_locations, get_logger
 from libs.reading_utils import get_twitter
 
 from tweepy import OAuthHandler, Stream
@@ -8,19 +8,15 @@ import pandas as pd
 
 import time
 
-import logging
-
 import os
 
 class TestMyStreamListener():
     def setup_method(self):
         self.keywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
         self.keywordsOnly = [value for key, values in self.keywords.items() for value in values]
-        
-        self.logger = logging.getLogger()
 
         _, self.currRoot_dir = get_locations()
-        self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/tests/live.txt', level=logging.INFO)
+        self.logger = get_logger(self.currRoot_dir + '/logs/tests/live.txt')
         self.listener = MyStreamListener(self.keywords, self.logger, tweetCount=10)
 
         consumer_key, consumer_secret, access_token, access_token_secret = get_twitter()
@@ -34,8 +30,8 @@ class TestMyStreamListener():
         self.df, self.userData, _ = self.listener.get_data()
         
     def test_on_status(self):
-        assert(self.df.shape[1] >= 9)
-        assert(self.userData.shape[1] >= 9)
+        assert(self.df.shape[1] >= 8)
+        assert(self.userData.shape[1] >= 8)
 
         assert(sum(self.df['ID'].astype(str).str.len()) >= 19 * (self.df.shape[1] - 2))
         assert('Tweet' in self.df)
@@ -47,7 +43,7 @@ class TestMyStreamListener():
         assert('in_response_to' in self.df)
 
         assert(sum(self.df['response_type'].isin(['tweet', 'retweet', 'quoted_status', 'quoted_retweet', 'reply'])) == self.df.shape[1])
-        assert(sum(self.df['coinname'].isin(self.keywordsOnly)) == self.df.shape[1])
+        assert(sum(self.df['coinname'].isin(self.keywordsOnly)) >= (self.df.shape[1] - 2))
     
 
 class Testquery_live_tweets():
@@ -55,10 +51,11 @@ class Testquery_live_tweets():
         self.keywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
         self.keywordsOnly = [value for key, values in self.keywords.items() for value in values]
         
-        self.logger = logging.getLogger()
-
         _, self.currRoot_dir = get_locations()
-        self.logger.basicConfig = logging.basicConfig(filename= self.currRoot_dir + '/logs/tests/live.txt', level=logging.INFO)
+
+        self.logger = get_logger(self.currRoot_dir + '/logs/tests/live.txt')
+
+        
         self.qt = query_live_tweets(self.keywords, tweetCount=10)
         listener, auth = self.qt.get_listener(create=True)
         self.qt.perform_search()
@@ -66,8 +63,8 @@ class Testquery_live_tweets():
         
     def test_perform_search(self):
 
-        assert(self.df.shape[1] >= 9)
-        assert(self.userData.shape[1] >= 9)
+        assert(self.df.shape[1] >= 8)
+        assert(self.userData.shape[1] >= 8)
 
         assert(sum(self.df['ID'].astype(str).str.len()) >= 19 * (self.df.shape[1] - 2))
         assert('Tweet' in self.df)

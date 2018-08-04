@@ -83,7 +83,5 @@ class Profile:
     @classmethod
     def from_html(cls, html):
         soup = BeautifulSoup(html, "lxml")
-        try:
-            yield cls.from_soup(soup)
-        except AttributeError:
-            pass
+        profile = Profile.from_soup(soup)
+        return profile
