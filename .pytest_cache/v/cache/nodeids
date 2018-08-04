@@ -1,0 +1,7 @@
+[
+  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::TesttwitterScraper::()::test_query_single_page",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::TesttwitterScraper::()::test_query_tweets_once",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::TesttwitterScraper::()::test_query_historic_tweets",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_html",
+  "src/data_utils/twitter_data/twitterscraper/tests/test_tweet.py::TestTweet::()::test_from_soup"
+]

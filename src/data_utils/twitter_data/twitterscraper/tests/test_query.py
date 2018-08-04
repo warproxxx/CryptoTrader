@@ -10,6 +10,9 @@ class TesttwitterScraper:
         for tweet in tweets:
             assert(int(tweet.retweets) >= 0)
 
+    def test_query_tweets_once(self):
+        print(self.ts.query_tweets_once("Bitcoin", limit=10))
+
     def test_query_historic_tweets(self):
         tweets = self.ts.query_historic_tweets("Bitcoin", limit=50)
 

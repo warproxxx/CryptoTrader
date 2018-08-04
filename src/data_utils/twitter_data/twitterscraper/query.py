@@ -58,7 +58,7 @@ class twitterScraper:
         _, self.currRoot = get_locations()
 
         if logger == None:
-            self.logger = get_logger(self.currRoot + "\logs\twitterscraper.log")
+            self.logger = get_logger(self.currRoot + "/logs/twitterscraper.log")
         else:
             self.logger = logger
 
@@ -146,8 +146,8 @@ class twitterScraper:
         try:
             while True:
                 new_tweets, pos = self.query_single_page(
-                    INIT_URL.format(q=query, lang=lang) if pos is None
-                    else RELOAD_URL.format(q=query, pos=pos, lang=lang),
+                    self.INIT_URL.format(q=query, lang=lang) if pos is None
+                    else self.RELOAD_URL.format(q=query, pos=pos, lang=lang),
                     pos is None
                 )
 
