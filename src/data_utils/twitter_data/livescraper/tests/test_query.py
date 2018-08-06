@@ -16,7 +16,7 @@ class TestMyStreamListener():
         self.keywordsOnly = [value for key, values in self.keywords.items() for value in values]
 
         _, self.currRoot_dir = get_locations()
-        self.logger = get_logger(self.currRoot_dir + '/logs/tests/live.txt')
+        self.logger = get_logger(self.currRoot_dir + '/livescraper/tests/live.log')
         self.listener = MyStreamListener(self.keywords, self.logger, tweetCount=10)
 
         consumer_key, consumer_secret, access_token, access_token_secret = get_twitter()
@@ -52,7 +52,7 @@ class Testquery_live_tweets():
         
         _, self.currRoot_dir = get_locations()
 
-        self.logger = get_logger(self.currRoot_dir + '/logs/tests/live.txt')
+        self.logger = get_logger(self.currRoot_dir + '/livescraper/tests/live.log')
 
         
         self.qt = query_live_tweets(self.keywords, tweetCount=10)
