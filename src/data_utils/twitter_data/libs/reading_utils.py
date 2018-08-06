@@ -54,6 +54,29 @@ def get_proxies(proxyFile="/data/static/proxies.txt"):
         
     return proxies
 
+def get_custom_keywords(liveKeywords, starting, ending):
+    '''
+    Build keyword of custom type
+
+    Parameters:
+    ___________
+    liveKeywords (dict):
+    Dictionary of coin name and it's keywords
+
+    starting (date or datetime):
+    starting point
+
+    ending (date or datetime):
+    ending point
+    '''
+    historicList = []
+
+    for coinname, keyword in liveKeywords.items():
+        historicList.append({'keyword': ' OR '.join(keyword), 'coinname': coinname, 'start': starting, 'end': ending})
+
+    return historicList
+
+
 def get_keywords(keywordsFile="/keywords.json", ending=date.today()):
     '''
     Parameters:
@@ -61,7 +84,7 @@ def get_keywords(keywordsFile="/keywords.json", ending=date.today()):
     keywordsFile (string):
     Location of the file containing keywords relative to twitter_data folder
 
-    ending (string):
+    ending (date):
     The ending date for historic data. today's date by default
 
     Returns:

@@ -126,7 +126,7 @@ class query_live_tweets():
         self.keywordsOnly = [value for key, values in keywords.items() for value in values]
 
         if (logger == None):
-            self.logger = get_logger(self.currRoot_dir + '/logs/live.txt')
+            self.logger = get_logger(self.currRoot_dir + '/logs/live.log')
         else:
             self.logger = logger
 

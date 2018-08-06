@@ -13,8 +13,6 @@ class basicUtils:
         self.relativePath = relativePath
         self.coinnames = coinnames
 
-    
-
 class historicUtils:
     def __init__(self, detailsList, logger=None):
         

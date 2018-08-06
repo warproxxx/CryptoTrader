@@ -1,151 +1,62 @@
-Querying Bitcoin since:2006-03-21 until:2006-11-01
-Querying Bitcoin since:2006-11-01 until:2007-06-15
-Querying Bitcoin since:2007-06-15 until:2008-01-27
-Querying Bitcoin since:2008-01-27 until:2008-09-09
-Querying Bitcoin since:2009-04-23 until:2009-12-05
-Querying Bitcoin since:2010-07-19 until:2011-03-02
-Querying Bitcoin since:2008-09-09 until:2009-04-23
-Querying Bitcoin since:2011-03-02 until:2011-10-14
-Querying Bitcoin since:2012-05-27 until:2013-01-08
-Querying Bitcoin since:2013-01-08 until:2013-08-22
-Querying Bitcoin since:2011-10-14 until:2012-05-27
-Querying Bitcoin since:2013-08-22 until:2014-04-05
-Querying Bitcoin since:2014-04-05 until:2014-11-17
-Querying Bitcoin since:2014-11-17 until:2015-07-01
-Querying Bitcoin since:2009-12-05 until:2010-07-19
-Querying Bitcoin since:2015-07-01 until:2016-02-12
-Querying Bitcoin since:2016-02-12 until:2016-09-25
-Querying Bitcoin since:2016-09-25 until:2017-05-09
-Querying Bitcoin since:2017-05-09 until:2017-12-21
-Querying Bitcoin since:2017-12-21 until:2018-08-04
-Got 7 tweets for Bitcoin%20since%3A2008-09-09%20until%3A2009-04-23.
+Querying Bitcoin since:2006-03-21 until:2006-11-02
+Querying Bitcoin since:2006-11-02 until:2007-06-16
+Querying Bitcoin since:2007-06-16 until:2008-01-28
+Querying Bitcoin since:2008-01-28 until:2008-09-10
+Querying Bitcoin since:2008-09-10 until:2009-04-24
+Querying Bitcoin since:2009-04-24 until:2009-12-06
+Querying Bitcoin since:2010-07-20 until:2011-03-03
+Querying Bitcoin since:2009-12-06 until:2010-07-20
+Querying Bitcoin since:2011-03-03 until:2011-10-15
+Querying Bitcoin since:2011-10-15 until:2012-05-28
+Querying Bitcoin since:2012-05-28 until:2013-01-09
+Querying Bitcoin since:2013-01-09 until:2013-08-23
+Querying Bitcoin since:2013-08-23 until:2014-04-06
+Querying Bitcoin since:2014-11-18 until:2015-07-02
+Querying Bitcoin since:2014-04-06 until:2014-11-18
+Querying Bitcoin since:2015-07-02 until:2016-02-13
+Querying Bitcoin since:2016-02-13 until:2016-09-26
+Querying Bitcoin since:2016-09-26 until:2017-05-10
+Querying Bitcoin since:2017-05-10 until:2017-12-22
+Querying Bitcoin since:2017-12-22 until:2018-08-06
+Got 7 tweets for Bitcoin%20since%3A2008-09-10%20until%3A2009-04-24.
 Got 7 tweets (7 new).
-Got 21 tweets for Bitcoin%20since%3A2010-07-19%20until%3A2011-03-02.
-Got 28 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2014-04-05%20until%3A2014-11-17.
-Got 49 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2013-08-22%20until%3A2014-04-05.
-Got 70 tweets (21 new).
-Got 1 tweets for Bitcoin%20since%3A2008-01-27%20until%3A2008-09-09.
-Got 71 tweets (1 new).
-Got 1 tweets for Bitcoin%20since%3A2006-11-01%20until%3A2007-06-15.
-Got 72 tweets (1 new).
-Got 1 tweets for Bitcoin%20since%3A2007-06-15%20until%3A2008-01-27.
-Got 73 tweets (1 new).
-Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET--&q=Bitcoin%20since%3A2006-03-21%20until%3A2006-11-01&l=".
-Traceback (most recent call last):
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 89, in query_single_page
-    json_resp = json.loads(response.text)
-  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
-    return _default_decoder.decode(s)
-  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-Retrying... (Attempts left: 10)
-Got 1 tweets for Bitcoin%20since%3A2006-03-21%20until%3A2006-11-01.
-Got 74 tweets (1 new).
-Got 10 tweets for Bitcoin%20since%3A2009-04-23%20until%3A2009-12-05.
-Got 84 tweets (10 new).
-Got 21 tweets for Bitcoin%20since%3A2013-01-08%20until%3A2013-08-22.
-Got 105 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2016-02-12%20until%3A2016-09-25.
-Got 126 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2011-10-14%20until%3A2012-05-27.
-Got 147 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2011-03-02%20until%3A2011-10-14.
-Got 168 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2015-07-01%20until%3A2016-02-12.
-Got 189 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2014-11-17%20until%3A2015-07-01.
-Got 210 tweets (21 new).
-Got 21 tweets for Bitcoin%20since%3A2016-09-25%20until%3A2017-05-09.
-Got 231 tweets (21 new).
-Got 16 tweets for Bitcoin%20since%3A2012-05-27%20until%3A2013-01-08.
-Got 247 tweets (16 new).
-Got 21 tweets for Bitcoin%20since%3A2009-12-05%20until%3A2010-07-19.
-Got 268 tweets (21 new).
-An unknown error occurred! Returning tweets gathered so far.
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 377, in _make_request
-    httplib_response = conn.getresponse(buffering=True)
-TypeError: getresponse() got an unexpected keyword argument 'buffering'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 151, in query_tweets_once
-    pos is None
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 82, in query_single_page
-    response = requests.get(url, headers=headers)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
-    r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
-    timeout=timeout
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 380, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/local/lib/python3.7/http/client.py", line 1321, in getresponse
-    response.begin()
-  File "/usr/local/lib/python3.7/http/client.py", line 296, in begin
-    version, status, reason = self._read_status()
-  File "/usr/local/lib/python3.7/http/client.py", line 257, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/local/lib/python3.7/ssl.py", line 1049, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/local/lib/python3.7/ssl.py", line 908, in read
-    return self._sslobj.read(len, buffer)
-KeyboardInterrupt
-Got 0 tweets for Bitcoin%20since%3A2017-12-21%20until%3A2018-08-04.
-An unknown error occurred! Returning tweets gathered so far.
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 377, in _make_request
-    httplib_response = conn.getresponse(buffering=True)
-TypeError: getresponse() got an unexpected keyword argument 'buffering'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 151, in query_tweets_once
-    pos is None
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 82, in query_single_page
-    response = requests.get(url, headers=headers)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
-    r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
-    timeout=timeout
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 380, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/local/lib/python3.7/http/client.py", line 1321, in getresponse
-    response.begin()
-  File "/usr/local/lib/python3.7/http/client.py", line 296, in begin
-    version, status, reason = self._read_status()
-  File "/usr/local/lib/python3.7/http/client.py", line 257, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/local/lib/python3.7/ssl.py", line 1049, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/local/lib/python3.7/ssl.py", line 908, in read
-    return self._sslobj.read(len, buffer)
-KeyboardInterrupt
-Got 0 tweets for Bitcoin%20since%3A2017-05-09%20until%3A2017-12-21.
-%20since%3A2017-05-09%20until%3A2017-12-21.
+Got 10 tweets for Bitcoin%20since%3A2009-04-24%20until%3A2009-12-06.
+Got 17 tweets (10 new).
+Got 21 tweets for Bitcoin%20since%3A2010-07-20%20until%3A2011-03-03.
+Got 38 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2011-10-15%20until%3A2012-05-28.
+Got 59 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2009-12-06%20until%3A2010-07-20.
+Got 80 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2017-05-10%20until%3A2017-12-22.
+Got 101 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2013-08-23%20until%3A2014-04-06.
+Got 122 tweets (21 new).
+Got 19 tweets for Bitcoin%20since%3A2012-05-28%20until%3A2013-01-09.
+Got 141 tweets (19 new).
+Got 21 tweets for Bitcoin%20since%3A2013-01-09%20until%3A2013-08-23.
+Got 162 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2016-09-26%20until%3A2017-05-10.
+Got 183 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2011-03-03%20until%3A2011-10-15.
+Got 204 tweets (21 new).
+Got 1 tweets for Bitcoin%20since%3A2006-03-21%20until%3A2006-11-02.
+Got 205 tweets (1 new).
+Got 1 tweets for Bitcoin%20since%3A2007-06-16%20until%3A2008-01-28.
+Got 206 tweets (1 new).
+Got 1 tweets for Bitcoin%20since%3A2008-01-28%20until%3A2008-09-10.
+Got 207 tweets (1 new).
+Got 1 tweets for Bitcoin%20since%3A2006-11-02%20until%3A2007-06-16.
+Got 208 tweets (1 new).
+Got 21 tweets for Bitcoin%20since%3A2014-11-18%20until%3A2015-07-02.
+Got 229 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2015-07-02%20until%3A2016-02-13.
+Got 250 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2016-02-13%20until%3A2016-09-26.
+Got 271 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2014-04-06%20until%3A2014-11-18.
+Got 292 tweets (21 new).
+Got 21 tweets for Bitcoin%20since%3A2017-12-22%20until%3A2018-08-06.
+Got 313 tweets (21 new).
+ntil%3A2018-08-06.
+Got 313 tweets (21 new).

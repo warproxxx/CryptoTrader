@@ -1,0 +1,50 @@
+{
+    "bitcoin": {
+        "keywords": 
+            ["bitcoin", "BTC"], 
+        "start_date": 
+            "2015-01-01"
+    },
+    "dashcoin" : {
+        "keywords":
+            ["dashcoin", "DASH", "darkcoin"],
+        "start_date":
+            "2015-05-01"
+    },
+    "dogecoin" : {
+        "keywords":
+            ["dogecoin", "DOGE"],
+        "start_date":
+            "2015-01-01"
+    },
+    "ethereum" : {
+        "keywords":
+            ["ethereum", "ETH"],
+        "start_date":
+            "2015-12-01"
+    },
+    "litecoin" : {
+        "keywords":
+            ["litecoin", "LTC"],
+        "start_date":
+            "2015-01-01"
+    },
+    "monero" : {
+        "keywords":
+            ["monero", "XMR"],
+        "start_date":
+            "2015-01-01"
+    },
+    "ripple" : {
+        "keywords":
+            ["ripple", "XRP"],
+        "start_date":
+            "2015-01-01"
+    },
+    "stellar" : {
+        "keywords":
+        ["stellar", "STR"],
+        "start_date":
+            "2015-01-01"
+    }
+}

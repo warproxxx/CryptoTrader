@@ -6,9 +6,15 @@ import json
 from functools import partial
 from multiprocessing.pool import Pool
 
+import os
+import pandas as pd
+
+from dateutil.relativedelta import relativedelta
+
 from twitterscraper.tweet import Tweet
 
 from libs.writing_utils import get_locations, get_logger
+from libs.reading_utils import get_proxies
 
 def eliminate_duplicates(iterable):
     """
@@ -38,16 +44,17 @@ def linspace(start, stop, n):
         yield start + h * i
 
 class twitterScraper:
-    def __init__(self, proxies=None, logger=None):
+    def __init__(self, proxy=None, logger=None):
         '''
         Parameters:
         ___________
         logger: (logger)
         logger object to log all this
 
-        proxies: (dict)
-        Proxies to use
+        proxy: (dict)
+        Single Proxy to use or None. Dictionary containing http, https and ftp proxy to use for using with requests
         '''
+
         self.HEADERS_LIST = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0', 'Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0']
 
 
@@ -62,7 +69,7 @@ class twitterScraper:
         else:
             self.logger = logger
 
-        self.proxies = proxies
+        self.proxy = proxy
 
 
     def query_single_page(self, url, html_response=True, retry=10):
@@ -78,10 +85,10 @@ class twitterScraper:
 
         try:
             
-            if (self.proxies == None):
+            if (self.proxy == None):
                 response = requests.get(url, headers=headers)
             else:
-                response = requests.get(url, proxies=self.proxies, headers=headers)
+                response = requests.get(url, proxies=self.proxy, headers=headers)
 
             if html_response:
                 html = response.text or ''
@@ -169,7 +176,7 @@ class twitterScraper:
             len(tweets), query))
         return tweets
 
-    def query_historic_tweets(self, query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', tweettype='top'):
+    def query_tweets(self, query, limit=None, begindate=dt.date(2006,3,21), enddate=dt.date.today(), poolsize=20, lang='', tweettype='top'):
         '''
         Params:
         _______
@@ -183,6 +190,7 @@ class twitterScraper:
         tweettype: (string,optional)
         Default is top. If set to new, new tweets are scraped
         '''
+        #print("Query: {} limit: {} begindate: {} enddate: {} poolsize: {}".format(query, limit, begindate, enddate, poolsize))
         global INIT_URL, RELOAD_URL
         
         if (tweettype == 'new'):
@@ -224,3 +232,174 @@ class twitterScraper:
                 pool.join()
 
         return all_tweets
+
+
+class query_historic_tweets():
+    def __init__(self, detailsList, proxies=None, logger=None, relative_dir="/"):
+        '''
+        Parameters:
+        ___________
+        detailsList (list): 
+        List containing keyword, coinname in string and start and end in date format
+        
+        proxies (list of dict or None):
+        list of dict in proxies format (containing http, https and ftp) to use for each next query. Else None to not use
+
+        logger (logger):
+        Saves to file if not provided else default
+        '''
+
+        _, self.currRoot_dir = get_locations()
+
+        if logger == None:
+            self.logger = get_logger(self.currRoot_dir + "/logs/twitterscraper.log")
+        else:
+            self.logger = logger
+
+        self.detailsList = detailsList
+        self.relative_dir = relative_dir
+        self.proxies = proxies
+
+    def scrape(self, start_date_time, end_date_time, proxy, form, keyword, coinname): 
+        '''
+        To scrape data from custom timeframe in twitter
+
+        Parameters:
+        ___________
+
+        starting_date_time (datetime.datetime):
+        date from which twitterscraper will scrape from twitter. Time is the additional filter user adds
+
+        end_date_time (datetime.datetime)
+        date till which twitterscraper will scrape from twitter. Time is the additional filter user adds
+
+        proxy (dict or None):
+        Single proxy dictionary to use containing http, https and ftp
+
+        form (string):
+        return or save to return or save the data
+
+        keyword (string):
+        Keyword to use
+
+        coinname (string):
+        To get the directory name to save
+        '''                              
+
+        start_date = start_date_time.date()
+        start_timestamp = int(start_date_time.timestamp())
+
+        end_date = end_date_time.date()
+        end_timestamp = int(end_date_time.timestamp())
+
+
+        delta = relativedelta(months=1) #months = 1 because multi threading takes place for each day. So upto 30 threads supported
+        dic = {}
+        
+        while start_date <= end_date:
+            temp_start=start_date
+
+            start_date += delta
+
+            temp_end = start_date
+
+            if start_date > end_date:
+                temp_end = end_date
+            
+            finalPath = self.currRoot_dir + self.relative_dir + "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d'))
+
+            #do if file dosen't exisst
+            if not os.path.exists(finalPath):
+                df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
+
+                self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
+                selectedDays = (temp_end - temp_start).days
+                self.logger.info(selectedDays)
+                
+                list_of_tweets = []
+                list_of_tweets = twitterScraper(proxy=proxy, logger=self.logger).query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays)
+                
+                for tweet in list_of_tweets:
+                    res_type = tweet.response_type
+
+                    if (tweet.reply_to_id == '0'):
+                        res_type='tweet'
+                    
+                    df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
+
+                    
+                df = df[pd.to_numeric(df['Time'], errors='coerce').notnull()]
+                df['Time'] = df['Time'].astype(int)
+
+                df = df[(df['Time'] >= start_timestamp) & (df['Time'] <= end_timestamp)]
+
+                if form == "save":
+                    df.to_csv(finalPath, index=False)
+                else:
+                    dic[temp_start.strftime("%Y-%m-%d")] = df
+
+        if form == "return":
+            return dic
+
+    def perform_search(self, form = "save"):
+        '''
+        To scrape data from custom timeframe in twitter for long dates. Scrapes a month at a time
+
+        Parameters:
+        ___________
+        To do one month at a time
+     
+        form (string):
+        If set to save, the data will be saved to pandas dataframe.
+        If set to return, the data will be returned as dictionary
+        '''
+
+        if (self.proxies != None):
+            proxySize = len(self.proxies)
+            count = 0
+
+        all_data = {}        
+
+
+        for coinDetail in self.detailsList:
+            self.logger.info("Scraping {} Data".format(coinDetail['coinname']))
+            self.logger.info("Starting Year: {} Ending Year: {}".format(coinDetail['start'].year, coinDetail['end'].year))
+
+            if (self.proxies != None):
+                proxy = self.proxies[count]
+            else:
+                proxy = None
+            
+            start_date_time = coinDetail['start']
+            end_date_time = coinDetail['end']
+            
+            delta = relativedelta(years=1)
+            tData = {}
+            
+            while start_date_time <= end_date_time:
+                temp_start=start_date_time
+
+                start_date_time += delta
+
+                temp_end = start_date_time
+
+                if start_date_time > end_date_time:
+                    temp_end = end_date_time
+                
+                if form == "save":
+                    self.scrape(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
+                    print(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
+                elif form == "return":
+                    tData.update(self.scrape(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname']))
+                    print(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
+
+                if (self.proxies != None):
+                    count +=1
+                    
+                    if (count >= proxySize):
+                        count = 0
+            
+            all_data[coinDetail['coinname']] = tData
+            
+        if form == "return":
+            return all_data

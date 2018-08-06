@@ -1,4 +1,5 @@
-from libs.reading_utils import proxy_dict, get_proxies, get_twitter, get_keywords
+from libs.reading_utils import proxy_dict, get_proxies, get_twitter, get_keywords, get_custom_keywords
+import datetime
 from datetime import date
 import os
 
@@ -52,6 +53,43 @@ def test_get_keywords():
             assert(lst['start'] == date(2015, 1, 1))
             assert(lst['end'] == date.today())
 
+def test_get_custom_keywords():
+    liveKeywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
+    historicList = get_custom_keywords(liveKeywords, datetime.datetime(2018, 1, 1, 0, 0, 0), datetime.datetime(2018,1,2, 2, 2, 2))
+    
+    for lst in historicList:
+        if (lst['coinname'] == 'bitcoin'):
+            assert(lst['keyword'] == 'bitcoin OR BTC')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'litecoin'):
+            assert(lst['keyword'] == 'litecoin OR LTC')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'monero'):
+            assert(lst['keyword'] == 'monero OR XMR')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'dogecoin'):
+            assert(lst['keyword'] == 'dogecoin OR DOGE')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'stellar'):
+            assert(lst['keyword'] == 'stellar OR STR')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'ethereum'):
+            assert(lst['keyword'] == 'ethereum OR ETH')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        elif (lst['coinname'] == 'dashcoin'):
+            assert(lst['keyword'] == 'dashcoin OR DASH OR darkcoin')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
+        else:
+            assert(lst['keyword'] == 'ripple OR XRP')
+            assert(lst['start'] == datetime.datetime(2018, 1, 1, 0, 0, 0))
+            assert(lst['end'] == datetime.datetime(2018,1,2, 2, 2, 2))
 
 def test_proxy_dict():
     returnedDic = proxy_dict("1.2.2.3")

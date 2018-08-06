@@ -1,12 +1,11 @@
 import os
 from glob import glob
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_locations, get_logger
 from libs.reading_utils import get_keywords
 
 from utils.scrape import scrapeUtils
 from utils.scrape import historicDownloader
 
-import logging
 import datetime
 
 class TestscrapeUtils:
@@ -26,15 +25,7 @@ class TesthistoricDownloader:
         liveKeywords, self.detailsList = get_keywords("/tests/keywords.json")
         _, self.currRoot_dir = get_locations()
 
-
-        file = self.currRoot_dir + '/utils/tests/logs/historic_logs.txt'
-
-        print(file)
-
-        logger = logging.getLogger()
-        logger.basicConfig = logging.basicConfig(filename=file,level=logging.INFO)
-
-        logger.info("abcc")
+        logger = get_logger(self.currRoot_dir + '/utils/tests/logs/historic_logs.txt')
 
         self.hd = historicDownloader(self.detailsList, logger=logger, relative_dir="/utils/tests/")
 

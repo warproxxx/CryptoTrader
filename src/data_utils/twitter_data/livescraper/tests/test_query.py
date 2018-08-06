@@ -45,7 +45,6 @@ class TestMyStreamListener():
         assert(sum(self.df['response_type'].isin(['tweet', 'retweet', 'quoted_status', 'quoted_retweet', 'reply'])) == self.df.shape[1])
         assert(sum(self.df['coinname'].isin(self.keywordsOnly)) >= (self.df.shape[1] - 2))
     
-
 class Testquery_live_tweets():
     def setup_method(self):
         self.keywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}
