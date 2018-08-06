@@ -1,5 +1,128 @@
-Current Starting Date:2018-01-01 Current Ending Date:2018-01-02
-1
-Querying Bitcoin or BTC since:2018-01-01 until:2018-01-02
-Got 33 tweets for Bitcoin%20or%20BTC%20since%3A2018-01-01%20until%3A2018-01-02.
-Got 33 tweets (33 new).
+Scraping bitcoin Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying bitcoin OR BTC since:2018-01-01 until:2018-01-02
+Querying bitcoin OR BTC since:2018-01-02 until:2018-01-03
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-947813223549554689-947975119141507073-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-26&q=bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+Got 995 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 995 tweets (995 new).
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-947980758869831680-948339903175118849-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-72&q=bitcoin%20OR%20BTC%20since%3A2018-01-02%20until%3A2018-01-03&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+Got 1463 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 2458 tweets (1463 new).
+Scraping dashcoin Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying dashcoin OR DASH OR darkcoin since:2018-01-01 until:2018-01-02
+Querying dashcoin OR DASH OR darkcoin since:2018-01-02 until:2018-01-03
+Got 191 tweets for dashcoin%20OR%20DASH%20OR%20darkcoin%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 191 tweets (191 new).
+Got 291 tweets for dashcoin%20OR%20DASH%20OR%20darkcoin%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 482 tweets (291 new).
+Scraping dogecoin Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying dogecoin OR DOGE since:2018-01-01 until:2018-01-02
+Querying dogecoin OR DOGE since:2018-01-02 until:2018-01-03
+Got 75 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 75 tweets (75 new).
+Got 81 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 156 tweets (81 new).
+Scraping ethereum Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying ethereum OR ETH since:2018-01-02 until:2018-01-03
+Querying ethereum OR ETH since:2018-01-01 until:2018-01-02
+Got 242 tweets for ethereum%20OR%20ETH%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 242 tweets (242 new).
+Got 413 tweets for ethereum%20OR%20ETH%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 655 tweets (413 new).
+Scraping litecoin Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying litecoin OR LTC since:2018-01-01 until:2018-01-02
+Querying litecoin OR LTC since:2018-01-02 until:2018-01-03
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-948122404978610176-948325152827363328-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-4&q=litecoin%20OR%20LTC%20since%3A2018-01-02%20until%3A2018-01-03&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+Got 142 tweets for litecoin%20OR%20LTC%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 142 tweets (142 new).
+Got 214 tweets for litecoin%20OR%20LTC%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 356 tweets (214 new).
+Scraping monero Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying monero OR XMR since:2018-01-01 until:2018-01-02
+Querying monero OR XMR since:2018-01-02 until:2018-01-03
+Got 78 tweets for monero%20OR%20XMR%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 78 tweets (78 new).
+Got 89 tweets for monero%20OR%20XMR%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 167 tweets (89 new).
+Scraping ripple Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying ripple OR XRP since:2018-01-02 until:2018-01-03
+Querying ripple OR XRP since:2018-01-01 until:2018-01-02
+Got 267 tweets for ripple%20OR%20XRP%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 267 tweets (267 new).
+Got 409 tweets for ripple%20OR%20XRP%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 676 tweets (409 new).
+Scraping stellar Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying stellar OR STR since:2018-01-01 until:2018-01-02
+Querying stellar OR STR since:2018-01-02 until:2018-01-03
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-948190469367967750-948285902035406848-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-1&q=stellar%20OR%20STR%20since%3A2018-01-02%20until%3A2018-01-03&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+Got 157 tweets for stellar%20OR%20STR%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 157 tweets (157 new).
+Got 141 tweets for stellar%20OR%20STR%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 298 tweets (141 new).
