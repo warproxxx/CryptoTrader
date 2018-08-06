@@ -190,7 +190,6 @@ class twitterScraper:
         tweettype: (string,optional)
         Default is top. If set to new, new tweets are scraped
         '''
-        #print("Query: {} limit: {} begindate: {} enddate: {} poolsize: {}".format(query, limit, begindate, enddate, poolsize))
         global INIT_URL, RELOAD_URL
         
         if (tweettype == 'new'):
@@ -310,7 +309,7 @@ class query_historic_tweets():
 
             #do if file dosen't exisst
             if not os.path.exists(finalPath):
-                df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweet', 'in_response_to', 'response_type'])
+                df = pd.DataFrame(columns=['ID', 'Tweet', 'Time', 'User', 'Likes', 'Replies', 'Retweets', 'in_response_to', 'response_type'])
 
                 self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
                 selectedDays = (temp_end - temp_start).days
@@ -325,7 +324,7 @@ class query_historic_tweets():
                     if (tweet.reply_to_id == '0'):
                         res_type='tweet'
                     
-                    df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
+                    df = df.append({'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'User': tweet.user, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweets': tweet.retweets, 'in_response_to': tweet.reply_to_id, 'response_type': tweet.response_type}, ignore_index=True)
 
                     
                 df = df[pd.to_numeric(df['Time'], errors='coerce').notnull()]
@@ -388,10 +387,8 @@ class query_historic_tweets():
                 
                 if form == "save":
                     self.scrape(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
-                    print(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
                 elif form == "return":
                     tData.update(self.scrape(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname']))
-                    print(temp_start, temp_end, proxy, form, coinDetail['keyword'], coinDetail['coinname'])
 
                 if (self.proxies != None):
                     count +=1

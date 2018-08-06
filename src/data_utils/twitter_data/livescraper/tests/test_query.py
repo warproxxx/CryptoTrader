@@ -74,7 +74,7 @@ class Testquery_live_tweets():
         assert(sum(self.df['Retweets']) >= 0)
         assert('in_response_to' in self.df)
 
-        assert(sum(self.df['response_type'].isin(['tweet', 'retweet', 'quoted_status', 'quoted_retweet', 'reply'])) == self.df.shape[1])
+        assert(sum(self.df['response_type'].isin(['tweet', 'retweet', 'quoted_status', 'quoted_retweet', 'reply'])) == self.df.shape[0])
         assert(sum(self.df['coinname'].isin(self.keywordsOnly)) >= self.df.shape[1] - 3)
 
     def test_save_data(self):

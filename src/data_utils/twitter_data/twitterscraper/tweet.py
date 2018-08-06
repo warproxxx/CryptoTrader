@@ -113,9 +113,9 @@ class Tweet:
             id=id,
             timestamp=timestamp,
             text=tweettext,
-            replies=replies,
-            retweets=retweets,
-            likes=likes,
+            replies=int(replies),
+            retweets=int(retweets),
+            likes=int(likes),
             html=html,
             reply_to_id=reply_to_id,
             response_type=response_type
