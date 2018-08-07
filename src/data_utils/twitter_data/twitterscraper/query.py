@@ -282,6 +282,8 @@ class query_historic_tweets():
         Keyword to use
 
         coinname (string):
+        So as to save the file
+
         To get the directory name to save
         '''                              
 
@@ -305,6 +307,7 @@ class query_historic_tweets():
             if start_date > end_date:
                 temp_end = end_date
             
+            #temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d')
             finalPath = self.currRoot_dir + self.relative_dir + "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d'))
 
             #do if file dosen't exisst

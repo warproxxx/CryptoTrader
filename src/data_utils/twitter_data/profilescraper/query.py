@@ -10,6 +10,7 @@ from libs.writing_utils import get_logger, get_locations
 
 from profilescraper.profile import Profile
 
+import pandas as pd
 
 class profileScraper:
     def __init__(self, proxy=None, logger=None):
@@ -98,3 +99,30 @@ class profileScraper:
 
         return all_profile
     
+class query_profiles():
+    def __init__(self, logger=None, proxies=None, relative_dir="/"):
+        _, self.currRoot = get_locations()
+
+        if logger == None:
+            self.logger = get_logger(self.currRoot + "/logs/profilescraper.log")
+        else:
+            self.logger = logger
+
+        self.path = self.currRoot + relative_dir + "/data/profile/live" #or maybe historic?
+
+    
+    def profiles_to_pandas(self, profiles):
+        userDf = pd.DataFrame(columns=['username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'total_moments', 'total_lists', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets'])
+        tweetDf = pd.DataFrame(columns=['User', 'ID', 'Tweet', 'Time', 'Likes', 'Replies', 'Retweet'])
+
+        for profile in profiles:   
+            for tweet in profile.tweets:
+                tweetDf = tweetDf.append({'User': profile.username, 'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets}, ignore_index=True)
+
+            userDf = userDf.append({'username':profile.username, 'location':profile.location, 'has_location':profile.has_location, 'created':profile.created, 'is_verified':profile.is_verified, 'total_tweets':profile.total_tweets, 'total_following':profile.total_following, 'total_followers':profile.total_followers, 'total_likes':profile.total_likes, 'total_moments':profile.total_moments, 'total_lists':profile.total_lists, 'has_avatar':profile.has_avatar, 'has_background':profile.has_background, 'is_protected':profile.is_protected, 'profile_modified':profile.profile_modified}, ignore_index=True)
+
+        tweetDf = tweetDf.to_csv(self.path + '/userTweets.csv', index=None, mode='a')
+        userDf['username'].to_csv(self.path + '/extractedUsers.csv', index=None, mode='a')
+        userDf.to_csv(self.path + '/userData.csv', index=None, mode='a')
+
+        self.logger.info("Saved to userTweets.csv and extractedUsers.csv")

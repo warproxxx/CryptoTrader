@@ -160,14 +160,32 @@ class query_live_tweets():
 
         return self.logger, self.keywordsOnly, listener, myStream
 
-    def save_data(self, df, userData, start_time, end_time):
+    def save_data(self, df, userData, start_time, end_time, relative_dir="/"):
+        '''
+        Parameters:
+        ___________
+        df (Dataframe):
+        Pandas Dataframe containing tweets
+
+        userData (Dataframe):
+        Pandas Dataframe containing profile information
+
+        start_time (int):
+        timestamp so as to include in file name
+
+        end_time (int):
+        timestamp so as to include in file name
+
+        relative_dir (string) (optional):
+        The directory inside to save
+        '''
         #run the folder structure creator from run_utils before this
         fname = "{}_{}".format(start_time, end_time)
 
         for coinname in self.coins:
             tDf = df[df['coinname'] == coinname].drop('coinname', axis=1)
-            tDf.to_csv(self.currRoot_dir + "/data/tweet/{}/live/{}.csv".format(coinname, fname), index=False)
-            self.logger.info("Saved to /data/tweet/{}/live/{}.csv in a new thread".format(coinname, fname))
+            tDf.to_csv(self.currRoot_dir + relative_dir +"data/tweet/{}/live/{}.csv".format(coinname, fname), index=False)
+            self.logger.info("Saved to {}data/tweet/{}/live/{}.csv in a new thread".format(relative_dir, coinname, fname))
             
-        userData.to_csv(self.currRoot_dir + "/data/profile/live/{}.csv".format(fname), index=False)
-        self.logger.info("Saved to data/profile/live/{}.csv in a new thread".format(fname))
+        userData.to_csv(self.currRoot_dir + relative_dir + "data/profile/live/{}.csv".format(fname), index=False)
+        self.logger.info("Saved to {}data/profile/live/{}.csv in a new thread".format(relative_dir, fname))

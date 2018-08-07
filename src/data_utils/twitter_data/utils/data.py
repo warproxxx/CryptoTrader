@@ -6,7 +6,40 @@ import os
 
 from glob import glob
 
-import logging
+from libs.reading_utils import get_proxies
+from libs.writing_utils import get_logger
+
+
+class dataUtils:
+    def __init__(self, type, relativePath="/",  logger=None):
+        '''
+        Parameters:
+        ___________
+        type (string):
+        historic_tweet or live or historic_profile
+        '''
+
+        if (not(type == "historic_tweet" or type == "live" or type == "historic_profile")):
+            print("Type should be either historic_tweet or live or historic_profile")
+            return
+        elif type == "historic":
+            location = ""
+        
+        self.type = type
+        self.relativePath = relativePath
+        self.logger = logger
+        
+    def mergeData(self):
+        pass
+    
+    def deleteFiles(self):
+        pass
+    
+    def cleanData(self):
+        pass
+
+    def moveData(self):
+        pass
 
 class basicUtils:
     def __init__(self, relativePath, coinnames):

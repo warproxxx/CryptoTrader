@@ -25,7 +25,7 @@ class TestTweet_Profile:
         tweet = Tweet.from_tweepy(self.results[0])
         assert(len(tweet.user.split()) == 1)
         assert(int(tweet.id) > 10000)
-        assert((time.time() - int(tweet.timestamp)) <=  964000)
+        assert((time.time() - int(tweet.timestamp)) <=  20) #some better test here
         assert(tweet.text)
         assert(int(tweet.replies) >= 0)
         assert(int(tweet.retweets) >= 0)

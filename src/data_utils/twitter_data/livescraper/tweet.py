@@ -1,5 +1,5 @@
 from coala_utils.decorators import generate_ordering
-import time
+import calendar
 
 @generate_ordering('timestamp', 'id', 'text', 'user', 'replies', 'retweets', 'likes', 'reply_to_id', 'response_type')
 class Tweet:
@@ -69,7 +69,7 @@ class Tweet:
         
         
         try:
-            timeInt = int(time.mktime(tweet.created_at.timetuple()))
+            timeInt = int(calendar.timegm(tweet.created_at.timetuple()))
         except:
             pass
 
