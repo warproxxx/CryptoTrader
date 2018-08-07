@@ -62,7 +62,7 @@ class Tweet:
             pass
         
         try:
-            timestamp = tweet.find('span', '_timestamp')['data-time']
+            timestamp = tweet.find('span', '_timestamp')['data-time'] #this is gmt time
         except:
             pass
         
