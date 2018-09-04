@@ -1,7 +1,0 @@
-{
-  "src/data_utils/twitter_data/livescraper/tests/test_query.py::TestMyStreamListener": true,
-  "src/data_utils/twitter_data/livescraper/tests/test_query.py::Testquery_live_tweets": true,
-  "src/data_utils/twitter_data/livescraper/tests/test_tweet_profile.py::TestTweet_Profile": true,
-  "src/data_utils/twitter_data/twitterscraper/tests/test_query.py::TesttwitterScraper::()::test_query_historic_tweets": true,
-  "src/data_utils/twitter_data/utils/tests/test_data.py::TestdataUtils::()": true
-}
