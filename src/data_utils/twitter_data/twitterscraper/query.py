@@ -360,8 +360,7 @@ class query_historic_tweets():
             proxySize = len(self.proxies)
             count = 0
 
-        all_data = {}        
-
+        all_data = {}
 
         for coinDetail in self.detailsList:
             self.logger.info("Scraping {} Data".format(coinDetail['coinname']))

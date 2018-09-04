@@ -1,53 +1,4 @@
 Creating profile directories in case they don't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/archive
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live if it dosen't exist
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/historic_scrape/raw if it dosen't exist
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/historic_scrape/interpreted if it dosen't exist
@@ -55,56 +6,56 @@ Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twi
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/interpreted/features
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/interpreted/network
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/archive
 Creating profile directories in case they don't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/archive
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/raw if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/interpreted if it dosen't exist
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/top_raw
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/features
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/network
-Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/archive
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live if it dosen't exist
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/historic_scrape/raw if it dosen't exist
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/historic_scrape/interpreted if it dosen't exist
@@ -112,3 +63,52 @@ Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twi
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/interpreted/features
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/interpreted/network
 Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/stellar/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dogecoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/bitcoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/dashcoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/litecoin/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ripple/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/ethereum/live_storage/archive
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/raw if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/historic_scrape/interpreted if it dosen't exist
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/top_raw
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/features
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/interpreted/network
+Recreating path /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/data/tweet/monero/live_storage/archive

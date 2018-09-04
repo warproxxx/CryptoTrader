@@ -30,9 +30,9 @@ class TestTweet:
         assert(tweets[1].id == "1019112793205813250")
         assert(tweets[1].timestamp == "1531810398")
         assert("#vanig" in tweets[1].text)
-        assert(tweets[1].replies == "0")
-        assert(tweets[1].retweets == "0")
-        assert(tweets[1].likes == "0")
+        assert(int(tweets[1].replies) == 0)
+        assert(int(tweets[1].retweets) == 0)
+        assert(int(tweets[1].likes) == 0)
         assert(tweets[1].reply_to_id == "1016973739404165120")
         assert(tweets[1].response_type == "quoted_retweet") 
 
