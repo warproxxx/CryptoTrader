@@ -1,17 +1,28 @@
-from profilescraper import query_profile
+import os
+import argparse
+from glob import glob
+import shutil
+
+import threading
+import time
+
+from profilescraper import profileScraper
 from twitterscraper import query_historic_tweets
 from livescraper import query_live_tweets
 
 from libs.run_utils import runUtils
 from libs.reading_utils import get_keywords
-from libs.filename_utils import get_locations
+from libs.writing_utils import get_logger, get_locations
 
-import argparse
+from datetime import datetime
 
-import time
-import threading
-
-import logging
+def get_latest(files):
+    if (len(files) >= 1):
+        endings = [datetime.strptime(file.split("_")[1].replace('.csv', ''), '%Y-%m-%d') for file in files]
+        final_date = max(d for d in endings)
+        return final_date
+    else:
+        return None
 
 def download_live(keywords, logger):
     qt = query_live_tweets(keywords, logger=logger)
@@ -33,36 +44,64 @@ def download_live(keywords, logger):
             t1.start()
 
 
-if __name__=="__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--clean", help="Clean all log files and the temp unmoved live data", action='store_true')
-    parser.print_help()
+parser = argparse.ArgumentParser()
+parser.add_argument("--clean", help="Clean all log files and the temp unmoved live data", action='store_true')
+parser.print_help()
+
+_, currRoot_dir = get_locations()
+
+logger = get_logger(currRoot_dir + '/logs/live.txt')
+
+options = parser.parse_args()
+keywords, historicList = get_keywords()
+ru = runUtils(keywords)
     
-    _, currRoot_dir = get_locations()
+if options.clean:
+    ru.remove_directory_structure()
+else:
+    ru.create_directory_structure()
 
-    logger = logging.getLogger()
-    logger.basicConfig = logging.basicConfig(filename= currRoot_dir + '/logs/live.txt', level=logging.INFO)
+historicDownloading = []
+runHistoric = 1
 
-    options = parser.parse_args()
-    keywords, historicList = get_keywords()
-    ru = runUtils(keywords, logger=logger)
+for dic in historicList:
+    currPath = os.path.join(currRoot_dir, "data/tweet/{}/historic_scrape/raw".format(dic['coinname']))
 
-     
-    if options.clean:
-        ru.remove_directory_structure()
+    final_date = get_latest(glob(os.path.join(currPath, "*")))
+
+    if (final_date == None):
+        ## Not moved to interpreted now so leaving this
+
+        # interpretedHistoric = os.path.join(currPath, "interpreted")
+        # final_date = get_latest(glob(os.path.join(interpretedHistoric, "/*")))
+
+        # if (final_date == None):
+        #     historicDownloading.append(dic)
+        
+        historicDownloading.append(dic)
+    elif (final_date.date() != dic['end']):
+        liveRaw = os.path.join(currRoot_dir, "data/tweet/{}/live/raw".format(dic['coinname']))
+        
+        ## Not moved or removed from interpreted so leaving this
+        #liveInterpreted = os.path.join(currRoot_dir, "data/tweet/{}/live/raw".format(dic['coinname']))
+        
+        if len(glob(os.path.join(liveRaw, "*"))) >= 1:
+            runHistoric = 0
+        else:
+            historicDownloading.append(dic)
     else:
-        ru.create_directory_structure()
+        runHistoric = 0
 
-    download_live(keywords, logger)
+if (runHistoric == 0):
+    query_historic_tweets(historicDownloading)
+    
+# while True:
+#     #run this in new thread
+#     download_live(keywords, logger)
+#     #wait for 3 hours
+#     time.sleep(3 * 60 * 60)
+#     #merge the live data and put it in appropriate folder
 
-#start the live data collector
-
-#download first time historical data
-
-#wait for 3 hours
-
-#merge the live data and put it in appropriate folder
-
-#Run the historic scarper. Ther will be confusion because tweet because for tweet made 2 hour ago, bots might attempt to spread even aftger 4 hours.
-
-#Fix the structure. Archive useless data.
+#     #Run the historic scarper. Remove tweets older than 3 hour with no existance in historic
+   
+#     #Fix the structure. Archive useless data.
