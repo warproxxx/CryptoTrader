@@ -46,7 +46,6 @@ def download_live(keywords, logger):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--clean", help="Clean all log files and the temp unmoved live data", action='store_true')
-parser.print_help()
 
 _, currRoot_dir = get_locations()
 
@@ -66,7 +65,6 @@ runHistoric = 1
 
 for dic in historicList:
     currPath = os.path.join(currRoot_dir, "data/tweet/{}/historic_scrape/raw".format(dic['coinname']))
-
     final_date = get_latest(glob(os.path.join(currPath, "*")))
 
     if (final_date == None):
@@ -92,8 +90,9 @@ for dic in historicList:
     else:
         runHistoric = 0
 
-if (runHistoric == 0):
-    query_historic_tweets(historicDownloading)
+if (runHistoric == 1):
+    qt = query_historic_tweets(historicDownloading)
+    qt.perform_search()
     
 # while True:
 #     #run this in new thread
