@@ -1,3 +1,0 @@
-Todo (later):
-Use LSTM for filling data till today for missing insted of filling. Using last 12 months as training.
-clean_files function in profile_utils.py can be made fast

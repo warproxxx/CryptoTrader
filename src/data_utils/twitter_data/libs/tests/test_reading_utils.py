@@ -22,36 +22,29 @@ def test_get_keywords():
     for lst in historicList:
         if (lst['coinname'] == 'bitcoin'):
             assert(lst['keyword'] == 'bitcoin OR BTC')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
         elif (lst['coinname'] == 'litecoin'):
             assert(lst['keyword'] == 'litecoin OR LTC')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
         elif (lst['coinname'] == 'monero'):
             assert(lst['keyword'] == 'monero OR XMR')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
         elif (lst['coinname'] == 'dogecoin'):
             assert(lst['keyword'] == 'dogecoin OR DOGE')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
         elif (lst['coinname'] == 'stellar'):
             assert(lst['keyword'] == 'stellar OR STR')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
         elif (lst['coinname'] == 'ethereum'):
             assert(lst['keyword'] == 'ethereum OR ETH')
-            assert(lst['start'] == date(2015, 12, 1))
-            assert(lst['end'] == date.today())
+            assert(lst['start'] == datetime.datetime(2015, 12, 1, 0, 0, 0))
+            assert(lst['end'].date() == datetime.datetime.now().date())
         elif (lst['coinname'] == 'dashcoin'):
             assert(lst['keyword'] == 'dashcoin OR DASH OR darkcoin')
-            assert(lst['start'] == date(2015, 5, 1))
-            assert(lst['end'] == date.today())
+            assert(lst['start'] == datetime.datetime(2015, 5, 1, 0, 0, 0))
+            assert(lst['end'].date() == datetime.datetime.now().date())
         else:
             assert(lst['keyword'] == 'ripple OR XRP')
-            assert(lst['start'] == date(2015, 1, 1))
-            assert(lst['end'] == date.today())
+
+        if (not(lst['coinname'] in (['ethereum', 'dashcoin']))):
+            assert(lst['start'] == datetime.datetime(2015, 1, 1, 0, 0, 0))
+            assert(lst['end'].date() == datetime.datetime.now().date())
+            assert(lst['end'].time())
 
 def test_get_custom_keywords():
     liveKeywords = {'bitcoin': ['bitcoin', 'BTC'], 'dashcoin': ['dashcoin', 'DASH', 'darkcoin'], 'dogecoin': ['dogecoin', 'DOGE'], 'ethereum': ['ethereum', 'ETH'], 'litecoin': ['litecoin', 'LTC'], 'ripple': ['ripple', 'XRP'], 'monero': ['monero', 'XMR'], 'stellar': ['stellar', 'STR']}

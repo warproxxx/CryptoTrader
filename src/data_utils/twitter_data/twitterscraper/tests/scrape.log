@@ -4,22 +4,34 @@ Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
 2
 Querying bitcoin OR BTC since:2018-01-02 until:2018-01-03
 Querying bitcoin OR BTC since:2018-01-01 until:2018-01-02
-Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-947865661879062529-947975119141507073-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-17&q=bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02&l=".
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-947933098800566273-947974313847558144-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-5&q=bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02&l=".
 Traceback (most recent call last):
   File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
     json_resp = json.loads(response.text)
-  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
     return _default_decoder.decode(s)
-  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
     raise JSONDecodeError("Expecting value", s, err.value) from None
 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 Retrying... (Attempts left: 10)
-Got 996 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02.
-Got 996 tweets (996 new).
-Got 1463 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-02%20until%3A2018-01-03.
-Got 2459 tweets (1463 new).
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-947861529474449408-947974313847558144-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-17&q=bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+Got 976 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 976 tweets (976 new).
+Got 1421 tweets for bitcoin%20OR%20BTC%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 2397 tweets (1421 new).
 Scraping dashcoin Data
 Starting Year: 2018 Ending Year: 2018
 Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
@@ -28,110 +40,97 @@ Querying dashcoin OR DASH OR darkcoin since:2018-01-01 until:2018-01-02
 Querying dashcoin OR DASH OR darkcoin since:2018-01-02 until:2018-01-03
 Got 191 tweets for dashcoin%20OR%20DASH%20OR%20darkcoin%20since%3A2018-01-02%20until%3A2018-01-03.
 Got 191 tweets (191 new).
-Got 292 tweets for dashcoin%20OR%20DASH%20OR%20darkcoin%20since%3A2018-01-01%20until%3A2018-01-02.
-Got 483 tweets (292 new).
+Got 278 tweets for dashcoin%20OR%20DASH%20OR%20darkcoin%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 469 tweets (278 new).
 Scraping dogecoin Data
 Starting Year: 2018 Ending Year: 2018
 Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
 2
 Querying dogecoin OR DOGE since:2018-01-01 until:2018-01-02
 Querying dogecoin OR DOGE since:2018-01-02 until:2018-01-03
-Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=TWEET-948103541335265285-948262244420407297-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==-T-0-0&q=dogecoin%20OR%20DOGE%20since%3A2018-01-02%20until%3A2018-01-03&l=".
-Traceback (most recent call last):
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 96, in query_single_page
-    json_resp = json.loads(response.text)
-  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
-    return _default_decoder.decode(s)
-  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
-    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-Retrying... (Attempts left: 10)
-Got 75 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-02%20until%3A2018-01-03.
-Got 75 tweets (75 new).
-Got 81 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-01%20until%3A2018-01-02.
-Got 156 tweets (81 new).
+Got 79 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 79 tweets (79 new).
+Got 93 tweets for dogecoin%20OR%20DOGE%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 172 tweets (93 new).
 Scraping ethereum Data
 Starting Year: 2018 Ending Year: 2018
 Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
 2
 Querying ethereum OR ETH since:2018-01-01 until:2018-01-02
 Querying ethereum OR ETH since:2018-01-02 until:2018-01-03
-An unknown error occurred! Returning tweets gathered so far.
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 377, in _make_request
-    httplib_response = conn.getresponse(buffering=True)
-TypeError: getresponse() got an unexpected keyword argument 'buffering'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 158, in query_tweets_once
-    pos is None
-  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 89, in query_single_page
-    response = requests.get(url, headers=headers)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
-    r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
-    timeout=timeout
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 380, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/local/lib/python3.7/http/client.py", line 1321, in getresponse
-    response.begin()
-  File "/usr/local/lib/python3.7/http/client.py", line 296, in begin
-    version, status, reason = self._read_status()
-  File "/usr/local/lib/python3.7/http/client.py", line 257, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/local/lib/python3.7/socket.py", line 589, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/local/lib/python3.7/ssl.py", line 1049, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/local/lib/python3.7/ssl.py", line 908, in read
-    return self._sslobj.read(len, buffer)
-KeyboardInterrupt
-Got 239 tweets for ethereum%20OR%20ETH%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 221 tweets for ethereum%20OR%20ETH%20since%3A2018-01-01%20until%3A2018-01-02.
+Got 221 tweets (221 new).
+Got 390 tweets for ethereum%20OR%20ETH%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 611 tweets (390 new).
+Scraping litecoin Data
+Starting Year: 2018 Ending Year: 2018
+Current Starting Date:2018-01-01 Current Ending Date:2018-01-03
+2
+Querying litecoin OR LTC since:2018-01-01 until:2018-01-02
+Querying litecoin OR LTC since:2018-01-02 until:2018-01-03
 An unknown error occurred! Returning tweets gathered so far.
 Traceback (most recent call last):
   File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 158, in query_tweets_once
     pos is None
   File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 89, in query_single_page
     response = requests.get(url, headers=headers)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 72, in get
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 72, in get
     return request('get', url, params=params, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/api.py", line 58, in request
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 58, in request
     return session.request(method=method, url=url, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 512, in request
     resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 622, in send
     r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
+  File "/usr/local/lib/python3.7/dist-packages/requests/adapters.py", line 445, in send
     timeout=timeout
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
     chunked=chunked)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 343, in _make_request
     self._validate_conn(conn)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 849, in _validate_conn
     conn.connect()
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connection.py", line 314, in connect
-    conn = self._new_conn()
-  File "/usr/local/lib/python3.7/site-packages/urllib3/connection.py", line 171, in _new_conn
-    (self._dns_host, self.port), self.timeout, **extra_kw)
-  File "/usr/local/lib/python3.7/site-packages/urllib3/util/connection.py", line 56, in create_connection
-    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
-  File "/usr/local/lib/python3.7/socket.py", line 748, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connection.py", line 356, in connect
+    ssl_context=context)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/util/ssl_.py", line 359, in ssl_wrap_socket
+    return context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python3.7/ssl.py", line 412, in wrap_socket
+    session=session
+  File "/usr/lib/python3.7/ssl.py", line 850, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.7/ssl.py", line 1108, in do_handshake
+    self._sslobj.do_handshake()
 KeyboardInterrupt
-Got 297 tweets for ethereum%20OR%20ETH%20since%3A2018-01-02%20until%3A2018-01-03.
-/lib/python3.7/socket.py", line 748, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+Got 61 tweets for litecoin%20OR%20LTC%20since%3A2018-01-02%20until%3A2018-01-03.
+An unknown error occurred! Returning tweets gathered so far.
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 158, in query_tweets_once
+    pos is None
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 89, in query_single_page
+    response = requests.get(url, headers=headers)
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 849, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connection.py", line 356, in connect
+    ssl_context=context)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/util/ssl_.py", line 336, in ssl_wrap_socket
+    context.load_verify_locations(ca_certs, ca_cert_dir)
 KeyboardInterrupt
-Got 297 tweets for ethereum%20OR%20ETH%20since%3A2018-01-02%20until%3A2018-01-03.
+Got 61 tweets for litecoin%20OR%20LTC%20since%3A2018-01-01%20until%3A2018-01-02.
+on3.7/dist-packages/urllib3/util/ssl_.py", line 336, in ssl_wrap_socket
+    context.load_verify_locations(ca_certs, ca_cert_dir)
+KeyboardInterrupt
+Got 61 tweets for litecoin%20OR%20LTC%20since%3A2018-01-01%20until%3A2018-01-02.

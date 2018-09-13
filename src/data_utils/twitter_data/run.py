@@ -53,6 +53,7 @@ logger = get_logger(currRoot_dir + '/logs/live.txt')
 
 options = parser.parse_args()
 keywords, historicList = get_keywords()
+
 ru = runUtils(keywords)
     
 if options.clean:

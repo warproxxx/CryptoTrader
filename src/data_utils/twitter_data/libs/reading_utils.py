@@ -77,7 +77,7 @@ def get_custom_keywords(liveKeywords, starting, ending):
     return historicList
 
 
-def get_keywords(keywordsFile="/keywords.json", ending=date.today()):
+def get_keywords(keywordsFile="/keywords.json", ending=datetime.now()):
     '''
     Parameters:
     ___________
@@ -104,7 +104,7 @@ def get_keywords(keywordsFile="/keywords.json", ending=date.today()):
 
     for coinname in json_data:
         liveKeywords[coinname] = json_data[coinname]["keywords"]
-        historicList.append({'keyword': ' OR '.join(json_data[coinname]["keywords"]), 'coinname': coinname, 'start': datetime.strptime(json_data[coinname]["start_date"], "%Y-%m-%d").date(), 'end': ending})
+        historicList.append({'keyword': ' OR '.join(json_data[coinname]["keywords"]), 'coinname': coinname, 'start': datetime.strptime(json_data[coinname]["start_date"], "%Y-%m-%d"), 'end': ending})
     
     return liveKeywords, historicList
 
