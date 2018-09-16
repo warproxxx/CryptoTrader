@@ -14,7 +14,6 @@ from dateutil.relativedelta import relativedelta
 from twitterscraper.tweet import Tweet
 
 from libs.writing_utils import get_locations, get_logger
-from libs.reading_utils import get_proxies
 
 def eliminate_duplicates(iterable):
     """

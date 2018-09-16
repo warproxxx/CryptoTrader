@@ -11,7 +11,7 @@ from twitterscraper import query_historic_tweets
 from livescraper import query_live_tweets
 
 from libs.run_utils import runUtils
-from libs.reading_utils import get_keywords
+from libs.reading_utils import get_keywords, get_proxies
 from libs.writing_utils import get_logger, get_locations
 
 from datetime import datetime
@@ -52,7 +52,9 @@ _, currRoot_dir = get_locations()
 logger = get_logger(currRoot_dir + '/logs/live.txt')
 
 options = parser.parse_args()
+
 keywords, historicList = get_keywords()
+proxies = get_proxies()
 
 ru = runUtils(keywords)
     
@@ -92,9 +94,9 @@ for dic in historicList:
         runHistoric = 0
 
 if (runHistoric == 1):
-    qt = query_historic_tweets(historicDownloading)
+    qt = query_historic_tweets(historicDownloading, proxies=proxies)
     qt.perform_search()
-    
+
 # while True:
 #     #run this in new thread
 #     download_live(keywords, logger)
