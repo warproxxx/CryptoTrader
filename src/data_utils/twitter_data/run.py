@@ -18,7 +18,7 @@ from datetime import datetime
 
 def get_latest(files):
     if (len(files) >= 1):
-        endings = [datetime.strptime(file.split("_")[1].replace('.csv', ''), '%Y-%m-%d') for file in files]
+        endings = [datetime.strptime(os.path.basename(file).split("_")[1].replace('.csv', ''), '%Y-%m-%d') for file in files]
         final_date = max(d for d in endings)
         return final_date
     else:
