@@ -12,3 +12,4 @@ ghostdriver.log
 CryptoTrader/data_utils/tradingview_data/data/*
 CryptoTrader/data_utils/twitter_data/data/*
 !CryptoTrader/data_utils/twitter_data/data/static/*
+CryptoTrader/data_utils/twitter_data/logs/*
