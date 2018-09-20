@@ -1,4 +1,4 @@
-from twitterscraper.query import twitterScraper, query_historic_tweets
+from twitterscraper.query import twitterScraper, query_historic_tweets, process_historic_tweets
 
 from libs.reading_utils import get_keywords, get_custom_keywords
 from libs.writing_utils import get_locations, get_logger
