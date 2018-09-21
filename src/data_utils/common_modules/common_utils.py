@@ -6,8 +6,8 @@ def trends_ta(df, column):
     Performs Technical Analysis on the given column
     '''
     
-    df['{}_ema_12'.format(column)] = ema_fast(df[column])
-    df['{}_ema_26'.format(column)] = ema_slow(df[column])
+    df['{}_ema_12'.format(column)] = ema_indicator(df[column], n=12)
+    df['{}_ema_26'.format(column)] = ema_indicator(df[column], n=26)
 
     df['{}_macd'.format(column)] = macd(df[column])
 

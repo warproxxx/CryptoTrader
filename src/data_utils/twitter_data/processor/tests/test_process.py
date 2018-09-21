@@ -16,5 +16,11 @@ class TesthistoricProcessor:
         self.hp.read_merge(delete=False)
 
         df = pd.read_csv("{}/twitterscraper/tests/data/tweet/bitcoin/historic_scrape/raw/combined.csv".format(self.curr_Root), lineterminator='\n')
-        assert(df.shape[0] == 74336)
+        assert(df.shape[0] == 20405)
         assert(df.shape[1] == 9)
+
+    def test_create_ml_features(self):
+        self.hp.create_ml_features()
+
+        df = pd.read_csv("{}/twitterscraper/tests/data/tweet/bitcoin/historic_scrape/raw/combined.csv".format(self.curr_Root))
+        

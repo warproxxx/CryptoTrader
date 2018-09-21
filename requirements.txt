@@ -21,3 +21,5 @@ numba>=0.38.1
 numexpr>=2.6.5
 nltk>=3.3
 pytest>=3.6.3
+line-profiler>=2.1.2
+swifter>=0.242

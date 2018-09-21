@@ -2,6 +2,9 @@ import os
 import json
 from libs.writing_utils import get_locations
 from datetime import date, datetime
+import numpy as np
+import re
+import pandas as pd
 
 def proxy_dict(address):
     '''
@@ -128,3 +131,20 @@ def get_twitter(twitterFile="/data/static/api.json"):
         json_data = json.load(json_file) 
     
     return json_data['consumer_key'], json_data['consumer_secret'], json_data['access_token'], json_data['access_token_secret']
+
+def cleanData(data):
+    pattern = [ 'http[s]?://(?:[a-z]|[0-9]|[$-_@.&amp;+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+',  # URLs'
+                '([^a-zA-Z0-9,.!? ]+?)', #anything else except text and punctuations
+                ]
+
+    sub_pattern = re.compile('|'.join(pattern))
+    
+    if isinstance(data, pd.Series):
+        data = data.str.lower()
+        replaced = data.str.replace(sub_pattern, '').str.strip()
+    else:
+
+        data = data.lower()
+        replaced = re.sub(sub_pattern, '', word).strip()
+        
+    return replaced
