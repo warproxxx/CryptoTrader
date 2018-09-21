@@ -89,6 +89,12 @@ class historicProcessor:
         Feature calculated from the data
         '''
         y = pd.Series()
+
+        try:
+            t = x.index[0]
+            y['Time'] = pd.Timestamp("{}-{}-{} {}:00:00".format(t.year, t.month, t.day, t.hour))
+        except:
+            pass
     
         x = x.assign(f = x['Likes'] + x['Replies'] + x['Retweets']).sort_values('f', ascending=False).drop('f', axis=1)
         
@@ -154,7 +160,7 @@ class historicProcessor:
 
             self.logger.info("Now calculating features")
             df = applyParallel(df.groupby(pd.Grouper(freq='H')), self.f_add_features)
-            
+            df['Time'] = pd.date_range(df['Time'].iloc[0], df['Time'].iloc[-1], periods=df['Time'].shape[0])
             self.logger.info("Features Calculated")
             
             df['variation_all'] = df['n_bullish_all'].diff()
@@ -163,9 +169,11 @@ class historicProcessor:
             #add botorNot too
             df = trends_ta(df, 'mean_vader_top')
             df = trends_ta(df, 'mean_vader_all')
+            df = df.replace(np.inf, 0)
+            df = df.replace(-np.inf, 0)
             df = df.replace(np.nan, 0)
             savePath = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/interpreted/data.csv".format(coinDetail['coinname']))
-            df.to_csv(savePath)
+            df.to_csv(savePath, index=None)
             self.logger.info("Added all features. Saved to {}".format(savePath))
 
     def create_visualization_features(self):
