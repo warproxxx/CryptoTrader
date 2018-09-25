@@ -32,25 +32,30 @@ class historicProcessor:
     Processor for historic data
     '''
 
-    def __init__(self, detailsList, relative_dir="/", logger=None):
+    def __init__(self, detailsList, algo_name, relative_dir="/", logger=None):
         '''
         Parameters:
         ___________
         detailsList (list): 
         List containing keyword, coinname in string and start and end in date format
 
+        algo_name (string):
+        The name of the algorithm so as to save in file
+
         relative_dir (string):
         The relative directory 
         '''
-        _, self.currRoot_dir = get_locations()
+        _, currRoot_dir = get_locations()
 
         if logger == None:
-            self.logger = get_logger(self.currRoot_dir + "/logs/process.log")
+            self.logger = get_logger(currRoot_dir + "/logs/process.log")
         else:
             self.logger = logger
 
         self.detailsList = detailsList
-        self.relative_dir = relative_dir
+        self.algo_name = algo_name
+
+        self.historic_path = os.path.join(currRoot_dir, relative_dir, "data/tweet/{}/historic_scrape")
 
     def read_merge(self, delete=True):
         '''
@@ -62,16 +67,16 @@ class historicProcessor:
         '''
 
         for coinDetail in self.detailsList:
-            path = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/raw".format(coinDetail['coinname']))
+            path = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw")
 
             files = glob(path + "/*")
-            f = merge_csvs(files, ignore_name="combined.csv")
+            initial, final, f = merge_csvs(files, ignore_name="combined")
 
             if (delete==True):
                 for file in files:
                     os.remove(file)
 
-            with open(os.path.join(path, "combined.csv"), "wb") as out:
+            with open(os.path.join(path, "combined"), "wb") as out:
                 out.write(f.read())
 
     def f_add_features(self, x):
@@ -144,37 +149,43 @@ class historicProcessor:
         '''
 
         for coinDetail in self.detailsList:
-            path = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/raw".format(coinDetail['coinname']))
-            df = pd.read_csv(os.path.join(path, "combined.csv"), lineterminator='\n')
-            self.logger.info("CSV file read for {}".format(coinDetail['coinname']))
+            savePath = os.path.join(self.historic_path.format(coinDetail['coinname']), "interpreted/data-{}.csv".format(self.algo_name))
 
-            df['Tweet'] = cleanData(df['Tweet'])
-            self.logger.info("Tweets Cleaned")
-            
-            df['Time'] = pd.to_datetime(df['Time'], unit='s')
-            df = df.set_index('Time')
-            
-            self.logger.info("Calculating sentiment")
-            analyzer = vader.SentimentIntensityAnalyzer()
-            df['sentiment'] = df['Tweet'].swifter.apply(applyVader, analyzer=analyzer)
+            if (not(os.path.isfile(savePath))):
+                path = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw")
 
-            self.logger.info("Now calculating features")
-            df = applyParallel(df.groupby(pd.Grouper(freq='H')), self.f_add_features)
-            df['Time'] = pd.date_range(df['Time'].iloc[0], df['Time'].iloc[-1], periods=df['Time'].shape[0])
-            self.logger.info("Features Calculated")
-            
-            df['variation_all'] = df['n_bullish_all'].diff()
-            df = df.drop(['n_bullish_all', 'n_bearish_all'], axis=1)
-            df['mean_vader_change_top'] = df['mean_vader_top'].diff()
-            #add botorNot too
-            df = trends_ta(df, 'mean_vader_top')
-            df = trends_ta(df, 'mean_vader_all')
-            df = df.replace(np.inf, 0)
-            df = df.replace(-np.inf, 0)
-            df = df.replace(np.nan, 0)
-            savePath = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/interpreted/data.csv".format(coinDetail['coinname']))
-            df.to_csv(savePath, index=None)
-            self.logger.info("Added all features. Saved to {}".format(savePath))
+                df = pd.read_csv(os.path.join(path, "combined.csv"), lineterminator='\n')
+                self.logger.info("CSV file read for {}".format(coinDetail['coinname']))
+
+                df['Tweet'] = cleanData(df['Tweet'])
+                self.logger.info("Tweets Cleaned")
+                
+                df['Time'] = pd.to_datetime(df['Time'], unit='s')
+                df = df.set_index('Time')
+                
+                self.logger.info("Calculating sentiment")
+                analyzer = vader.SentimentIntensityAnalyzer()
+                df['sentiment'] = df['Tweet'].swifter.apply(applyVader, analyzer=analyzer)
+
+                self.logger.info("Now calculating features")
+                df = applyParallel(df.groupby(pd.Grouper(freq='H')), self.f_add_features)
+                df['Time'] = pd.date_range(df['Time'].iloc[0], df['Time'].iloc[-1], periods=df['Time'].shape[0])
+                self.logger.info("Features Calculated")
+                
+                df['variation_all'] = df['n_bullish_all'].diff()
+                df = df.drop(['n_bullish_all', 'n_bearish_all'], axis=1)
+                df['mean_vader_change_top'] = df['mean_vader_top'].diff()
+                #add botorNot too
+                df = trends_ta(df, 'mean_vader_top')
+                df = trends_ta(df, 'mean_vader_all')
+                df = df.replace(np.inf, 0)
+                df = df.replace(-np.inf, 0)
+                df = df.replace(np.nan, 0)
+                
+                df.to_csv(savePath, index=None)
+                self.logger.info("Added all features. Saved to {}".format(savePath))
+            else:
+                self.logger.info("Using the cached file from {}".format(savePath))
 
     def create_visualization_features(self):
         pass

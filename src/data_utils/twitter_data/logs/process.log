@@ -3,4 +3,4 @@ Tweets Cleaned
 Calculating sentiment
 Now calculating features
 Features Calculated
-Added all features. Saved to /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/tests/data/tweet/bitcoin/historic_scrape/interpreted/data.csv
+Added all features. Saved to /home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/tests/data/tweet/bitcoin/historic_scrape/interpreted/data-initial_algo.csv

@@ -1,5 +1,6 @@
 from io import BytesIO
 from ta import *
+import os
 
 def trends_ta(df, column):
     '''
@@ -47,15 +48,28 @@ def merge_csvs(files, ignore_name=None):
 
     files (List):
     List of files to append
+
+    Returns:
+    ________
+    initial_date(string):
+    The first date in files
+
+    final_date(string):
+    The final date in files
+
+    combined (BytesIO):
+    BytesIO of the files
     '''
     combined = BytesIO()
     first = 1
-
+    all_dates = []
     for file in files:
         if (ignore_name != None):
-            if "combined.csv" in file:
+            if ignore_name in file:
                 continue
-                
+        
+        all_dates.extend(os.path.splitext(os.path.basename(file))[0].split("_"))
+
         with open(file, "rb") as f:
             if (first != 1):
                 next(f)                
@@ -66,5 +80,6 @@ def merge_csvs(files, ignore_name=None):
 
     combined.seek(0)
     #df = pd.read_csv(combined, lineterminator='\n')
-
-    return combined
+    all_dates = sorted(all_dates, key=lambda d: tuple(map(int, d.split('-'))))
+    
+    return all_dates[0], all_dates[-1], combined
