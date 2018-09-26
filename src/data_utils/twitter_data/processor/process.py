@@ -70,14 +70,15 @@ class historicProcessor:
             path = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw")
 
             files = glob(path + "/*")
-            initial, final, f = merge_csvs(files, ignore_name="combined")
+            f = merge_csvs(files, ignore_name="combined")
 
-            if (delete==True):
-                for file in files:
-                    os.remove(file)
+            if f != None:
+                if (delete==True):
+                    for file in files:
+                        os.remove(file)
 
-            with open(os.path.join(path, "combined"), "wb") as out:
-                out.write(f.read())
+                with open(os.path.join(path, "combined.csv"), "wb") as out:
+                    out.write(f.read())
 
     def f_add_features(self, x):
         '''
@@ -154,36 +155,42 @@ class historicProcessor:
             if (not(os.path.isfile(savePath))):
                 path = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw")
 
-                df = pd.read_csv(os.path.join(path, "combined.csv"), lineterminator='\n')
-                self.logger.info("CSV file read for {}".format(coinDetail['coinname']))
+                combinedCsv = os.path.join(path, "combined.csv")
 
-                df['Tweet'] = cleanData(df['Tweet'])
-                self.logger.info("Tweets Cleaned")
-                
-                df['Time'] = pd.to_datetime(df['Time'], unit='s')
-                df = df.set_index('Time')
-                
-                self.logger.info("Calculating sentiment")
-                analyzer = vader.SentimentIntensityAnalyzer()
-                df['sentiment'] = df['Tweet'].swifter.apply(applyVader, analyzer=analyzer)
+                if os.path.isfile(combinedCsv):
+                    print(combinedCsv)
+                    df = pd.read_csv(combinedCsv, lineterminator='\n')
+                    self.logger.info("CSV file read for {}".format(coinDetail['coinname']))
 
-                self.logger.info("Now calculating features")
-                df = applyParallel(df.groupby(pd.Grouper(freq='H')), self.f_add_features)
-                df['Time'] = pd.date_range(df['Time'].iloc[0], df['Time'].iloc[-1], periods=df['Time'].shape[0])
-                self.logger.info("Features Calculated")
-                
-                df['variation_all'] = df['n_bullish_all'].diff()
-                df = df.drop(['n_bullish_all', 'n_bearish_all'], axis=1)
-                df['mean_vader_change_top'] = df['mean_vader_top'].diff()
-                #add botorNot too
-                df = trends_ta(df, 'mean_vader_top')
-                df = trends_ta(df, 'mean_vader_all')
-                df = df.replace(np.inf, 0)
-                df = df.replace(-np.inf, 0)
-                df = df.replace(np.nan, 0)
-                
-                df.to_csv(savePath, index=None)
-                self.logger.info("Added all features. Saved to {}".format(savePath))
+                    df['Tweet'] = cleanData(df['Tweet'])
+                    self.logger.info("Tweets Cleaned")
+                    
+                    df['Time'] = pd.to_datetime(df['Time'], unit='s')
+                    df = df.set_index('Time')
+                    
+                    self.logger.info("Calculating sentiment")
+                    analyzer = vader.SentimentIntensityAnalyzer()
+                    df['sentiment'] = df['Tweet'].swifter.apply(applyVader, analyzer=analyzer)
+
+                    self.logger.info("Now calculating features")
+                    df = applyParallel(df.groupby(pd.Grouper(freq='H')), self.f_add_features)
+                    df['Time'] = pd.date_range(df['Time'].iloc[0], df['Time'].iloc[-1], periods=df['Time'].shape[0])
+                    self.logger.info("Features Calculated")
+                    
+                    df['variation_all'] = df['n_bullish_all'].diff()
+                    df = df.drop(['n_bullish_all', 'n_bearish_all'], axis=1)
+                    df['mean_vader_change_top'] = df['mean_vader_top'].diff()
+                    #add botorNot too
+                    df = trends_ta(df, 'mean_vader_top')
+                    df = trends_ta(df, 'mean_vader_all')
+                    df = df.replace(np.inf, 0)
+                    df = df.replace(-np.inf, 0)
+                    df = df.replace(np.nan, 0)
+                    
+                    df.to_csv(savePath, index=None)
+                    self.logger.info("Added all features. Saved to {}".format(savePath))
+                else:
+                    self.logger.info("{} does not exists so skipping".format(combinedCsv))
             else:
                 self.logger.info("Using the cached file from {}".format(savePath))
 

@@ -14,6 +14,8 @@ from livescraper import query_live_tweets
 from libs.reading_utils import get_keywords, get_proxies
 from libs.writing_utils import get_logger, get_locations
 
+from processor import historicProcessor
+
 from collections import deque
 from io import StringIO
 
@@ -75,10 +77,10 @@ class runAll:
 
         '''
         _, currRoot_dir = get_locations() 
+        self.relative_dir = relative_dir
         self.currDir = os.path.join(currRoot_dir, relative_dir)
 
         self.logger = get_logger(self.currDir + '/logs/live.txt')
-        self.relative_dir = relative_dir
         self.coins = [key for key, value in keywords.items()]
         self.historicList = historicList
         
@@ -188,6 +190,17 @@ class runAll:
             if (runHistoric == 1):
                 qt = query_historic_tweets(historicDownloading, proxies=proxies)
                 qt.perform_search()
+    
+    def process_historic(self, algo_name):
+        hp = historicProcessor(self.historicList, algo_name, relative_dir=self.relative_dir)
+        hp.read_merge(delete=True)
+        hp.create_ml_features()
+
+    def start_live(self):
+        '''
+        Runs live data collection in a new thread
+        '''
+        pass
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--clean", help="Clean all log files and the temp unmoved live data", action='store_true')
@@ -205,7 +218,9 @@ if options.clean:
 
 ra = runAll(liveKeywords, historicList, proxies, relative_dir="test_run")
 ra.initial_houskeeping(clean=clean)
-ra.run_historic()
+# ra.run_historic()
+ra.process_historic("initial_algo")
+# ra.start_live()
 
 
 # while True:
