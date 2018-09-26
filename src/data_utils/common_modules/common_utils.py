@@ -63,7 +63,7 @@ def merge_csvs(files, ignore_name=None):
     else:
         ignored_files = files
 
-    if len(files) >= 1:
+    if len(ignored_files) >= 1:
         for file in ignored_files:
             all_dates.extend(os.path.splitext(os.path.basename(file))[0].split("_"))
 

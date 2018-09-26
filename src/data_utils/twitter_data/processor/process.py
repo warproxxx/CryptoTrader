@@ -158,7 +158,6 @@ class historicProcessor:
                 combinedCsv = os.path.join(path, "combined.csv")
 
                 if os.path.isfile(combinedCsv):
-                    print(combinedCsv)
                     df = pd.read_csv(combinedCsv, lineterminator='\n')
                     self.logger.info("CSV file read for {}".format(coinDetail['coinname']))
 
