@@ -1,1 +1,1 @@
-from processor.process import historicProcessor
+from processor.process import historicProcessor, profileProcessor

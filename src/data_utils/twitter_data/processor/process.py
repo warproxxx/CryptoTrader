@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 import swifter
+import numba
 from multiprocessing import Pool, cpu_count
 
 import nltk
@@ -32,12 +33,12 @@ class historicProcessor:
     Processor for historic data
     '''
 
-    def __init__(self, detailsList, algo_name, relative_dir="/", logger=None):
+    def __init__(self, detailsList, algo_name, relative_dir="/"):
         '''
         Parameters:
         ___________
         detailsList (list): 
-        List containing keyword, coinname in string and start and end in date format
+        List containing keyword, coinname in string and start and end in date format. For looping
 
         algo_name (string):
         The name of the algorithm so as to save in file
@@ -47,10 +48,7 @@ class historicProcessor:
         '''
         _, currRoot_dir = get_locations()
 
-        if logger == None:
-            self.logger = get_logger(currRoot_dir + "/logs/process.log")
-        else:
-            self.logger = logger
+        self.logger = get_logger(currRoot_dir + "/logs/historicprocess.log")
 
         self.detailsList = detailsList
         self.algo_name = algo_name
@@ -79,6 +77,19 @@ class historicProcessor:
 
                 with open(os.path.join(path, "combined.csv"), "wb") as out:
                     out.write(f.read())
+
+    def clean_data(self):
+        '''
+        Cleans the csv file. Fillna, drop duplicates and such
+        '''
+        for coinDetail in self.detailsList:
+            fileRead = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw/combined.csv")
+            
+            if (os.path.isfile(fileRead)):
+                df = pd.read_csv(fileRead)
+                df = df.dropna().sort_values('Likes', ascending=False).drop_duplicates('ID').sort_values('Time').reset_index(drop=True)
+                df.to_csv(fileRead, index=None)
+                self.logger.info("Saved cleaned data to {}".format(fileRead))
 
     def f_add_features(self, x):
         '''
@@ -194,4 +205,88 @@ class historicProcessor:
                 self.logger.info("Using the cached file from {}".format(savePath))
 
     def create_visualization_features(self):
+        pass
+
+class profileProcessor:
+    def __init__(self, detailsList, relative_dir="/"):
+        '''
+        Parameters:
+        ___________
+        detailsList (list): 
+        List containing keyword, coinname in string and start and end in date format. For looping
+
+        relative_dir (string):
+        The relative directory 
+        '''
+        _, currRoot_dir = get_locations()
+
+        self.logger = get_logger(currRoot_dir + "/logs/profileprocess.log")
+        self.detailsList = detailsList
+        self.profile_path = os.path.join(currRoot_dir, relative_dir, "data/profile")
+
+    @numba.jit
+    def clean_data(self):
+        '''
+        Cleans the csv file. Fillna, drop duplicates and such
+        '''
+
+        live_userData_dir = os.path.join(self.profile_path, "live/userData.csv")
+        live_userTweets_dir = os.path.join(self.profile_path, "live/userTweets.csv")
+
+        processed_userData_dir = os.path.join(self.profile_path, "storage/raw/userData.csv")
+        processed_userTweets_dir = os.path.join(self.profile_path, "storage/raw/userTweets.csv")
+
+        userData = pd.read_csv(live_userData_dir, low_memory=False)
+        
+        try:
+            userData=pd.concat([userData, pd.read_csv(processed_userData_dir, low_memory=False)])
+        except:
+            pass
+        
+        self.logger.info("User Data Read")
+        
+        userTweets = pd.read_csv(live_userTweets_dir, low_memory=False)
+        
+        try:
+            userTweets=pd.concat([userTweets, pd.read_csv(processed_userTweets_dir, low_memory=False)])
+        except:
+            pass
+
+        self.logger.info("User Tweets Read")
+        
+        userTweets = userTweets.rename(columns={'User': 'username'})
+
+        merged = pd.merge(userData, userTweets, how='inner', on=['username'])
+        self.logger.info("Inner Merged Done")
+        
+        newuserData = merged[userData.columns]
+        newuserData = newuserData.set_index('username').drop_duplicates().reset_index()
+
+        newuserTweets = merged[userTweets.columns]
+        newuserTweets = newuserTweets.rename(columns={'username': 'User'})
+
+        newuserTweets = newuserTweets.set_index(['User', 'ID']).drop_duplicates().reset_index()
+        
+        self.logger.info("All done saving")
+
+        newuserData.to_csv(processed_userData_dir, index=None)
+        self.logger.info("userData.csv has been updated and moved")
+        os.remove(live_userData_dir)
+        self.logger.info("Deleting userData.csv in the live folder")
+        
+        newuserTweets.to_csv(processed_userTweets_dir, index=None)
+        self.logger.info("userTweets.csv has been updated and moved")
+        os.remove(live_userTweets_dir)
+        self.logger.info("Deleting userTweets.csv in the live folder")
+        
+        newuserData['username'].to_csv(os.path.join(self.profile_path, "extractedUsers.csv"), index=None)
+        self.logger.info("extractedUsers.csv has been updated")
+        os.remove(os.path.join(self.profile_path, "live/userData.csv"))
+        self.logger.info("Deleting extractedUsers.csv in the live folder")
+
+
+    def create_ml_features(self):
+        '''
+        Create features from these data
+        '''
         pass

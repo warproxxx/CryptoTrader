@@ -11,6 +11,7 @@ from libs.writing_utils import get_logger, get_locations
 from profilescraper.profile import Profile
 
 import pandas as pd
+import os
 
 class profileScraper:
     def __init__(self, proxy=None, logger=None):
@@ -99,18 +100,38 @@ class profileScraper:
 
         return all_profile
     
-class query_profiles():
-    def __init__(self, logger=None, proxies=None, relative_dir="/"):
+class query_historic_profiles():
+    def __init__(self, profiles, proxies=None, relative_dir="/"):
+        '''
+        Functions to call to save historic profiles
+
+        Parameters:
+        __________
+        profiles (Pandas Series or list or numpy):
+        Series of profile name
+        '''
+
+        self.profiles = profiles
         _, self.currRoot = get_locations()
 
-        if logger == None:
-            self.logger = get_logger(self.currRoot + "/logs/profilescraper.log")
-        else:
-            self.logger = logger
+        self.logger = get_logger(os.path.join(self.currRoot, "logs/profilescraper.log"))
 
-        self.path = self.currRoot + relative_dir + "/data/profile/live" #or maybe historic?
+        self.path = os.path.join(self.currRoot, relative_dir, "data/profile")
+        self.proxies = proxies
 
-    
+    def scrape_list(self, currList, poolsize, proxy, count):
+        '''
+        Calls the scraper
+        '''
+        if (len(currList) > 0):
+            ps = profileScraper(proxy)
+            profiles = ps.query_profile(currList, poolsize=poolsize)
+            self.profiles_to_pandas(profiles)
+
+            count += 1
+
+        return count
+
     def profiles_to_pandas(self, profiles):
         userDf = pd.DataFrame(columns=['username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'total_moments', 'total_lists', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets'])
         tweetDf = pd.DataFrame(columns=['User', 'ID', 'Tweet', 'Time', 'Likes', 'Replies', 'Retweet'])
@@ -121,8 +142,55 @@ class query_profiles():
 
             userDf = userDf.append({'username':profile.username, 'location':profile.location, 'has_location':profile.has_location, 'created':profile.created, 'is_verified':profile.is_verified, 'total_tweets':profile.total_tweets, 'total_following':profile.total_following, 'total_followers':profile.total_followers, 'total_likes':profile.total_likes, 'total_moments':profile.total_moments, 'total_lists':profile.total_lists, 'has_avatar':profile.has_avatar, 'has_background':profile.has_background, 'is_protected':profile.is_protected, 'profile_modified':profile.profile_modified}, ignore_index=True)
 
-        tweetDf = tweetDf.to_csv(self.path + '/userTweets.csv', index=None, mode='a')
-        userDf['username'].to_csv(self.path + '/extractedUsers.csv', index=None, mode='a')
-        userDf.to_csv(self.path + '/userData.csv', index=None, mode='a')
+        tweetDf = tweetDf.to_csv(os.path.join(self.path, 'live/userTweets.csv'), index=None, mode='a')
+        userDf.to_csv(os.path.join(self.path, 'live/userData.csv'), index=None, mode='a')
+        userDf['username'].to_csv(os.path.join(self.path, 'live/extractedUsers.csv'), index=None, mode='a')
 
         self.logger.info("Saved to userTweets.csv and extractedUsers.csv")
+
+    def perform_search(self, poolsize=20):
+        '''
+        The function to call by other classes in order to search for profiles
+
+        Parameters:
+        __________
+        poolsize (int) (optional):
+        The size of pool
+        '''
+
+        proxySize = len(self.proxies)
+
+        try:
+            alreadyRead = pd.read_csv(os.path.join(self.path, 'extractedUsers.csv'), header=None)[0]
+        except FileNotFoundError:
+            self.logger.info("Already extracted users not found - Starting from a clean slate")
+            os.mknod(os.path.join(self.path, "extractedUsers.csv"))
+            alreadyRead = pd.Series()
+
+        #set profiles value by reading the csv file
+
+        uniqueUsers = list(set(self.profiles) - set(alreadyRead))
+
+        self.logger.info("File contains {} data. Scraping for {} after cache".format(len(self.profiles), len(uniqueUsers)))
+
+        oldi = 0
+        count = 0
+
+        for i in range(0, len(uniqueUsers), poolsize*5):
+            if (self.proxies == None):
+                currProxy = None
+            else:
+                currProxy = self.proxies[count]
+
+            count = self.scrape_list(uniqueUsers[oldi:i], poolsize=poolsize, proxy=currProxy, count=count)
+
+            if (count >= proxySize):
+                count = 0
+
+            self.logger.info("Done {} of {}".format(i, len(uniqueUsers)))
+            oldi = i
+        
+        if (len(uniqueUsers) == 0):
+            pass
+        else:
+            self.scrape_list(uniqueUsers[i:], poolsize=poolsize, proxy=None, count=count)

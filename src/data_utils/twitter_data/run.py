@@ -10,11 +10,12 @@ from datetime import datetime
 from profilescraper import profileScraper
 from twitterscraper import query_historic_tweets
 from livescraper import query_live_tweets
+from profilescraper import query_historic_profiles
 
 from libs.reading_utils import get_keywords, get_proxies
 from libs.writing_utils import get_logger, get_locations
 
-from processor import historicProcessor
+from processor import historicProcessor, profileProcessor
 
 from collections import deque
 from io import StringIO
@@ -79,10 +80,12 @@ class runAll:
         _, currRoot_dir = get_locations() 
         self.relative_dir = relative_dir
         self.currDir = os.path.join(currRoot_dir, relative_dir)
+        self.historic_path = os.path.join(self.currDir, "data/tweet/{}/historic_scrape")
 
         self.logger = get_logger(self.currDir + '/logs/live.txt')
         self.coins = [key for key, value in keywords.items()]
         self.historicList = historicList
+        self.proxies = proxies
         
     def initial_houskeeping(self, clean):
         '''
@@ -169,7 +172,7 @@ class runAll:
         runHistoric = 1
 
         for dic in self.historicList:
-            historicPath = os.path.join(self.currDir, "data/tweet/{}/historic_scrape".format(dic['coinname']))
+            historicPath = self.historic_path.format(dic['coinname'])
             interpreted_date, combined_date, non_combined_date = self.get_historic_dates(historicPath)
             latest_date = max(interpreted_date, combined_date, non_combined_date)
             latest_date_datetime = datetime.utcfromtimestamp(latest_date).strftime('%Y-%m-%d %H:%M:%S')
@@ -188,13 +191,26 @@ class runAll:
                 runHistoric = 0
 
             if (runHistoric == 1):
-                qt = query_historic_tweets(historicDownloading, proxies=proxies)
+                qt = query_historic_tweets(historicDownloading, proxies=self.proxies)
                 qt.perform_search()
     
     def process_historic(self, algo_name):
         hp = historicProcessor(self.historicList, algo_name, relative_dir=self.relative_dir)
         hp.read_merge(delete=True)
+        hp.clean_data()
         hp.create_ml_features()
+
+    def run_historic_profile(self):
+        for coinDetail in self.historicList:
+            fileRead = os.path.join(self.historic_path.format(coinDetail['coinname']), "raw/combined.csv")
+            
+            if (os.path.isfile(fileRead)):
+                profiles = pd.read_csv(fileRead)['User']
+                query_historic_profiles(profiles, proxies=self.proxies).perform_search(len(self.proxies))
+
+    def process_historic_profile(self):
+        pp = profileProcessor(self.historicList, relative_dir=self.relative_dir)
+        pp.clean_data()
 
     def start_live(self):
         '''
@@ -220,6 +236,8 @@ ra = runAll(liveKeywords, historicList, proxies, relative_dir="test_run")
 ra.initial_houskeeping(clean=clean)
 # ra.run_historic()
 ra.process_historic("initial_algo")
+ra.run_historic_profile()
+ra.process_historic_profile()
 # ra.start_live()
 
 

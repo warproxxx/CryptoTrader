@@ -344,6 +344,8 @@ class query_historic_tweets():
 
     def perform_search(self, form = "save"):
         '''
+        The function to call in order to perform scraping
+        
         To scrape data from custom timeframe in twitter for long dates. Scrapes a month at a time
 
         Parameters:
