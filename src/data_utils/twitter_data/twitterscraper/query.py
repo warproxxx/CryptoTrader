@@ -233,7 +233,7 @@ class twitterScraper:
 
 
 class query_historic_tweets():
-    def __init__(self, detailsList, proxies=None, logger=None, relative_dir="/"):
+    def __init__(self, detailsList, proxies=None, logger=None, relative_dir=""):
         '''
         Parameters:
         ___________
@@ -250,7 +250,7 @@ class query_historic_tweets():
         _, self.currRoot_dir = get_locations()
 
         if logger == None:
-            self.logger = get_logger(self.currRoot_dir + "/logs/twitterscraper.log")
+            self.logger = get_logger(os.path.join(self.currRoot_dir + "logs/twitterscraper.log"))
         else:
             self.logger = logger
 
@@ -307,7 +307,7 @@ class query_historic_tweets():
                 temp_end = end_date
             
             #temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d')
-            finalPath = self.currRoot_dir + self.relative_dir + "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d'))
+            finalPath = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d')))
 
             #do if file dosen't exisst
             if not os.path.exists(finalPath):

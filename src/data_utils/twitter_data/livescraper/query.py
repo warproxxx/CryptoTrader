@@ -117,7 +117,7 @@ class query_live_tweets():
         tweetCount (int) (optional):
         If not set to 0, the program will terminate after n tweets is found
         """
-
+        #Relative directory needs to be moved here not in function below. And replace all with os.path.join
         _, self.currRoot_dir = get_locations()
         self.tweetCount = tweetCount
 
@@ -160,7 +160,7 @@ class query_live_tweets():
 
         return self.logger, self.keywordsOnly, listener, myStream
 
-    def save_data(self, df, userData, start_time, end_time, relative_dir="/"):
+    def save_data(self, df, userData, start_time, end_time, relative_dir=""):
         '''
         Parameters:
         ___________

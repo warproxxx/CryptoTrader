@@ -20,7 +20,7 @@ class profileScraper:
         _, self.currRoot = get_locations()
 
         if logger == None:
-            self.logger = get_logger(self.currRoot + "/logs/profilescraper.log")
+            self.logger = get_logger(os.path.join(self.currRoot, "logs/profilescraper.log"))
         else:
             self.logger = logger
 
@@ -101,7 +101,7 @@ class profileScraper:
         return all_profile
     
 class query_historic_profiles():
-    def __init__(self, profiles, proxies=None, relative_dir="/"):
+    def __init__(self, profiles, proxies=None, relative_dir=""):
         '''
         Functions to call to save historic profiles
 
@@ -115,7 +115,7 @@ class query_historic_profiles():
         _, self.currRoot = get_locations()
 
         self.logger = get_logger(os.path.join(self.currRoot, "logs/profilescraper.log"))
-
+        
         self.path = os.path.join(self.currRoot, relative_dir, "data/profile")
         self.proxies = proxies
 
@@ -158,12 +158,21 @@ class query_historic_profiles():
         The size of pool
         '''
 
-        proxySize = len(self.proxies)
+        if (self.proxies == None):
+            proxySize = 10
+        else:
+            proxySize = len(self.proxies)
 
         try:
             alreadyRead = pd.read_csv(os.path.join(self.path, 'extractedUsers.csv'), header=None)[0]
-        except FileNotFoundError:
+        except:
             self.logger.info("Already extracted users not found - Starting from a clean slate")
+
+            try:
+                os.remove(os.path.join(self.path, "extractedUsers.csv"))
+            except:
+                pass
+
             os.mknod(os.path.join(self.path, "extractedUsers.csv"))
             alreadyRead = pd.Series()
 

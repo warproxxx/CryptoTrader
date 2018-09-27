@@ -33,7 +33,7 @@ class historicProcessor:
     Processor for historic data
     '''
 
-    def __init__(self, detailsList, algo_name, relative_dir="/"):
+    def __init__(self, detailsList, algo_name, relative_dir=""):
         '''
         Parameters:
         ___________
@@ -48,7 +48,7 @@ class historicProcessor:
         '''
         _, currRoot_dir = get_locations()
 
-        self.logger = get_logger(currRoot_dir + "/logs/historicprocess.log")
+        self.logger = get_logger(os.path.join(currRoot_dir, "/logs/historicprocess.log"))
 
         self.detailsList = detailsList
         self.algo_name = algo_name
@@ -208,7 +208,7 @@ class historicProcessor:
         pass
 
 class profileProcessor:
-    def __init__(self, detailsList, relative_dir="/"):
+    def __init__(self, detailsList, relative_dir=""):
         '''
         Parameters:
         ___________
@@ -220,7 +220,7 @@ class profileProcessor:
         '''
         _, currRoot_dir = get_locations()
 
-        self.logger = get_logger(currRoot_dir + "/logs/profileprocess.log")
+        self.logger = get_logger(os.path.join(currRoot_dir, "logs/profileprocess.log"))
         self.detailsList = detailsList
         self.profile_path = os.path.join(currRoot_dir, relative_dir, "data/profile")
 
@@ -229,7 +229,6 @@ class profileProcessor:
         '''
         Cleans the csv file. Fillna, drop duplicates and such
         '''
-
         live_userData_dir = os.path.join(self.profile_path, "live/userData.csv")
         live_userTweets_dir = os.path.join(self.profile_path, "live/userTweets.csv")
 

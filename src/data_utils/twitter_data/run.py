@@ -206,7 +206,12 @@ class runAll:
             
             if (os.path.isfile(fileRead)):
                 profiles = pd.read_csv(fileRead)['User']
-                query_historic_profiles(profiles, proxies=self.proxies).perform_search(len(self.proxies))
+                qhp = query_historic_profiles(profiles, proxies=self.proxies, relative_dir=self.relative_dir)
+                
+                if (self.proxies == None):
+                    qhp.perform_search()
+                else:
+                    qhp.perform_search(len(self.proxies))
 
     def process_historic_profile(self):
         pp = profileProcessor(self.historicList, relative_dir=self.relative_dir)
@@ -232,10 +237,10 @@ clean = False
 if options.clean:
     clean = True
 
-ra = runAll(liveKeywords, historicList, proxies, relative_dir="test_run")
+ra = runAll(liveKeywords, historicList, proxies=None, relative_dir="test_run")
 ra.initial_houskeeping(clean=clean)
 # ra.run_historic()
-ra.process_historic("initial_algo")
+# ra.process_historic("initial_algo")
 ra.run_historic_profile()
 ra.process_historic_profile()
 # ra.start_live()
