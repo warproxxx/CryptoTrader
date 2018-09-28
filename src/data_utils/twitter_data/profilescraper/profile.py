@@ -38,7 +38,7 @@ class Profile:
         try:
             location=sideBar.find('div', 'ProfileHeaderCard-location').get_text().strip() or 0
         except:
-            location=""
+            location=0
 
         try:
             has_avatar=0 if 'default_profile_images' in soup.find('img', 'ProfileAvatar-image')['src'] else 1
