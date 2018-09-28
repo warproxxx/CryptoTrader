@@ -63,16 +63,47 @@ class Profile:
             if " Retweeted" not in tweet.get_text():
                 all_tweets.append(Tweet.from_soup(tweet))
 
+        try:
+            username = sideBar.find('span', 'username')
+        except:
+            username = ""
+
+        try:
+            isVerified = 0 if sideBar.find('span', 'Icon--verified') == None else 1
+        except:
+            isVerified = 0
+
+        try:
+            total_tweets = topBar.find('li', 'ProfileNav-item--tweets').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_tweets = 0
+
+        try:
+            total_following = topBar.find('li', 'ProfileNav-item--following').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_following = 0
+
+        try:
+            total_followers = topBar.find('li', 'ProfileNav-item--followers').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_followers = 0
+
+        try:
+            total_likes = topBar.find('li', 'ProfileNav-item--favorites').find('span', 'ProfileNav-value')['data-count'] or 0
+        except:
+            total_likes = 0
+
+
         return cls(
-            username=sideBar.find('span', 'username').text or "",
+            username=username,
             location=location,
             has_location=0 if location == 0 else 1,
             created=created,
-            is_verified=0 if sideBar.find('span', 'Icon--verified') == None else 1,
-            total_tweets=topBar.find('li', 'ProfileNav-item--tweets').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_following=topBar.find('li', 'ProfileNav-item--following').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_followers=topBar.find('li', 'ProfileNav-item--followers').find('span', 'ProfileNav-value')['data-count'] or 0,
-            total_likes=topBar.find('li', 'ProfileNav-item--favorites').find('span', 'ProfileNav-value')['data-count'] or 0,
+            is_verified=isVerified,
+            total_tweets=total_tweets,
+            total_following=total_following,
+            total_followers=total_followers,
+            total_likes=total_likes,
             has_avatar=has_avatar,
             has_background=has_background,
             is_protected=protected,
