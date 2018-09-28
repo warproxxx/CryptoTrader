@@ -237,7 +237,7 @@ clean = False
 if options.clean:
     clean = True
 
-ra = runAll(liveKeywords, historicList, proxies=None, relative_dir="test_run")
+ra = runAll(liveKeywords, historicList, proxies=proxies, relative_dir="test_run")
 ra.initial_houskeeping(clean=clean)
 # ra.run_historic()
 # ra.process_historic("initial_algo")

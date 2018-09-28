@@ -25,11 +25,25 @@ class Profile:
 
     @classmethod
     def from_soup(cls, soup):
-        sideBar = soup.find('div', 'ProfileHeaderCard')
-        topBar = soup.find('ul',  'ProfileNav-list')
+        try:
+            sideBar = soup.find('div', 'ProfileHeaderCard')
+        except:
+            sideBar = ""
+        
+        try:
+            topBar = soup.find('ul',  'ProfileNav-list')
+        except:
+            topBar = ""
 
-        location=sideBar.find('div', 'ProfileHeaderCard-location').get_text().strip() or 0
-        has_avatar=0 if 'default_profile_images' in soup.find('img', 'ProfileAvatar-image')['src'] else 1
+        try:
+            location=sideBar.find('div', 'ProfileHeaderCard-location').get_text().strip() or 0
+        except:
+            location=""
+
+        try:
+            has_avatar=0 if 'default_profile_images' in soup.find('img', 'ProfileAvatar-image')['src'] else 1
+        except:
+            has_avatar=""
 
         try:
             joined = sideBar.find('span', 'ProfileHeaderCard-joinDateText')['title']
