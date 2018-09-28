@@ -140,7 +140,7 @@ class query_historic_profiles():
             for tweet in profile.tweets:
                 tweetDf = tweetDf.append({'User': profile.username, 'ID': tweet.id, 'Tweet': tweet.text, 'Time': tweet.timestamp, 'Likes': tweet.likes, 'Replies': tweet.replies, 'Retweet': tweet.retweets}, ignore_index=True)
 
-            userDf = userDf.append({'username':profile.username, 'location':profile.location, 'has_location':profile.has_location, 'created':profile.created, 'is_verified':profile.is_verified, 'total_tweets':profile.total_tweets, 'total_following':profile.total_following, 'total_followers':profile.total_followers, 'total_likes':profile.total_likes, 'total_moments':profile.total_moments, 'total_lists':profile.total_lists, 'has_avatar':profile.has_avatar, 'has_background':profile.has_background, 'is_protected':profile.is_protected, 'profile_modified':profile.profile_modified}, ignore_index=True)
+            userDf = userDf.append({'username':profile.username, 'location':profile.location, 'has_location':profile.has_location, 'created':profile.created, 'is_verified':profile.is_verified, 'total_tweets':profile.total_tweets, 'total_following':profile.total_following, 'total_followers':profile.total_followers, 'total_likes':profile.total_likes, 'has_avatar':profile.has_avatar, 'has_background':profile.has_background, 'is_protected':profile.is_protected, 'profile_modified':profile.profile_modified}, ignore_index=True)
 
         tweetDf = tweetDf.to_csv(os.path.join(self.path, 'live/userTweets.csv'), index=None, mode='a')
         userDf.to_csv(os.path.join(self.path, 'live/userData.csv'), index=None, mode='a')
