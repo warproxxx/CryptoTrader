@@ -7,7 +7,11 @@ from twitterscraper.tweet import Tweet
 @generate_ordering('username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
 class Profile:
     def __init__(self, username, location, has_location, created, is_verified, total_tweets, total_following, total_followers, total_likes, has_avatar, has_background, is_protected, profile_modified, tweets):
-        self.username = username.replace("@", "")
+        try:
+            self.username = username.replace("@", "")
+        except:
+            self.username = ""
+            
         self.location = location
         self.has_location = has_location
         self.created = created
