@@ -11,7 +11,7 @@ class Profile:
             self.username = username.replace("@", "")
         except:
             self.username = ""
-            
+
         self.location = location
         self.has_location = has_location
         self.created = created
@@ -35,7 +35,7 @@ class Profile:
             sideBar = ""
         
         try:
-            username = sideBar.find('span', 'username')
+            username = sideBar.find('span', 'username').get_text()
         except:
             username = ""
 
