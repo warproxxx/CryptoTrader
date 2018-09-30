@@ -7,7 +7,7 @@ from twitterscraper.tweet import Tweet
 @generate_ordering('username', 'location', 'has_location', 'created', 'is_verified', 'total_tweets', 'total_following', 'total_followers', 'total_likes', 'has_avatar', 'has_background', 'is_protected', 'profile_modified', 'tweets')
 class Profile:
     def __init__(self, username, location, has_location, created, is_verified, total_tweets, total_following, total_followers, total_likes, has_avatar, has_background, is_protected, profile_modified, tweets):
-        self.username = username
+        self.username = username.replace("@", "")
         self.location = location
         self.has_location = has_location
         self.created = created
@@ -30,6 +30,11 @@ class Profile:
         except:
             sideBar = ""
         
+        try:
+            username = sideBar.find('span', 'username')
+        except:
+            username = ""
+
         try:
             topBar = soup.find('ul',  'ProfileNav-list')
         except:
@@ -76,11 +81,6 @@ class Profile:
             
             if " Retweeted" not in tweet.get_text():
                 all_tweets.append(Tweet.from_soup(tweet))
-
-        try:
-            username = sideBar.find('span', 'username').replace("@", "")
-        except:
-            username = ""
 
         try:
             isVerified = 0 if sideBar.find('span', 'Icon--verified') == None else 1
