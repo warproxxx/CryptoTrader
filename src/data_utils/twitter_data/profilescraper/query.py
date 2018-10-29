@@ -114,7 +114,7 @@ class query_historic_profiles():
         self.profiles = profiles
         _, self.currRoot = get_locations()
 
-        self.logger = get_logger(os.path.join(self.currRoot, "logs/profilescraper.log"))
+        self.logger = get_logger(os.path.join(self.currRoot, "logs/query_profile.log"))
         
         self.path = os.path.join(self.currRoot, relative_dir, "data/profile")
         self.proxies = proxies

@@ -63,10 +63,7 @@ class twitterScraper:
                     "reset_error_state=false&src=typd&max_position={pos}&q={q}&l={lang}"
         _, self.currRoot = get_locations()
 
-        if logger == None:
-            self.logger = get_logger(self.currRoot + "/logs/twitterscraper.log")
-        else:
-            self.logger = logger
+        self.logger = get_logger(self.currRoot + "/logs/twitterscraper.log")
 
         self.proxy = proxy
 
@@ -125,7 +122,6 @@ class twitterScraper:
 
         self.logger.error("Giving up.")
         return [], None
-
 
     def query_tweets_once(self, query, limit=None, lang=''):
         """
@@ -189,6 +185,7 @@ class twitterScraper:
         tweettype: (string,optional)
         Default is top. If set to new, new tweets are scraped
         '''
+
         global INIT_URL, RELOAD_URL
         
         if (tweettype == 'new'):
@@ -214,7 +211,7 @@ class twitterScraper:
 
         queries = ['{} since:{} until:{}'.format(query, since, until)
                 for since, until in zip(dateranges[:-1], dateranges[1:])]
-
+        
         all_tweets = []
         
         if poolsize >= 1:
@@ -248,11 +245,7 @@ class query_historic_tweets():
         '''
 
         _, self.currRoot_dir = get_locations()
-
-        if logger == None:
-            self.logger = get_logger(os.path.join(self.currRoot_dir + "logs/twitterscraper.log"))
-        else:
-            self.logger = logger
+        self.logger = get_logger(os.path.join(self.currRoot_dir, "logs/twitterscraper2.log"))
 
         self.detailsList = detailsList
         self.relative_dir = relative_dir
@@ -284,18 +277,19 @@ class query_historic_tweets():
         So as to save the file
 
         To get the directory name to save
-        '''                              
+        '''
 
-        start_date = start_date_time.date()
+        start_date = start_date_time
         start_timestamp = int(start_date_time.timestamp())
 
-        end_date = end_date_time.date()
+        end_date = end_date_time
         end_timestamp = int(end_date_time.timestamp())
 
-
+        self.logger.info("Start Date: {} Start Timestamp: {} End Date: {} End Timestamp: {}".format(start_date, start_timestamp, end_date, end_timestamp))
+        
         delta = relativedelta(months=1) #months = 1 because multi threading takes place for each day. So upto 30 threads supported
         dic = {}
-        
+                
         while start_date <= end_date:
             temp_start=start_date
 
@@ -307,7 +301,7 @@ class query_historic_tweets():
                 temp_end = end_date
             
             #temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d')
-            finalPath = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), temp_start.strftime('%Y-%m-%d'), temp_end.strftime('%Y-%m-%d')))
+            finalPath = os.path.join(self.currRoot_dir, self.relative_dir, "data/tweet/{}/historic_scrape/raw/{}_{}.csv".format(coinname.lower(), str(temp_start), str(temp_end)))
 
             #do if file dosen't exisst
             if not os.path.exists(finalPath):
@@ -315,10 +309,10 @@ class query_historic_tweets():
 
                 self.logger.info("Current Starting Date:{} Current Ending Date:{}".format(temp_start, temp_end))
                 selectedDays = (temp_end - temp_start).days
-                self.logger.info(selectedDays)
+                self.logger.info("Scraping {} days of data".format(selectedDays))
                 
                 list_of_tweets = []
-                list_of_tweets = twitterScraper(proxy=proxy, logger=self.logger).query_tweets(keyword, 10000 * selectedDays, begindate=temp_start, enddate=temp_end, poolsize=selectedDays)
+                list_of_tweets = twitterScraper(proxy=proxy).query_tweets(keyword, 10000 * selectedDays, begindate=temp_start.date(), enddate=temp_end.date(), poolsize=selectedDays)
                 
                 for tweet in list_of_tweets:
                     res_type = tweet.response_type

@@ -1,4 +1,54 @@
-Scraping monero Data
-Starting Year: 2015 Ending Year: 2018
-Current Starting Date:2018-09-01 Current Ending Date:2018-09-27
-26
+Querying bitcoin OR BTC since:2018-10-28 until:2018-10-29
+Failed to parse JSON "Expecting value: line 1 column 1 (char 0)" while requesting "https://twitter.com/i/search/timeline?vertical=default&include_available_features=1&include_entities=1&reset_error_state=false&src=typd&max_position=cm+55m--aDsFFJXIJXFaEXvXEJb-BD1UO2FFu9QAAAAAAAAVfAAAAAcAAABWIAAAAAAAAEAAAAAAAAAIIAAAgAAAAAAAAACAAAAAAkgAAwCAAAAAACAAAAAIAAAAAQAAAAAAAEAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAABAAAIAAAAQBAQAAAAgAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAgAAAIAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAIBgAAIQAAAAAAAQAAAAAEAABAAAAAAAACQAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAAAAACAAAAAAAAAAAAAAAYAAAAAgAAAAIAABAAAAAAIAAAAAAAACAAAABAAAKAAAAAAAAIAABAAAAAAAAAAAABAAAAAEAAABAAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAACACAAAAAAIAAAAAQAAAAQAIAIAAAgAAAABAAAAAEAAAAABAAAAAEAIAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAACAAQAAAgAAAAAAAAAAAAQAAAABCAAQBAAAAAAAAAAAAABAAQAAIAAAAAAAMAAACCAAAAAIAEAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAACAAAAAAAAAggEAAAAAAAAAQAIAAQAAQAAAAAAAAAAAAAAAEAAAAIAAAMAAAAgAAAACICAAAAAAAEAAAAAAAAAAAEAAAQBAAAAAAAAAAAAAAABAAAAQAAAAEAAAAAAIAAAgAAAAAAAAAAAAAAIAAAACAAAAAQAAAAAAAAAEAAAAAGAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAQA==-T-0-0&q=bitcoin%20OR%20BTC%20since%3A2018-10-28%20until%3A2018-10-29&l=".
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 92, in query_single_page
+    json_resp = json.loads(response.text)
+  File "/usr/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+Retrying... (Attempts left: 10)
+An unknown error occurred! Returning tweets gathered so far.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 377, in _make_request
+    httplib_response = conn.getresponse(buffering=True)
+TypeError: getresponse() got an unexpected keyword argument 'buffering'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 153, in query_tweets_once
+    pos is None
+  File "/home/warproxxx/Desktop/Projects/CryptoTrader/src/data_utils/twitter_data/twitterscraper/query.py", line 85, in query_single_page
+    response = requests.get(url, headers=headers)
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.7/dist-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.7/dist-packages/urllib3/connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.7/http/client.py", line 1321, in getresponse
+    response.begin()
+  File "/usr/lib/python3.7/http/client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.7/http/client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.7/ssl.py", line 1052, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.7/ssl.py", line 911, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Got 7874 tweets for bitcoin%20OR%20BTC%20since%3A2018-10-28%20until%3A2018-10-29.

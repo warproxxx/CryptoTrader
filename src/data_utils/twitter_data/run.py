@@ -12,7 +12,7 @@ from twitterscraper import query_historic_tweets
 from livescraper import query_live_tweets
 from profilescraper import query_historic_profiles
 
-from libs.reading_utils import get_keywords, get_proxies
+from libs.reading_utils import get_keywords, get_proxies, get_custom_keywords
 from libs.writing_utils import get_logger, get_locations
 
 from processor import historicProcessor, profileProcessor
@@ -60,7 +60,7 @@ def download_live(keywords, logger):
             t1.start()
 
 class runAll:
-    def __init__(self, keywords, historicList, proxies, relative_dir="/"):
+    def __init__(self, keywords, historicList, proxies, relative_dir=""):
         '''
         Runs everything for twitter
 
@@ -91,7 +91,6 @@ class runAll:
         '''
         Cleans the folders
         '''
-
         if (clean == True):
             self.remove_directory_structure()
 
@@ -164,7 +163,6 @@ class runAll:
         
         non_combined_date = get_latest(glob(os.path.join(os.path.join(historicScrapePath, "raw"), "*")))
 
-
         return interpreted_date, combined_date, non_combined_date
 
     def run_historic(self):
@@ -217,7 +215,7 @@ class runAll:
         pp = profileProcessor(self.historicList, relative_dir=self.relative_dir)
         pp.clean_data()
 
-    def start_live(self):
+    def start_live(self, keywords, logger):
         '''
         Runs live data collection in a new thread
         '''
@@ -242,17 +240,24 @@ ra.initial_houskeeping(clean=clean)
 # ra.run_historic()
 # ra.process_historic("initial_algo")
 ra.run_historic_profile()
-ra.process_historic_profile()
-# ra.start_live()
+ra.procclean_data() #add feature conversion later
+
+#also add rerunning. Like when data was not collected when it was supposed to be. And what to do with banned account and when to stop
 
 
-# while True:
-#     #run this in new thread
-#     download_live(keywords, logger)
-#     #wait for 3 hours
-#     time.sleep(3 * 60 * 60)
-#     #merge the live data and put it in appropriate folder
+_, currRoot_dir = get_locations() 
+logger = get_logger(currRoot_dir + '/logs/run.txt')
 
-#     #Run the historic scarper. Remove tweets older than 3 hour with no existance in historic
-   
-#     #Fix the structure. Archive useless data.
+#live collection
+while True:
+    download_live(liveKeywords, logger)
+    time.sleep(3 * 60 * 60)
+    
+    pp = profileProcessor(historicList)
+    pp.clean_data()
+
+    #Run the historic scarper. Remove tweets older than 24 hour with no existance in history
+    historicList = get_custom_keywords(liveKeywords, datetime.datetime(2018, 1, 1, 2, 2 , 2), datetime.datetime.now())
+    
+
+    #Fix the structure. Archive useless data.

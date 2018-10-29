@@ -224,7 +224,7 @@ class profileProcessor:
         self.detailsList = detailsList
         self.profile_path = os.path.join(currRoot_dir, relative_dir, "data/profile")
 
-    @numba.jit
+    @numba.jit    
     def clean_data(self):
         '''
         Cleans the csv file. Fillna, drop duplicates and such
@@ -235,21 +235,23 @@ class profileProcessor:
         processed_userData_dir = os.path.join(self.profile_path, "storage/raw/userData.csv")
         processed_userTweets_dir = os.path.join(self.profile_path, "storage/raw/userTweets.csv")
 
-        userData = pd.read_csv(live_userData_dir, low_memory=False)
-        
-        try:
-            userData=pd.concat([userData, pd.read_csv(processed_userData_dir, low_memory=False)])
-        except:
-            pass
+        if (os.path.isfile(live_userData_dir)):
+            userData = pd.read_csv(live_userData_dir, low_memory=False)
+            
+            if (os.path.isfile(processed_userData_dir)):
+                userData=pd.concat([userData, pd.read_csv(processed_userData_dir, low_memory=False)])
+        else:
+            userData = pd.read_csv(processed_userData_dir, low_memory=False)
         
         self.logger.info("User Data Read")
         
-        userTweets = pd.read_csv(live_userTweets_dir, low_memory=False)
-        
-        try:
-            userTweets=pd.concat([userTweets, pd.read_csv(processed_userTweets_dir, low_memory=False)])
-        except:
-            pass
+        if (os.path.isfile(live_userTweets_dir)):
+            userTweets = pd.read_csv(live_userTweets_dir, low_memory=False)
+
+            if (os.path.isfile(processed_userTweets_dir)):
+                userTweets=pd.concat([userTweets, pd.read_csv(processed_userTweets_dir, low_memory=False)])
+        else:
+            userTweets = pd.read_csv(processed_userTweets_dir, low_memory=False)
 
         self.logger.info("User Tweets Read")
         
@@ -270,17 +272,28 @@ class profileProcessor:
 
         newuserData.to_csv(processed_userData_dir, index=None)
         self.logger.info("userData.csv has been updated and moved")
-        os.remove(live_userData_dir)
+
+        if (os.path.isfile(live_userData_dir)):
+            os.remove(live_userData_dir)
+
         self.logger.info("Deleting userData.csv in the live folder")
         
         newuserTweets.to_csv(processed_userTweets_dir, index=None)
         self.logger.info("userTweets.csv has been updated and moved")
-        os.remove(live_userTweets_dir)
+
+        if (os.path.isfile(live_userTweets_dir)):
+            os.remove(live_userTweets_dir)
+
         self.logger.info("Deleting userTweets.csv in the live folder")
         
         newuserData['username'].to_csv(os.path.join(self.profile_path, "extractedUsers.csv"), index=None)
         self.logger.info("extractedUsers.csv has been updated")
-        os.remove(os.path.join(self.profile_path, "live/userData.csv"))
+
+        live_extractedUsers = os.path.join(self.profile_path, "live/extractedUsers.csv")
+
+        if (os.path.isfile(live_extractedUsers)):
+            os.remove(live_extractedUsers)
+            
         self.logger.info("Deleting extractedUsers.csv in the live folder")
 
 
