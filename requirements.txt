@@ -1,6 +1,6 @@
 git+https://github.com/tweepy/tweepy
 ipykernel>=4.9.0
-numpy==1.14.5
+numpy==1.22.0
 requests>=2.18.4
 matplotlib>=2.1.2
 num2words>=0.5.6
